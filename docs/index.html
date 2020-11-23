@@ -1,96 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="css/site.css">
-    <title>Database Test — On Memory Neurotechnologies</title>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script type="text/javascript" src="js/site.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>On Memory Neurotechnologies</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="styles/favicon.ico" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <h1>OMN</h1>
+      </div>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./questions.html">Questions</a></li>
+        <li><a href="./query.html">User Queries</a></li>
+      </ul>
+    </nav>
 
-<body>
-<div id="app">
-    <div id="nav" class="bar">
-        <a href="index.html">Home</a>
-        <a href="query.html">User Queries</a>
-    </div>
-    <div class="head bar">
-        <h1>On Memory Neurotechnologies</h1>
-        <h3>An interactive article on memory prostheses—and how you can help design them</h3>
-    </div>
-    <section>
-        <form id="feedback">
-            <div id="team_sub" class="form-section">
-                <h2>Section</h2>
-                <div class="break"></div>
-                <h4>Email Address</h4>
-                <div class="break"></div>
-                <i>We will not solicit you via email. This is only to create a reliable link between you and your data.</i>
-                <div class="break"></div>
-                <input id="reader" type="text"  name="reader" value=""/>
-                <div class="break"></div>
-                <h4>Who Are You?</h4>
-                <div class="break"></div>
-                <select id="reader-type" name="who">
-                    <option value="patient">Patient</option>
-                    <option value="public">General Public</option>
-                </select>
-                <div class="break"></div>
-                <h4>Question 1</h4>
-                <div class="break"></div>
-                <i>Details</i>
-                <div class="break"></div>
-                <textarea rows="2" maxlength="300" cols="20" name="question-1" wrap="hard" value=""></textarea>
-                <div class="break"></div>
-                <h4>Question 1</h4>
-                <div class="break"></div>
-                <i>Details</i>
-                <div class="break"></div>
-                <input type="text"  name="question-2" value=""/>
-            </div>
-
-            <div id="consent" class="form-section">
-                <h3>To submit your feedback, you need to agree to let us use this data for research purposes by selecting the following check-box:</h3>
-                <div id="agree">
-                    <input type="checkbox" name="consent"><p> I consent to having my responses recorded for research</p>
-                </div>
-            </div>
-        </form>
-        <button id="submit" class="form-button" type="submit" form="feedback" value="Submit Responses"><div class="icon"><i class="fas fa-paper-plane fa-2x"></i></div>Submit Responses</button>
+    <section id="landing-page" class="header-page">
+      <h1>On Memory Neurotechnologies</h1>
+      <h3>
+        An interactive article on memory prostheses—and how you can help design
+        them
+      </h3>
     </section>
-</div>
-<script>
 
-    // Choose destination of HTTP request
-    // let url = "https://brainsatplay.azurewebsites.net/" // Must be modified for OMN
-    let url = "http://localhost"
+    <section id="dementia-header" class="header-page">
+      <h2>PART 1</h2>
+      <h1>Dementia</h1>
+    </section>
 
-    // Submit to MongoDB
-    $("#submit").click(function(){
-        let jsonObj = {}
-        var sub = $('#feedback').serializeArray()
-        for (var i = 0 ; i < sub.length; i++) {
-            jsonObj[sub[i].name] = sub[i].value;
-        }
+    <section id="meet-pat" class="content-page">
+      <h2>Meet Pat</h2>
+      <p>
+        The year is 2035. Pat is a 72-year old woman. She has a husband, two
+        adult children, and three grandkids. For 30 years she worked as a
+        librarian, but she retired 7 years ago and has volunteered three days
+        per week at the local animal shelter ever since. Recently, she started
+        mixing up the times of her shifts at the shelter. Her family also began
+        to notice her repeating questions like, “what’s everyone doing this
+        weekend?” within a short period of time. After a trip to her GP and a
+        referral to a Neurologist, Pat is diagnosed with Alzheimer’s disease.
+      </p>
+    </section>
 
-        fetch(url + '/submit', {
-            method: 'POST', // Using POST request to create a new resource in the database
-            mode: 'cors', // no-cors, cors, *same-origin
-            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: 'omit', // include, *same-origin, omit
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            redirect: 'follow', // manual, *follow, error
-            referrer: 'no-referrer', // no-referrer, *client
-            body: JSON.stringify(jsonObj), // body data type must match "Content-Type" header
-        })
-    });
-</script>
-</body>
+    <section id="omn-header" class="header-page">
+      <h2>PART 2</h2>
+      <h1>On Memory Prostheses</h1>
+    </section>
+
+    <section id="omn">
+      <h2>On Memory Prostheses</h2>
+      <p>
+        It’s hard to imagine yourself in Pat’s shoes but for many of us,
+        Alzheimer’s disease will affect our lives in some way. It is estimated
+        that 5.8 million Americans over the age of 65 have Alzheimer’s disease.
+        With such a high prevalence, it’s likely that Alzheimer’s will touch
+        your life whether it’s a parent, grandparent, spouse, another loved one,
+        or yourself.
+      </p>
+      <p>
+        Alzheimer’s disease and other dementia-related memory loss are the focus
+        of an entire research field, and scientists are working every day to not
+        only understand dementia, but also find ways to preserve and restore
+        memories in dementia patients. In the year 2050, memory prostheses like
+        the one Dr. Singh mentioned to Pat might be commonplace. Right now,
+        scientists are working to make that future a reality. One example comes
+        from the [name of Dong’s lab] at the University of Southern California.
+        Scientists here have created a…
+      </p>
+    </section>
+
+    <section class="commercial-omn-header" class="header-page">
+      <h2>PART 3</h2>
+      <h1>ON COMMERCIAL MEMORY NEUROTECHNOLOGIES</h1>
+    </section>
+
+    <section class="commercial-omn">
+      <p>
+        Problems with short term memory, such as what Pat is facing, may soon be
+        addressed by commercial neurotech Memory recall device
+      </p>
+      <p>
+        If Pat was your parent or grandparent, would the risk of surgery be
+        worth it to improve these impairments?
+      </p>
+      <p>
+        Over the next two years, Pat (now aged 74) experiences more advanced
+        symptoms of AD. She starts to have trouble recalling her children’s
+        names when she chats with them and sometimes forgets who she is speaking
+        with. She is also beginning to need help with daily functioning tasks
+        like choosing her clothes in the morning, and remembering to eat. Pat’s
+        husband provides her with daily support for these tasks and he reports
+        that, “some days are better than others.”
+      </p>
+      <p>
+        Problems with decision making and name/ word recall, such as what Pat is
+        facing, may soon be addressed by commercial neurotech
+      </p>
+      <p>Decision assisting device Word recall device</p>
+      <p>
+        If Pat were your parent or grandparent, would the risk of surgery be
+        worth it to improve her daily functioning and recall of names?
+      </p>
+      <p>
+        Over the next five years, Pat (now aged 79) shows further AD-related
+        decline. Her family notices that she’s “not acting like herself.” On
+        several occasions, Pat has accused her husband of having an affair. She
+        has also made some inappropriate remarks to her 10 y.o. granddaughter.
+        After these moments of agitation, Pat seems to “go back to normal” as if
+        nothing has happened. Problems with changes in personality, such as what
+        Pat is facing, may soon be addressed by commercial neurotech Personality
+        maintaining device
+      </p>
+
+      <p>
+        If Pat were your parent or grandparent, would the risk of surgery be
+        worth it to restore and preserve her personality traits?
+      </p>
+    </section>
+  </body>
 </html>
