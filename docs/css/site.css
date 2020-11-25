@@ -23,6 +23,10 @@
   font-size: 20px;
 }
 
+html {
+  overflow: hidden;
+}
+
 section {
   height: 92vh;
   justify-content: center;
