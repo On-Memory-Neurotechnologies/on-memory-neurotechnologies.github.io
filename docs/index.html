@@ -27,7 +27,7 @@
         them
       </h3>
       <div class="buttons">
-        <a onclick="progressSlide()" id="button1">Start a new session</a>
+        <a onclick="transitionToNextDeck()" id="button1">Start a new session</a>
         <a href="#" id="button2">Continue last session</a>
       </div>
     </div>
@@ -134,20 +134,20 @@
 
     window.addEventListener('resize', goToScrollAnchor);
 
-    function addSlide(slideName){
+    function addDeck(slideName){
       document.getElementById("content").innerHTML += (`<${slideName} id="${decks[currentSlide].id}" class="header page"></${slideName}>`);
     }
 
     function insertProgressButton(){
       if (decks[currentSlide].slides.length != currentView-1){
-        document.getElementById(decks[currentSlide].id).innerHTML += (`<button class="move-button" onclick="animateView()"><i class="arrow down"></i></button>`)
+        document.getElementById(decks[currentSlide].id).innerHTML += (`<button class="move-button" onclick="nextSlide()"><i class="arrow down"></i></button>`)
       }
     }
 
-    function progressSlide() {
+    function transitionToNextDeck() {
       currentSlide++;
       currentView = 0;
-      addSlide(decks[currentSlide].slides[0]);
+      addDeck(decks[currentSlide].slides[0]);
       moveViewport();
       insertProgressButton();
     }
@@ -162,13 +162,9 @@
       window.scrollTo(0,scrollAnchor);
     }
 
-    function animateView(){
-      console.log(currentView)
+    function nextSlide(){
       currentView++;
-      console.log('animate')
       let viewName = decks[currentSlide].slides[currentView]
-      console.log(decks[currentSlide], currentView)
-
       document.getElementById(decks[currentSlide].id).innerHTML += (`<${viewName}></${viewName}>`);
     }
 
