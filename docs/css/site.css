@@ -1,13 +1,30 @@
+@font-face {
+  font-family: montReg;
+  src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: montBold;
+  src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
+}
+
+@font-face {
+  font-family: montLight;
+  src: url(../fonts/Montserrat/Montserrat-Thin.ttf);
+}
+
 * {
   margin: 0px;
   padding: 0px;
   scroll-behavior: smooth;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: montReg;
+  line-height: 1.5;
+  font-size: 20px;
 }
 
 section {
-  height: 100vh;
+  height: 92vh;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -18,13 +35,14 @@ nav {
   position: sticky;
   top: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: #358597;
   min-height: 8vh;
 }
 
 .logo {
+  margin-left: 10vw;
   color: white;
 }
 
@@ -41,17 +59,106 @@ nav ul a {
   text-decoration: none;
   color: white;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .header-page {
   text-align: center;
   text-justify: center;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.header-page h1 {
+  font-size: 70px;
+  line-height: normal;
+}
+
+.header-page h2 {
+  font-size: 40px;
+}
+
+.header-page h3 {
+  font-size: 36px;
 }
 
 .content-page {
-  justify-items: center;
+  display: grid;
+  grid-template-columns: 10% 1fr 1fr 10%;
 }
 
-#landing-page {
-  background-color: rgb(176, 176, 176);
+.pat-image {
+  grid-column: 2/3;
+  height: 70vh;
+}
+
+.meet-pat-text {
+  grid-column: 3/4;
+  line-height: 2;
+  font-size: 20px;
+}
+
+.meet-pat-text h2 {
+  font-size: 50px;
+  padding-bottom: 1rem;
+}
+
+.meet-pat-text p {
+  padding-bottom: 1rem;
+}
+
+.landing-page {
+  background-color: black;
+  color: white;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.landing-page h1 {
+  font-family: montBold;
+  margin-left: 10vw;
+  font-size: 76px;
+  margin-right: 200px;
+  line-height: 1;
+  padding-bottom: 30px;
+}
+
+.landing-page h3 {
+  font-family: montLight;
+  margin-left: 10vw;
+  font-weight: thin;
+}
+
+.buttons {
+  padding-top: 50px;
+  padding-left: 10vw;
+  display: flex;
+  justify-content: space-between;
+  width: 40vw;
+  font-weight: bold;
+}
+
+.buttons a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#button2 {
+  font-family: montLight;
+}
+
+.omn-p1 {
+  grid-column: 2/3;
+}
+
+.omn-p2 {
+  grid-column: 3/4;
+}
+
+.comm-omn {
+  grid-column: 2/4;
 }
