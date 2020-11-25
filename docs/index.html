@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/site.css" />
     <script src="components/nav.js" type="text/javascript" defer></script>
     <script src="components/OnDementia.js" type="text/javascript" defer></script>
+    <script src="components/MeetPat.js" type="text/javascript" defer></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -26,36 +27,13 @@
         them
       </h3>
       <div class="buttons">
-        <a onclick="currentSlide, currentView = progressSlide(decks,currentSlide)" id="button1">Start a new session</a>
+        <a onclick="progressSlide()" id="button1">Start a new session</a>
         <a href="#" id="button2">Continue last session</a>
       </div>
     </div>
 
     <div id="content">
     </div>
-
-
-<!--    <section id="meet-pat" class="content-page">-->
-<!--      <img class="pat-image" src="assets/pat.svg" />-->
-<!--      <div class="meet-pat-text">-->
-<!--        <h2>Meet Pat</h2>-->
-<!--        <p>-->
-<!--          The year is 2035. Pat is a 72-year old woman. She has a husband, two-->
-<!--          adult children, and three grandkids. For 30 years she worked as a-->
-<!--          librarian, but she retired 7 years ago and has volunteered three days-->
-<!--          per week at the local animal shelter ever since.-->
-<!--        </p>-->
-<!--        <p>-->
-<!--          Recently, she started mixing up the times of her shifts at the-->
-<!--          shelter. Her family also began to notice her repeating questions like,-->
-<!--          “what’s everyone doing this weekend?” within a short period of time.-->
-<!--        </p>-->
-<!--        <p>-->
-<!--          After a trip to her GP and a referral to a Neurologist, Pat is-->
-<!--          diagnosed with Alzheimer’s disease.-->
-<!--        </p>-->
-<!--      </div>-->
-<!--    </section>-->
 
 <!--    <section id="omn-header" class="header-page">-->
 <!--      <h2>PART 2</h2>-->
@@ -140,33 +118,58 @@
   <script>
     let currentSlide = -1;
     let currentView = 0
-    let odDeck = ['on-dementia','meet-pat']
-    let ompDeck = ['on-memory-prostheses','the-prosthesis']
+    let scrollAnchor = 0;
+
+    let odDeck = {
+      id:'on-dementia',
+      slides:['on-dementia','meet-pat']
+    }
+
+    let ompDeck = {
+      id:'on-memory-prostheses',
+      slides:['on-memory-prostheses','the-prosthesis']
+    }
 
     let decks = [odDeck,ompDeck]
 
+    window.addEventListener('resize', goToScrollAnchor);
+
     function addSlide(slideName){
-      document.getElementById("content").innerHTML += (`<${slideName}></${slideName}>`);
+      document.getElementById("content").innerHTML += (`<${slideName} id="${decks[currentSlide].id}" class="header page"></${slideName}>`);
     }
 
-    // window.onscroll = function () {
-    //   let doc = document.body;
-    //   let scrollPosition = doc.scrollTop;
-    //   window.scrollTo(0,scrollPosition + doc.clientHeight*.92);
-    // };
+    function insertProgressButton(){
+      if (decks[currentSlide].slides.length != currentView-1){
+        document.getElementById(decks[currentSlide].id).innerHTML += (`<button class="move-button" onclick="animateView()"><i class="arrow down"></i></button>`)
+      }
+    }
+
+    function progressSlide() {
+      currentSlide++;
+      currentView = 0;
+      addSlide(decks[currentSlide].slides[0]);
+      moveViewport();
+      insertProgressButton();
+    }
 
     function moveViewport() {
       let doc = document.body;
-      let scrollPosition = doc.scrollTop;
-      window.scrollTo(0,scrollPosition + doc.clientHeight*.92);
+      scrollAnchor = doc.scrollTop + doc.clientHeight*.92;
+      window.scrollTo(0,scrollAnchor);
     }
 
-    function progressSlide(deck, currentSlide,currentView) {
-      currentSlide++;
-      currentView = 0;
-      addSlide(deck[currentSlide][0]);
-      moveViewport();
-      return currentSlide, currentView
+    function goToScrollAnchor(){
+      window.scrollTo(0,scrollAnchor);
+    }
+
+    function animateView(){
+      console.log(currentView)
+      currentView++;
+      console.log('animate')
+      let viewName = decks[currentSlide].slides[currentView]
+      console.log(decks[currentSlide], currentView)
+
+      document.getElementById(decks[currentSlide].id).innerHTML += (`<${viewName}></${viewName}>`);
     }
 
 

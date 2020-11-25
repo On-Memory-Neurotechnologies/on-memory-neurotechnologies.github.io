@@ -27,13 +27,6 @@ html {
   overflow: hidden;
 }
 
-section {
-  height: 92vh;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-}
-
 nav {
   position: -webkit- sticky;
   position: sticky;
@@ -48,6 +41,7 @@ nav {
 .logo {
   margin-left: 10vw;
   color: white;
+  cursor: default;
 }
 
 nav ul {
@@ -66,23 +60,28 @@ nav ul a {
   font-size: 16px;
 }
 
-.header-page {
+.page {
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
   text-align: center;
   text-justify: center;
-  padding-left: 100px;
-  padding-right: 100px;
+  justify-content: center;
+  /*padding-left: 100px;*/
+  /*padding-right: 100px;*/
+  position: relative;
 }
 
-.header-page h1 {
+.header h1 {
   font-size: 70px;
   line-height: normal;
 }
 
-.header-page h2 {
+.header h2 {
   font-size: 40px;
 }
 
-.header-page h3 {
+.header h3 {
   font-size: 36px;
 }
 
@@ -135,6 +134,21 @@ nav ul a {
   font-weight: thin;
 }
 
+.move-button{
+  position: absolute;
+  bottom: 0px;
+  background: transparent;
+  border: none;
+  height: 20vh;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.move-button:focus{
+  outline:none;
+}
+
 .buttons {
   padding-top: 50px;
   padding-left: 10vw;
@@ -165,4 +179,16 @@ nav ul a {
 
 .comm-omn {
   grid-column: 2/4;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }
