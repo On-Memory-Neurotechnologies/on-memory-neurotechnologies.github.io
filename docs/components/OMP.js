@@ -11,4 +11,4 @@ class OMP extends HTMLElement {
   }
 }
 
-customElements.define("on-memory-prosthesis", OMP);
+customElements.define("on-memory-prostheses", OMP);

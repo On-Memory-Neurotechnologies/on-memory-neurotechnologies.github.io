@@ -16,6 +16,8 @@
     ></script>
     <script src="components/MeetPat.js" type="text/javascript" defer></script>
     <script src="components/OMP.js" type="text/javascript" defer></script>
+    <script src="components/Prosthesis1.js" type="text/javascript" defer></script>
+    <script src="components/Prosthesis2.js" type="text/javascript" defer></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -92,8 +94,8 @@
     <!--    </section>-->
 
     <script>
-      let currentSlide = -1;
-      let currentView = 0;
+      let currentDeck = -1;
+      let currentSlide = 0;
       let scrollAnchor = 0;
 
       let odDeck = {
@@ -103,38 +105,54 @@
 
       let ompDeck = {
         id: "on-memory-prostheses",
-        slides: ["on-memory-prostheses", "the-prosthesis1", "the-prosthesis2"],
+        slides: ["on-memory-prostheses", "the-prosthesis-1", "the-prosthesis-2"],
       };
 
       let decks = [odDeck, ompDeck];
 
       window.addEventListener("resize", goToScrollAnchor);
 
-      function addDeck(slideName) {
+      function addDeck() {
         document.getElementById(
           "content"
-        ).innerHTML += `<${slideName} id="${decks[currentSlide].id}" class="page"></${slideName}>`;
+        ).innerHTML += `<div id="${decks[currentDeck].id}" class="page"></div>`;
+        placeSlideContent();
       }
 
       function insertProgressButton() {
-        if (decks[currentSlide].slides.length != currentView - 1) {
+        if (decks[currentDeck].slides.length-1 != currentSlide) {
           document.getElementById(
-            decks[currentSlide].id
-          ).innerHTML += `<button class="move-button" onclick="nextSlide()"><i class="arrow down"></i></button>`;
-        }
+            decks[currentDeck].id
+          ).innerHTML += `<button id="move-button" class="move-button" onclick="nextSlide()"><i class="arrow down"></i></button>`;
+        } else {
+          document.getElementById(
+                  decks[currentDeck].id
+          ).innerHTML += `<button id="move-button" class="move-button" onclick="transitionToNextDeck()"><i class="arrow down"></i></button>`;
+          }
       }
 
       function transitionToNextDeck() {
-        currentSlide++;
-        currentView = 0;
-        addDeck(decks[currentSlide].slides[0]);
+        currentDeck++;
+        currentSlide = 0;
+        let element = document.getElementById(decks[currentDeck].id)
+        if (element === null){
+          addDeck(decks[currentDeck].slides[currentDeck]);
+       }
+        moveViewport();
+        insertProgressButton();
+      }
+
+      function transitionToPreviousDeck() {
+        currentDeck -= 1;
+        currentSlide = decks[currentSlide].slides.length - 1;
         moveViewport();
         insertProgressButton();
       }
 
       function moveViewport() {
         let doc = document.body;
-        scrollAnchor = doc.scrollTop + doc.clientHeight * 0.92;
+        let scale = 0.92;
+        scrollAnchor = doc.scrollTop + doc.clientHeight * scale;
         window.scrollTo(0, scrollAnchor);
       }
 
@@ -143,12 +161,34 @@
       }
 
       function nextSlide() {
-        currentView++;
-        let viewName = decks[currentSlide].slides[currentView];
+        currentSlide++;
+        placeSlideContent();
+        insertProgressButton();
+        }
+
+      function placeSlideContent(){
+        let viewName = decks[currentDeck].slides[currentSlide];
         document.getElementById(
-          decks[currentSlide].id
-        ).innerHTML += `<${viewName}></${viewName}>`;
+                decks[currentDeck].id
+        ).innerHTML = `<${viewName}></${viewName}>`;
       }
+
+      // document.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....
+      //   console.log('scroll')
+      //   let st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+      //   if (st > scrollAnchor){
+      //     if ((currentDeck == -1) || currentSlide == decks[currentSlide].slides.length-1){
+      //       transitionToNextDeck();
+      //     } else {
+      //       nextSlide()
+      //     }
+      //   } else {
+      //     if (currentSlide == 0 && currentDeck == -1){
+      //       transitionToPreviousDeck();
+      //     }
+      //   }
+      //   lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+      // }, false);
     </script>
   </body>
 </html>

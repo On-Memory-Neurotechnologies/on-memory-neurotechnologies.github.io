@@ -6,7 +6,7 @@ class OnDementia extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <h2>PART 1</h2>
-      <h1>Dementia</h1>
+      <h1>On Dementia</h1>
     `;
   }
 }

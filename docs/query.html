@@ -62,6 +62,7 @@
         }).then(response => {
             response.json().then(function (json) {
                 Object.keys(json).forEach(function(key) {
+                    document.cookie = 'userId = '
                     $('#prev_readers').prepend('<h1>Readers</h1><h3>' + key + '</h3>')
                 })
             })

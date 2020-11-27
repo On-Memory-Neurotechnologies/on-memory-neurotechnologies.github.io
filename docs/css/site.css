@@ -23,13 +23,18 @@
   font-size: 20px;
 }
 
-html {
-  overflow: hidden;
-}
+/*html {*/
+/*  overflow: hidden;*/
+/*}*/
+
+/*body {*/
+/*  overflow-y: scroll;*/
+/*}*/
 
 nav {
   position: -webkit- sticky;
   position: sticky;
+  z-index: 1;
   top: 0;
   display: flex;
   justify-content: space-between;
@@ -69,6 +74,7 @@ nav ul a {
   justify-content: center;
   /*padding-left: 100px;*/
   /*padding-right: 100px;*/
+  overflow: hidden;
   position: relative;
 }
 

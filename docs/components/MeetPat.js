@@ -5,7 +5,6 @@ class MeetPat extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-      <div class="content-page">
         <img class="pat-image" src="assets/pat.svg" />
         <div class="meet-pat-text">
           <h2>Meet Pat</h2>
@@ -25,7 +24,6 @@ class MeetPat extends HTMLElement {
             diagnosed with Alzheimer’s disease.
           </p>
         </div>
-      </div>
     `;
   }
 }

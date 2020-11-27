@@ -5,7 +5,6 @@ class Prosthesis extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-        <section class="content-page">
             <p class="omn-p1">
                 It’s hard to imagine yourself in Pat’s shoes but for many of us,
                 Alzheimer’s disease will affect our lives in some way. It is estimated
@@ -14,7 +13,6 @@ class Prosthesis extends HTMLElement {
                 your life whether it’s a parent, grandparent, spouse, another loved one,
                 or yourself.
             </p>
-        </section>
       `;
   }
 }
