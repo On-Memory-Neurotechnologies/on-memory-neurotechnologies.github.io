@@ -25,7 +25,7 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body onload="clientAction('login','POST');">
     <nav-bar></nav-bar>
 
     <div class="landing-page">
@@ -44,6 +44,15 @@
       let currentSlide = 0;
       let scrollAnchor = 0;
       let collectData = false;
+      let userId = undefined;
+
+      let option = 'local';
+      let url;
+      if (option  === 'local'){
+        url = new URL('http://localhost');
+      } else if (option === 'server'){
+        url = new URL('https://songlab.azurewebsites.net/');
+      }
 
       let disclaimerDeck = {
         id: "disclaimer",
@@ -122,7 +131,7 @@
             currentSlide = 0;
             let element = document.getElementById(decks[currentDeck].id);
             if (element === null) {
-              addDeck(decks[currentDeck].slides[currentDeck]);
+              addDeck(decks[currentDeck].slides[currentSlide]);
             }
           } else if (direction < 0) {
             currentSlide = decks[currentDeck].slides.length - 1;
@@ -132,6 +141,11 @@
           currentSlide = 0;
         }
         moveViewport(direction);
+
+        if (decks[currentDeck].id == 'disclaimer'){
+           displayUserId()
+        }
+
       }
 
       function moveViewport(direction) {

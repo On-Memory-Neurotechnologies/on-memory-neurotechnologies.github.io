@@ -18,7 +18,7 @@ app.use(require("cors")()) // allow Cross-domain requests
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb+srv://default-user:JgMmIChJd7IoyOJY@cluster0.bdgxr.mongodb.net/on-memory-neurotechnologies?retryWrites=true&w=majority";
 
-MongoClient.connect(url, { useUnifiedTopology: true })
+MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(client => {
     app.set('mongo_client', client);
     console.log('Connected to Database')

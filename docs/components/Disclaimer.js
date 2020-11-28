@@ -13,8 +13,8 @@ class Disclaimer extends HTMLElement {
             (submitted on embedded forms) to gather public preferences 
             on cognitive neurostimulation devices.
           </h3>
-        
-          <h3>Here is your User ID</h3>
+          <br /><br />
+          <h3>Here is your User ID:</h3>
           <h4>Save this so that, if requested, we can remove your data.</h4>
           <p id="user-id"></p>
           <br /><br />
