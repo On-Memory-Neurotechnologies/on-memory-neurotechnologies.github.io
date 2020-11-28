@@ -8,24 +8,15 @@
     <link rel="icon" href="styles/favicon.ico" />
     <link rel="stylesheet" href="css/site.css" />
 
+    <!-- import custom components -->
     <script src="components/nav.js" type="text/javascript" defer></script>
-    <script
-      src="components/OnDementia.js"
-      type="text/javascript"
-      defer
-    ></script>
+    <script src="components/Disclaimer.js" type="text/javascript" defer></script>
+    <script src="components/OnDementia.js" type="text/javascript" defer></script>
     <script src="components/MeetPat.js" type="text/javascript" defer></script>
     <script src="components/OMP.js" type="text/javascript" defer></script>
-    <script
-      src="components/Prosthesis1.js"
-      type="text/javascript"
-      defer
-    ></script>
-    <script
-      src="components/Prosthesis2.js"
-      type="text/javascript"
-      defer
-    ></script>
+    <script src="components/Prosthesis1.js" type="text/javascript" defer></script>
+    <script src="components/Prosthesis2.js" type="text/javascript" defer></script>
+    <script src="components/Prosthesis3.js" type="text/javascript" defer></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -38,10 +29,7 @@
 
     <div class="landing-page">
       <h1>On Memory Neurotechnologies</h1>
-      <h3>
-        An interactive article on memory prostheses—and how you can help design
-        them
-      </h3>
+      <h3>An interactive article on memory prostheses—and how you can help design them</h3>
       <div class="buttons">
         <a onclick="transitionToNextDeck()" id="button1">Start a new session</a>
         <a href="#" id="button2">Continue last session</a>
@@ -50,61 +38,15 @@
 
     <div id="content"></div>
 
-    <!--    <section id="commercial-omn-header" class="header-page">-->
-    <!--      <h2>PART 3</h2>-->
-    <!--      <h1>On Commercial Neurotechnologies</h1>-->
-    <!--    </section>-->
-
-    <!--    <section class="content-page">-->
-    <!--      <div class="comm-omn">-->
-    <!--        <p>-->
-    <!--          Problems with short term memory, such as what Pat is facing, may soon-->
-    <!--          be addressed by commercial neurotech Memory recall device-->
-    <!--        </p>-->
-    <!--        <p>-->
-    <!--          If Pat was your parent or grandparent, would the risk of surgery be-->
-    <!--          worth it to improve these impairments?-->
-    <!--        </p>-->
-    <!--        <p>-->
-    <!--          Over the next two years, Pat (now aged 74) experiences more advanced-->
-    <!--          symptoms of AD. She starts to have trouble recalling her children’s-->
-    <!--          names when she chats with them and sometimes forgets who she is-->
-    <!--          speaking with. She is also beginning to need help with daily-->
-    <!--          functioning tasks like choosing her clothes in the morning, and-->
-    <!--          remembering to eat. Pat’s husband provides her with daily support for-->
-    <!--          these tasks and he reports that, “some days are better than others.”-->
-    <!--        </p>-->
-    <!--        <p>-->
-    <!--          Problems with decision making and name/ word recall, such as what Pat-->
-    <!--          is facing, may soon be addressed by commercial neurotech-->
-    <!--        </p>-->
-    <!--        <p>Decision assisting device Word recall device</p>-->
-    <!--        <p>-->
-    <!--          If Pat were your parent or grandparent, would the risk of surgery be-->
-    <!--          worth it to improve her daily functioning and recall of names?-->
-    <!--        </p>-->
-    <!--        <p>-->
-    <!--          Over the next five years, Pat (now aged 79) shows further AD-related-->
-    <!--          decline. Her family notices that she’s “not acting like herself.” On-->
-    <!--          several occasions, Pat has accused her husband of having an affair.-->
-    <!--          She has also made some inappropriate remarks to her 10 y.o.-->
-    <!--          granddaughter. After these moments of agitation, Pat seems to “go back-->
-    <!--          to normal” as if nothing has happened. Problems with changes in-->
-    <!--          personality, such as what Pat is facing, may soon be addressed by-->
-    <!--          commercial neurotech Personality maintaining device-->
-    <!--        </p>-->
-
-    <!--        <p>-->
-    <!--          If Pat were your parent or grandparent, would the risk of surgery be-->
-    <!--          worth it to restore and preserve her personality traits?-->
-    <!--        </p>-->
-    <!--      </div>-->
-    <!--    </section>-->
-
     <script>
       let currentDeck = -1;
       let currentSlide = 0;
       let scrollAnchor = 0;
+
+      let disclaimerDeck = {
+        id: "disclaimer",
+        slides: ["omn-disclaimer"],
+      };
 
       let odDeck = {
         id: "on-dementia",
@@ -117,10 +59,11 @@
           "on-memory-prostheses",
           "the-prosthesis-1",
           "the-prosthesis-2",
+          "the-prosthesis-3",
         ],
       };
 
-      let decks = [odDeck, ompDeck];
+      let decks = [disclaimerDeck, odDeck, ompDeck];
 
       window.addEventListener("resize", goToScrollAnchor);
 
@@ -180,9 +123,7 @@
 
       function placeSlideContent() {
         let viewName = decks[currentDeck].slides[currentSlide];
-        document.getElementById(
-          decks[currentDeck].id
-        ).innerHTML = `<${viewName}></${viewName}>`;
+        document.getElementById(decks[currentDeck].id).innerHTML = `<${viewName}></${viewName}>`;
       }
 
       // document.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....

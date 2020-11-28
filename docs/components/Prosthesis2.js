@@ -7,14 +7,15 @@ class Prosthesis2 extends HTMLElement {
     this.innerHTML = `
       <div class="grid">
           <p class="paragraph-right">
-              Alzheimer’s disease and other dementia-related memory loss are the focus
-              of an entire research field, and scientists are working every day to not
-              only understand dementia, but also find ways to preserve and restore
-              memories in dementia patients. In the year 2050, memory prostheses like
-              the one Dr. Singh mentioned to Pat might be commonplace. Right now,
-              scientists are working to make that future a reality. One example comes
-              from the [name of Dong’s lab] at the University of Southern California.
-              Scientists here have created a …
+          In the year 2035, memory prostheses like the one Pat will receive might be commonplace. Right now,
+          scientists are working to make that future a reality.
+          <br /><br />
+          Our research team at the University of Southern California has developed a proof-of-concept system
+          to deliver precise spatio-temporal patterns of stimulation to hippocampal neurons in human epilepsy
+          patients to significantly improve short-term and long-term retention of visual information.
+          <br /><br />
+          This work moves the field closer to development of neural prostheses capable of restoring memory in
+          dementia.
           </p>
       </div>
       `;

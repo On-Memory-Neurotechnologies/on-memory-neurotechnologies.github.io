@@ -13,6 +13,11 @@
   src: url(../fonts/Montserrat/Montserrat-Thin.ttf);
 }
 
+@font-face {
+  font-family: montSemiBold;
+  src: url(../fonts/Montserrat/Montserrat-SemiBold.ttf);
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -35,10 +40,18 @@ nav {
   min-height: 8vh;
 }
 
+strong {
+  font-family: montSemiBold;
+}
+
 .logo {
   margin-left: 10vw;
   color: white;
   cursor: default;
+}
+.logo a {
+  text-decoration: none;
+  color: white;
 }
 
 .page {
@@ -127,6 +140,34 @@ nav {
   min-height: 85vh;
 }
 
+.disclaimer-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  min-width: 100vw;
+}
+
+#disclaimer-title {
+  font-family: montBold;
+  font-size: 36px;
+  padding-bottom: 0.75rem;
+}
+
+.form-input {
+  width: 40vw;
+}
+
+.form h3 {
+  font-family: montSemiBold;
+}
+
+.form h4 {
+  font-family: montLight;
+  font-size: 16px;
+}
+
 .header-page {
   display: flex;
   flex-direction: column;
@@ -138,6 +179,7 @@ nav {
 }
 
 .header-page h1 {
+  font-family: montReg;
   font-size: 70px;
   line-height: normal;
 }

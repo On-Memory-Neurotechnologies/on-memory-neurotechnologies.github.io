@@ -7,7 +7,7 @@ class Nav extends HTMLElement {
     this.innerHTML = `
      <nav>
       <div class="logo">
-        <h1>OMN</h1>
+        <a href="#"><h1>OMN</h1></a>
       </div>
     </nav>
     `;
