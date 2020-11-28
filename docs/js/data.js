@@ -33,11 +33,21 @@ function showMessage(res) {
 
 
 function checkConsent(){
-    let consentBox = document.getElementById("consent");
-    collectData = consentBox.checked;
+    if (collectData == undefined) {
+        let consentBox = document.getElementById("consent");
+        collectData = consentBox.checked;
+    }
     if (collectData) {
+
+        setCookie('prevSettings',[currentSlide,currentDeck])
+
         submitForm();
-        changeDeck(1)
+        if ((currentSlide == decks[currentDeck].slides.length - 1) && (currentDeck != decks.length - 1))
+        {
+            changeDeck(1);
+        } else {
+            changeSlide(1);
+        }
     } else {
         if (numTries == 0) {
             let buttons = document.getElementById('disclaimer').getElementsByTagName("button")
@@ -68,16 +78,46 @@ function unhideForm(){
     numTries = 0;
 }
 
-function submitForm(){
-    if (collectData) {
-        /* get form on current slide */
-
-        if (/*user id is not already in mongodb */) {
-            /* create new document in mongodb */
-        } else {
-            /* update existing document ONLY IF FORM IS NOT EMPTY */
-        }
-    }
+function submitForm() {
+//         /* get form on current slide */
+//         if (/* there is a form */) {
+//
+//         if (/*user id is not already in mongodb */) {
+//             /* create new document in mongodb */
+//         } else {
+//             /* update existing document ONLY IF FORM IS NOT EMPTY */
+//         }
+// }
 }
 
+// Setting Cookie on Client
 
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+function resetSettings(){
+    let targetSlide = cookie[0]
+    let targetDeck = cookie[0]
+
+    while (targetDeck != currentDeck && targetSlide != currentSlide){
+
+    }
+
+}
