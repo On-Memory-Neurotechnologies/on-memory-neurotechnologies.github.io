@@ -16,8 +16,16 @@
     ></script>
     <script src="components/MeetPat.js" type="text/javascript" defer></script>
     <script src="components/OMP.js" type="text/javascript" defer></script>
-    <script src="components/Prosthesis1.js" type="text/javascript" defer></script>
-    <script src="components/Prosthesis2.js" type="text/javascript" defer></script>
+    <script
+      src="components/Prosthesis1.js"
+      type="text/javascript"
+      defer
+    ></script>
+    <script
+      src="components/Prosthesis2.js"
+      type="text/javascript"
+      defer
+    ></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -105,7 +113,11 @@
 
       let ompDeck = {
         id: "on-memory-prostheses",
-        slides: ["on-memory-prostheses", "the-prosthesis-1", "the-prosthesis-2"],
+        slides: [
+          "on-memory-prostheses",
+          "the-prosthesis-1",
+          "the-prosthesis-2",
+        ],
       };
 
       let decks = [odDeck, ompDeck];
@@ -120,24 +132,24 @@
       }
 
       function insertProgressButton() {
-        if (decks[currentDeck].slides.length-1 != currentSlide) {
+        if (decks[currentDeck].slides.length - 1 != currentSlide) {
           document.getElementById(
             decks[currentDeck].id
           ).innerHTML += `<button id="move-button" class="move-button" onclick="nextSlide()"><i class="arrow down"></i></button>`;
         } else {
           document.getElementById(
-                  decks[currentDeck].id
+            decks[currentDeck].id
           ).innerHTML += `<button id="move-button" class="move-button" onclick="transitionToNextDeck()"><i class="arrow down"></i></button>`;
-          }
+        }
       }
 
       function transitionToNextDeck() {
         currentDeck++;
         currentSlide = 0;
-        let element = document.getElementById(decks[currentDeck].id)
-        if (element === null){
+        let element = document.getElementById(decks[currentDeck].id);
+        if (element === null) {
           addDeck(decks[currentDeck].slides[currentDeck]);
-       }
+        }
         moveViewport();
         insertProgressButton();
       }
@@ -164,12 +176,12 @@
         currentSlide++;
         placeSlideContent();
         insertProgressButton();
-        }
+      }
 
-      function placeSlideContent(){
+      function placeSlideContent() {
         let viewName = decks[currentDeck].slides[currentSlide];
         document.getElementById(
-                decks[currentDeck].id
+          decks[currentDeck].id
         ).innerHTML = `<${viewName}></${viewName}>`;
       }
 

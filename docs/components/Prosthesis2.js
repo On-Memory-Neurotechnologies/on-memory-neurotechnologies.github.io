@@ -5,7 +5,8 @@ class Prosthesis2 extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-          <p class="omn-p2">
+      <div class="grid">
+          <p class="paragraph-right">
               Alzheimer’s disease and other dementia-related memory loss are the focus
               of an entire research field, and scientists are working every day to not
               only understand dementia, but also find ways to preserve and restore
@@ -15,6 +16,7 @@ class Prosthesis2 extends HTMLElement {
               from the [name of Dong’s lab] at the University of Southern California.
               Scientists here have created a …
           </p>
+      </div>
       `;
   }
 }

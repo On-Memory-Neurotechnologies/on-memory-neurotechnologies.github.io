@@ -5,8 +5,11 @@ class MeetPat extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-        <img class="pat-image" src="assets/pat.svg" />
-        <div class="meet-pat-text">
+      <div class="grid">
+        <div class="paragraph-left">
+          <img id="pat-image" src="assets/pat.svg"/>
+        </div>
+        <div id="meet-pat-text" class="paragraph-right">
           <h2>Meet Pat</h2>
           <p>
             The year is 2035. Pat is a 72-year old woman. She has a husband, two
@@ -24,6 +27,7 @@ class MeetPat extends HTMLElement {
             diagnosed with Alzheimer’s disease.
           </p>
         </div>
+      </div>
     `;
   }
 }
