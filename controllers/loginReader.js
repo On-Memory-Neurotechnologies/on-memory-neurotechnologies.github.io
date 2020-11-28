@@ -1,6 +1,5 @@
 const uuid = require('uuid');
 
-
 function getCookie(req,name) {
   const value = `; ${req.headers.cookie}`;
   const parts = value.split(`; ${name}=`);

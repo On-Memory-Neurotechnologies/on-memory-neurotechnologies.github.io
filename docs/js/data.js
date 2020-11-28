@@ -24,7 +24,7 @@ function handleResponse(res) {
 }
 
 function showMessage(res) {
-    if (res.userId != undefined){
+    if (res.userId != undefined && userId == undefined){
         userId = res.userId
     } else {
         console.log(`\n${res}`);
@@ -69,7 +69,15 @@ function unhideForm(){
 }
 
 function submitForm(){
+    if (collectData) {
+        /* get form on current slide */
 
+        if (/*user id is not already in mongodb */) {
+            /* create new document in mongodb */
+        } else {
+            /* update existing document ONLY IF FORM IS NOT EMPTY */
+        }
+    }
 }
 
 
