@@ -41,7 +41,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   background-color: #358597;
-  min-height: 8vh;
+  min-height: 50px;
 }
 
 strong {
@@ -60,7 +60,7 @@ strong {
 
 .page {
   position: absolute;
-  height: 92vh;
+  height: calc(100vh - 50px);
   display: flex;
   overflow: hidden;
   position: relative;
@@ -86,7 +86,7 @@ strong {
 .landing-page {
   background-color: black;
   color: white;
-  min-height: 92vh;
+  min-height: calc(100vh - 50px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -133,8 +133,8 @@ strong {
   padding-top: 50px;
   padding-left: 10vw;
   display: flex;
-  justify-content: space-between;
-  width: 40vw;
+  flex-wrap: wrap;
+  width: 80vw;
   font-weight: bold;
 }
 
@@ -143,6 +143,7 @@ strong {
   color: white;
   cursor: pointer;
   font-size: 20px;
+  padding: 0px 50px 25px 0px;
 }
 
 #button2 {
@@ -172,6 +173,14 @@ strong {
   padding-bottom: 0.75rem;
 }
 
+#disclaimer-description {
+  max-width: 80vw;
+}
+
+.form{
+  max-width: 80vw;
+}
+
 .form-input {
   width: 40vw;
 }
@@ -192,7 +201,7 @@ strong {
   text-justify: center;
   justify-content: center;
   width: 100vw;
-  height: 92vh;
+  height: calc(100vh - 50px);
 }
 
 .header-page h1 {

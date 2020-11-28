@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/site.css" />
 
     <!-- import custom components -->
+    <script src="js/data.js" type="text/javascript" defer></script>
     <script src="components/nav.js" type="text/javascript" defer></script>
     <script src="components/Disclaimer.js" type="text/javascript" defer></script>
     <script src="components/OnDementia.js" type="text/javascript" defer></script>
@@ -42,6 +43,7 @@
       let currentDeck = -1;
       let currentSlide = 0;
       let scrollAnchor = 0;
+      let collectData = false;
 
       let disclaimerDeck = {
         id: "disclaimer",
@@ -79,7 +81,7 @@
           document.getElementById(
                   decks[currentDeck].id
           ).innerHTML += `
-<button class="move-button bottom" onclick="changeDeck(1)"><i class="arrow down"></i></button>
+<button class="move-button bottom" onclick="submitForm(); changeDeck(1)"><i class="arrow down"></i></button>
 <button class="move-button top" onclick="changeDeck(-1)"><i class="arrow up"></i></button>`;
         }
         else if (currentSlide == decks[currentDeck].slides.length - 1) {
@@ -92,21 +94,21 @@
             document.getElementById(
                     decks[currentDeck].id
             ).innerHTML += `
-<button class="move-button bottom" onclick="changeDeck(1)"><i class="arrow down"></i></button>
+<button class="move-button bottom" onclick="submitForm(); changeDeck(1)"><i class="arrow down"></i></button>
 <button class="move-button top" onclick="changeSlide(-1)"><i class="arrow up"></i></button>`;
           }
         } else if (currentSlide == 0) {
           document.getElementById(
                   decks[currentDeck].id
           ).innerHTML += `
-        <button class="move-button bottom" onclick="changeSlide(1)"><i class="arrow down"></i></button>
+        <button class="move-button bottom" onclick="submitForm(); changeSlide(1)"><i class="arrow down"></i></button>
         <button class="move-button top" onclick="changeDeck(-1)"><i class="arrow up"></i></button>`;
         }
         else {
           document.getElementById(
             decks[currentDeck].id
           ).innerHTML += `
-<button class="move-button bottom" onclick="changeSlide(1)"><i class="arrow down"></i></button>
+<button class="move-button bottom" onclick="submitForm(); changeSlide(1)"><i class="arrow down"></i></button>
 <button class="move-button top" onclick="changeSlide(-1)"><i class="arrow up"></i></button>
 
 `;
@@ -133,8 +135,7 @@
       }
 
       function moveViewport(direction) {
-        let scale = 0.92;
-        scrollAnchor += (direction * window.innerHeight * scale);
+        scrollAnchor += (direction * (window.innerHeight-50));
         window.scrollTo(0, scrollAnchor);
       }
 
