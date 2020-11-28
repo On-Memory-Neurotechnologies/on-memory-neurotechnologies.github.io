@@ -80,12 +80,22 @@ function unhideForm(){
 
 function submitForm() {
 //         /* get form on current slide */
-//         if (/* there is a form */) {
-//
+    let forms = document.getElementById(decks[currentDeck].id).getElementsByTagName("form")
+
+    if (forms.length != 0){
+        for (let button of forms) {
+            // get form content
+            if (content != null){
+                clientAction('/submit','POST')
+            }
+        }
+    }
+
+    // SERVER SIDE PSEUDOCODE
 //         if (/*user id is not already in mongodb */) {
 //             /* create new document in mongodb */
 //         } else {
-//             /* update existing document ONLY IF FORM IS NOT EMPTY */
+//             /* update existing document*/
 //         }
 // }
 }

@@ -49,22 +49,7 @@ app.get('/user', function (req, res) {
 let routes = app => {
   router.get("/", homeController.getHome);
   router.post("/login", loginController.loginReader);
-
   router.post("/submit", submitController.submitAllFeedback);
-
-  router.get('/getdata', homeController.getHome);
-  /*
-  router.get('/users', function (req, res) {
-    User.find({}, function(err,users) {
-      if(err) {
-        res.send("Error")
-      }
-      res.json(users);
-      console.log(users);
-    });
-  });
-  */
-  router.post("/getdata", getDataController.getData);
   router.get("/fetch", function(req,res) {
 
   })
