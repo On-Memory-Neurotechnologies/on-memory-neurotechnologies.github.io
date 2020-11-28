@@ -7,7 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="icon" href="styles/favicon.ico" />
     <link rel="stylesheet" href="css/site.css" />
+
+    <!-- import custom components -->
     <script src="components/nav.js" type="text/javascript" defer></script>
+    <script src="components/Disclaimer.js" type="text/javascript" defer></script>
+    <script src="components/OnDementia.js" type="text/javascript" defer></script>
+    <script src="components/MeetPat.js" type="text/javascript" defer></script>
+    <script src="components/OMP.js" type="text/javascript" defer></script>
+    <script src="components/Prosthesis1.js" type="text/javascript" defer></script>
+    <script src="components/Prosthesis2.js" type="text/javascript" defer></script>
+    <script src="components/Prosthesis3.js" type="text/javascript" defer></script>
+
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
@@ -15,109 +25,125 @@
     />
   </head>
   <body>
-  <nav-bar></nav-bar>
+    <nav-bar></nav-bar>
 
-    <section id="landing-page" class="header-page">
+    <div class="landing-page">
       <h1>On Memory Neurotechnologies</h1>
-      <h3>
-        An interactive article on memory prostheses—and how you can help design
-        them
-      </h3>
-    </section>
+      <h3>An interactive article on memory prostheses—and how you can help design them</h3>
+      <div class="buttons">
+        <a onclick="transitionToNextDeck()" id="button1">Start a new session</a>
+        <a href="#" id="button2">Continue last session</a>
+      </div>
+    </div>
 
-    <section id="dementia-header" class="header-page">
-      <h2>PART 1</h2>
-      <h1>Dementia</h1>
-    </section>
+    <div id="content"></div>
 
-    <section id="meet-pat" class="content-page">
-      <h2>Meet Pat</h2>
-      <p>
-        The year is 2035. Pat is a 72-year old woman. She has a husband, two
-        adult children, and three grandkids. For 30 years she worked as a
-        librarian, but she retired 7 years ago and has volunteered three days
-        per week at the local animal shelter ever since. Recently, she started
-        mixing up the times of her shifts at the shelter. Her family also began
-        to notice her repeating questions like, “what’s everyone doing this
-        weekend?” within a short period of time. After a trip to her GP and a
-        referral to a Neurologist, Pat is diagnosed with Alzheimer’s disease.
-      </p>
-    </section>
+    <script>
+      let currentDeck = -1;
+      let currentSlide = 0;
+      let scrollAnchor = 0;
 
-    <section id="omn-header" class="header-page">
-      <h2>PART 2</h2>
-      <h1>On Memory Prostheses</h1>
-    </section>
+      let disclaimerDeck = {
+        id: "disclaimer",
+        slides: ["omn-disclaimer"],
+      };
 
-    <section id="omn">
-      <h2>On Memory Prostheses</h2>
-      <p>
-        It’s hard to imagine yourself in Pat’s shoes but for many of us,
-        Alzheimer’s disease will affect our lives in some way. It is estimated
-        that 5.8 million Americans over the age of 65 have Alzheimer’s disease.
-        With such a high prevalence, it’s likely that Alzheimer’s will touch
-        your life whether it’s a parent, grandparent, spouse, another loved one,
-        or yourself.
-      </p>
-      <p>
-        Alzheimer’s disease and other dementia-related memory loss are the focus
-        of an entire research field, and scientists are working every day to not
-        only understand dementia, but also find ways to preserve and restore
-        memories in dementia patients. In the year 2050, memory prostheses like
-        the one Dr. Singh mentioned to Pat might be commonplace. Right now,
-        scientists are working to make that future a reality. One example comes
-        from the [name of Dong’s lab] at the University of Southern California.
-        Scientists here have created a…
-      </p>
-    </section>
+      let odDeck = {
+        id: "on-dementia",
+        slides: ["on-dementia", "meet-pat"],
+      };
 
-    <section class="commercial-omn-header" class="header-page">
-      <h2>PART 3</h2>
-      <h1>ON COMMERCIAL MEMORY NEUROTECHNOLOGIES</h1>
-    </section>
+      let ompDeck = {
+        id: "on-memory-prostheses",
+        slides: [
+          "on-memory-prostheses",
+          "the-prosthesis-1",
+          "the-prosthesis-2",
+          "the-prosthesis-3",
+        ],
+      };
 
-    <section class="commercial-omn">
-      <p>
-        Problems with short term memory, such as what Pat is facing, may soon be
-        addressed by commercial neurotech Memory recall device
-      </p>
-      <p>
-        If Pat was your parent or grandparent, would the risk of surgery be
-        worth it to improve these impairments?
-      </p>
-      <p>
-        Over the next two years, Pat (now aged 74) experiences more advanced
-        symptoms of AD. She starts to have trouble recalling her children’s
-        names when she chats with them and sometimes forgets who she is speaking
-        with. She is also beginning to need help with daily functioning tasks
-        like choosing her clothes in the morning, and remembering to eat. Pat’s
-        husband provides her with daily support for these tasks and he reports
-        that, “some days are better than others.”
-      </p>
-      <p>
-        Problems with decision making and name/ word recall, such as what Pat is
-        facing, may soon be addressed by commercial neurotech
-      </p>
-      <p>Decision assisting device Word recall device</p>
-      <p>
-        If Pat were your parent or grandparent, would the risk of surgery be
-        worth it to improve her daily functioning and recall of names?
-      </p>
-      <p>
-        Over the next five years, Pat (now aged 79) shows further AD-related
-        decline. Her family notices that she’s “not acting like herself.” On
-        several occasions, Pat has accused her husband of having an affair. She
-        has also made some inappropriate remarks to her 10 y.o. granddaughter.
-        After these moments of agitation, Pat seems to “go back to normal” as if
-        nothing has happened. Problems with changes in personality, such as what
-        Pat is facing, may soon be addressed by commercial neurotech Personality
-        maintaining device
-      </p>
+      let decks = [disclaimerDeck, odDeck, ompDeck];
 
-      <p>
-        If Pat were your parent or grandparent, would the risk of surgery be
-        worth it to restore and preserve her personality traits?
-      </p>
-    </section>
+      window.addEventListener("resize", goToScrollAnchor);
+
+      function addDeck() {
+        document.getElementById(
+          "content"
+        ).innerHTML += `<div id="${decks[currentDeck].id}" class="page"></div>`;
+        placeSlideContent();
+      }
+
+      function insertProgressButton() {
+        if (decks[currentDeck].slides.length - 1 != currentSlide) {
+          document.getElementById(
+            decks[currentDeck].id
+          ).innerHTML += `<button id="move-button" class="move-button" onclick="nextSlide()"><i class="arrow down"></i></button>`;
+        } else {
+          document.getElementById(
+            decks[currentDeck].id
+          ).innerHTML += `<button id="move-button" class="move-button" onclick="transitionToNextDeck()"><i class="arrow down"></i></button>`;
+        }
+      }
+
+      function transitionToNextDeck() {
+        if (currentDeck < decks.length-1) {
+          currentDeck++;
+          currentSlide = 0;
+          let element = document.getElementById(decks[currentDeck].id);
+          if (element === null) {
+            addDeck(decks[currentDeck].slides[currentDeck]);
+          }
+          moveViewport();
+          insertProgressButton();
+        }
+      }
+
+      function transitionToPreviousDeck() {
+        currentDeck -= 1;
+        currentSlide = decks[currentSlide].slides.length - 1;
+        moveViewport();
+        insertProgressButton();
+      }
+
+      function moveViewport() {
+        let doc = document.body;
+        let scale = 0.92;
+        scrollAnchor = doc.scrollTop + doc.clientHeight * scale;
+        window.scrollTo(0, scrollAnchor);
+      }
+
+      function goToScrollAnchor() {
+        window.scrollTo(0, scrollAnchor);
+      }
+
+      function nextSlide() {
+        currentSlide++;
+        placeSlideContent();
+        insertProgressButton();
+      }
+
+      function placeSlideContent() {
+        let viewName = decks[currentDeck].slides[currentSlide];
+        document.getElementById(decks[currentDeck].id).innerHTML = `<${viewName}></${viewName}>`;
+      }
+
+      // document.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....
+      //   console.log('scroll')
+      //   let st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+      //   if (st > scrollAnchor){
+      //     if ((currentDeck == -1) || currentSlide == decks[currentSlide].slides.length-1){
+      //       transitionToNextDeck();
+      //     } else {
+      //       nextSlide()
+      //     }
+      //   } else {
+      //     if (currentSlide == 0 && currentDeck == -1){
+      //       transitionToPreviousDeck();
+      //     }
+      //   }
+      //   lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+      // }, false);
+    </script>
   </body>
 </html>
