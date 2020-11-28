@@ -112,12 +112,15 @@ function getCookie(name) {
     return null;
 }
 
-function resetSettings(){
+function resetSettings(cookie){
     let targetSlide = cookie[0]
     let targetDeck = cookie[0]
 
     while (targetDeck != currentDeck && targetSlide != currentSlide){
-
+        if (currentDeck != 0 && currentSlide != decks[currentDeck].slides.length-1){
+            changeSlide(1)
+        } else {
+            changeDeck(1)
+        }
     }
-
 }

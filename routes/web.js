@@ -7,7 +7,7 @@ const loginController = require("../controllers/loginReader");
 
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb+srv://default-user:JgMmIChJd7IoyOJY@cluster0.bdgxr.mongodb.net/on-memory-neurotechnologies?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://default-user:JgMmIChJd7IoyOJY@cluster0.bdgxr.mongodb.net/on-memory-neurotechnologies?retryWrites=true&w=majority",{ useNewUrlParser: true, useUnifiedTopology: true });
 
 const Schema = mongoose.Schema;
 const readerSchema = new Schema({
@@ -37,14 +37,14 @@ app.get('/user', function (req, res) {
   });
 })*/
 
-Reader.find(function(err, readers) {
-  if(err) {
-    console.log(err);
-  }
-  else {
-    console.log(readers);
-  }
-});
+// Reader.find(function(err, readers) {
+//   if(err) {
+//     console.log(err);
+//   }
+//   else {
+//     console.log(readers);
+//   }
+// });
 
 let routes = app => {
   router.get("/", homeController.getHome);
