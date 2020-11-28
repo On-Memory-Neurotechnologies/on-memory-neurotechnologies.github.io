@@ -87,14 +87,16 @@
       }
 
       function transitionToNextDeck() {
-        currentDeck++;
-        currentSlide = 0;
-        let element = document.getElementById(decks[currentDeck].id);
-        if (element === null) {
-          addDeck(decks[currentDeck].slides[currentDeck]);
+        if (currentDeck < decks.length-1) {
+          currentDeck++;
+          currentSlide = 0;
+          let element = document.getElementById(decks[currentDeck].id);
+          if (element === null) {
+            addDeck(decks[currentDeck].slides[currentDeck]);
+          }
+          moveViewport();
+          insertProgressButton();
         }
-        moveViewport();
-        insertProgressButton();
       }
 
       function transitionToPreviousDeck() {
