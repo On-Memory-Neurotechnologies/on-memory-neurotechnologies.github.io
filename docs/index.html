@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>On Memory Neurotechnologies</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="icon" href="styles/favicon.ico" />
+    <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="css/site.css" />
 
     <!-- import custom components -->
@@ -31,7 +31,7 @@
       <h1>On Memory Neurotechnologies</h1>
       <h3>An interactive article on memory prostheses—and how you can help design them</h3>
       <div class="buttons">
-        <a onclick="transitionToNextDeck()" id="button1">Start a new session</a>
+        <a onclick="changeDeck(1)" id="button1">Start a new session</a>
         <a href="#" id="button2">Continue last session</a>
       </div>
     </div>
@@ -75,41 +75,66 @@
       }
 
       function insertProgressButton() {
-        if (decks[currentDeck].slides.length - 1 != currentSlide) {
+        if (decks[currentDeck].slides.length == 1){
           document.getElementById(
-            decks[currentDeck].id
-          ).innerHTML += `<button id="move-button" class="move-button" onclick="nextSlide()"><i class="arrow down"></i></button>`;
-        } else {
-          document.getElementById(
-            decks[currentDeck].id
-          ).innerHTML += `<button id="move-button" class="move-button" onclick="transitionToNextDeck()"><i class="arrow down"></i></button>`;
+                  decks[currentDeck].id
+          ).innerHTML += `
+<button class="move-button bottom" onclick="changeDeck(1)"><i class="arrow down"></i></button>
+<button class="move-button top" onclick="changeDeck(-1)"><i class="arrow up"></i></button>`;
         }
-      }
-
-      function transitionToNextDeck() {
-        if (currentDeck < decks.length-1) {
-          currentDeck++;
-          currentSlide = 0;
-          let element = document.getElementById(decks[currentDeck].id);
-          if (element === null) {
-            addDeck(decks[currentDeck].slides[currentDeck]);
+        else if (currentSlide == decks[currentDeck].slides.length - 1) {
+          if (currentDeck == decks.length - 1){
+            document.getElementById(
+                    decks[currentDeck].id
+            ).innerHTML += `
+<button class="move-button top" onclick="changeSlide(-1)"><i class="arrow up"></i></button>`;
+          } else{
+            document.getElementById(
+                    decks[currentDeck].id
+            ).innerHTML += `
+<button class="move-button bottom" onclick="changeDeck(1)"><i class="arrow down"></i></button>
+<button class="move-button top" onclick="changeSlide(-1)"><i class="arrow up"></i></button>`;
           }
-          moveViewport();
-          insertProgressButton();
+        } else if (currentSlide == 0) {
+          document.getElementById(
+                  decks[currentDeck].id
+          ).innerHTML += `
+        <button class="move-button bottom" onclick="changeSlide(1)"><i class="arrow down"></i></button>
+        <button class="move-button top" onclick="changeDeck(-1)"><i class="arrow up"></i></button>`;
+        }
+        else {
+          document.getElementById(
+            decks[currentDeck].id
+          ).innerHTML += `
+<button class="move-button bottom" onclick="changeSlide(1)"><i class="arrow down"></i></button>
+<button class="move-button top" onclick="changeSlide(-1)"><i class="arrow up"></i></button>
+
+`;
         }
       }
 
-      function transitionToPreviousDeck() {
-        currentDeck -= 1;
-        currentSlide = decks[currentSlide].slides.length - 1;
-        moveViewport();
-        insertProgressButton();
+      function changeDeck(direction) {
+        currentDeck += direction;
+        if (currentDeck >= 0 && currentDeck <= decks.length - 1) {
+            if (direction > 0){
+            currentSlide = 0;
+            let element = document.getElementById(decks[currentDeck].id);
+            if (element === null) {
+              addDeck(decks[currentDeck].slides[currentDeck]);
+            }
+          } else if (direction < 0) {
+            currentSlide = decks[currentDeck].slides.length - 1;
+          }
+          insertProgressButton();
+        } else {
+          currentSlide = 0;
+        }
+        moveViewport(direction);
       }
 
-      function moveViewport() {
-        let doc = document.body;
+      function moveViewport(direction) {
         let scale = 0.92;
-        scrollAnchor = doc.scrollTop + doc.clientHeight * scale;
+        scrollAnchor += (direction * window.innerHeight * scale);
         window.scrollTo(0, scrollAnchor);
       }
 
@@ -117,8 +142,8 @@
         window.scrollTo(0, scrollAnchor);
       }
 
-      function nextSlide() {
-        currentSlide++;
+      function changeSlide(offset) {
+        currentSlide += offset;
         placeSlideContent();
         insertProgressButton();
       }

@@ -28,6 +28,10 @@
   font-size: 20px;
 }
 
+html{
+  overflow: hidden;
+}
+
 nav {
   position: -webkit- sticky;
   position: sticky;
@@ -74,6 +78,11 @@ strong {
   -webkit-transform: rotate(45deg);
 }
 
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
 .landing-page {
   background-color: black;
   color: white;
@@ -97,15 +106,23 @@ strong {
   margin-left: 10vw;
 }
 
+
+.bottom {
+  bottom: 0px;
+}
+
+.top{
+  top: 0px;
+}
 .move-button {
   position: absolute;
-  bottom: 0px;
   background: transparent;
   border: none;
-  height: 20vh;
+  height: 10vh;
   width: 100%;
   left: 50%;
   transform: translateX(-50%);
+  cursor: pointer;
 }
 
 .move-button:focus {
