@@ -32,8 +32,8 @@
       <h1>On Memory Neurotechnologies</h1>
       <h3>An interactive article on memory prostheses—and how you can help design them</h3>
       <div class="buttons">
-        <a onclick="changeDeck(1)" id="button1">Start a new session</a>
-        <a href="#" id="button2">Continue last session</a>
+        <a onclick="changeDeck(1)" id="button1" class="white">Start a new session</a>
+        <a href="#" id="button2" class="white">Continue last session</a>
       </div>
     </div>
 
@@ -44,6 +44,7 @@
       let currentSlide = 0;
       let scrollAnchor = 0;
       let collectData = false;
+      let numTries = 0;
       let userId = undefined;
 
       let option = 'local';
@@ -90,7 +91,7 @@
           document.getElementById(
                   decks[currentDeck].id
           ).innerHTML += `
-<button class="move-button bottom" onclick="submitForm(); changeDeck(1)"><i class="arrow down"></i></button>
+<button class="move-button bottom" onclick="checkConsent();"><i class="arrow down"></i></button>
 <button class="move-button top" onclick="changeDeck(-1)"><i class="arrow up"></i></button>`;
         }
         else if (currentSlide == decks[currentDeck].slides.length - 1) {
@@ -103,21 +104,21 @@
             document.getElementById(
                     decks[currentDeck].id
             ).innerHTML += `
-<button class="move-button bottom" onclick="submitForm(); changeDeck(1)"><i class="arrow down"></i></button>
+<button class="move-button bottom" onclick="checkConsent(); changeDeck(1)"><i class="arrow down"></i></button>
 <button class="move-button top" onclick="changeSlide(-1)"><i class="arrow up"></i></button>`;
           }
         } else if (currentSlide == 0) {
           document.getElementById(
                   decks[currentDeck].id
           ).innerHTML += `
-        <button class="move-button bottom" onclick="submitForm(); changeSlide(1)"><i class="arrow down"></i></button>
+        <button class="move-button bottom" onclick="checkConsent(); changeSlide(1)"><i class="arrow down"></i></button>
         <button class="move-button top" onclick="changeDeck(-1)"><i class="arrow up"></i></button>`;
         }
         else {
           document.getElementById(
             decks[currentDeck].id
           ).innerHTML += `
-<button class="move-button bottom" onclick="submitForm(); changeSlide(1)"><i class="arrow down"></i></button>
+<button class="move-button bottom" onclick="checkConsent(); changeSlide(1)"><i class="arrow down"></i></button>
 <button class="move-button top" onclick="changeSlide(-1)"><i class="arrow up"></i></button>
 
 `;

@@ -18,6 +18,10 @@
   src: url(../fonts/Montserrat/Montserrat-SemiBold.ttf);
 }
 
+h3 {
+  font-family: montSemiBold;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -30,6 +34,10 @@
 
 html{
   overflow: hidden;
+}
+
+.center-text{
+  text-align: center;
 }
 
 nav {
@@ -129,6 +137,21 @@ strong {
   outline: none;
 }
 
+#disclaimer-buttons{
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80vw;
+  font-weight: bold;
+}
+
+#disclaimer-buttons a {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0px 50px 25px 0px;
+}
+
 .buttons {
   padding-top: 50px;
   padding-left: 10vw;
@@ -138,9 +161,16 @@ strong {
   font-weight: bold;
 }
 
+.white {
+  color: white;
+}
+
+.black {
+  color: black;
+}
+
 .buttons a {
   text-decoration: none;
-  color: white;
   cursor: pointer;
   font-size: 20px;
   padding: 0px 50px 25px 0px;
@@ -185,9 +215,6 @@ strong {
   width: 40vw;
 }
 
-.form h3 {
-  font-family: montSemiBold;
-}
 
 .form h4 {
   font-family: montLight;
