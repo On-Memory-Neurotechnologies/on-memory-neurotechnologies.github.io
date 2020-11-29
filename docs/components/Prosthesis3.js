@@ -5,8 +5,8 @@ class Prosthesis3 extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-      <div class="grid">
-          <p class="paragraph-left">
+      <div class="grid dark">
+          <p class="paragraph-middle">
               The model used in this prosthesis is a multi-input multi-output (MIMO) nonlinear dynamical model.
               Despite the complicated name, our MIMO model essentially acts as a bridge spanning the CA3 and CA1
               regions of the hippocampus: a structure in the brain damaged in the early stages of Alzheimer's
@@ -18,9 +18,6 @@ class Prosthesis3 extends HTMLElement {
               <br /><br />
               <strong>Let’s see this in action!</strong>
           </p>
-          <p class="paragraph-right">
-                <img id="pat-image" src="assets/realhmp.png"/>
-            </p>
       </div>
       `;
   }

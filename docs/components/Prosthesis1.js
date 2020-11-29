@@ -5,7 +5,7 @@ class Prosthesis extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-        <div class="grid">
+        <div class="grid dark">
             <p class="paragraph-left">
             It’s hard to imagine yourself in Pat’s shoes but for many of us, Alzheimer’s disease will affect our
             lives in some way. It is estimated that 5.8 million Americans over the age of 65 have Alzheimer’s

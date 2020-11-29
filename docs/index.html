@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="css/site.css" />
     <script type="text/javascript" src="js/data.js"></script>
     <script type="text/javascript" src="js/chatbot.js"></script>
+    <script type="text/javascript" src="js/animate.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 
     <!-- import custom components -->
     <script src="components/nav.js" type="text/javascript" defer></script>
@@ -263,6 +266,9 @@
       window.addEventListener("resize", goToScrollAnchor);
 
       function addDeck() {
+        // let container = document.getElementById("content")
+        // animateInnerHTML(container,`<div id="${decks[currentDeck].id}" class="page"></div>`,'add')
+        // placeSlideContent();
         document.getElementById(
           "content"
         ).innerHTML += `<div id="${decks[currentDeck].id}" class="page"></div>`;
@@ -352,6 +358,16 @@
           let vignette = decks[currentDeck].vignettes[chosenVignette].slides[vignetteSlide];
           deck.innerHTML = `<${vignette}></${vignette}>`;
         }
+        // if (chosenVignette == null) {
+        //   let slideName = decks[currentDeck].slides[currentSlide];
+        //   let deck = document.getElementById(decks[currentDeck].id)
+        //   animateInnerHTML(deck,`<${slideName}></${slideName}>`)
+        //
+        // } else {
+        //   let deck = document.getElementById(decks[currentDeck].id)
+        //   let vignette = decks[currentDeck].vignettes[chosenVignette].slides[vignetteSlide];
+        //   animateInnerHTML(deck,`<${vignette}></${vignette}>`)
+        // }
       }
 
       // document.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....
@@ -378,5 +394,30 @@
       }
 
     </script>
+
+  <script>
+    kennyChat = {
+      kenny: [
+        [
+        'Hi Pat! We’re looking forward to seeing you for your shift at the shelter tomorrow!',
+        '11am. See you then!',
+        ],
+        [
+          'West side animal shelter, Kenny speaking.',
+          'Uh...it’s 30 minutes from now at 11am. We texted about it yesterday. Don’t you remember?',
+        ]
+      ],
+      pat:[
+        [
+          'Hi Kenny! It’s Pat. What time is my shift today?',
+          'See you tomorrow!'
+        ],
+        [
+          'Thanks, Kenny! What time am I scheduled for again?',
+          'Oh...hmm...that must have slipped my mind. Well, I’ll take your word for it. See you soon'
+        ]
+      ]
+    }
+  </script>
   </body>
 </html>
