@@ -4,9 +4,11 @@ function displayUserId(){
     if (userId != undefined){
         document.getElementById('user-id').innerHTML = userId
     }
+
 }
 
-function clientAction(destination,method,body=JSON.stringify({})){
+function clientAction(destination,method,body={}){
+    console.log('Client Action');
     fetch(url + destination, { method: method,
         mode: 'cors',
         credentials: 'include',
@@ -28,7 +30,7 @@ function handleResponse(res) {
 }
 
 function showMessage(res) {
-    if (res.userId != undefined){
+    if (res.userId != undefined && userId == undefined){
         userId = res.userId
     } else {
         console.log(`\n${res}`);
@@ -37,15 +39,14 @@ function showMessage(res) {
 
 
 function checkConsent(){
+    console.log(collectData);
     if (collectData == undefined) {
-        collectData = getCookie('consent');
-        if (collectData == null) {
-            let consentBox = document.getElementById("consent");
-            collectData = consentBox.checked;
-            setCookie('consent', consentBox.checked, 30)
-        }
+        let consentBox = document.getElementById("consent");
+        collectData = consentBox.checked;
     }
     if (collectData) {
+
+        setCookie('prevSettings',[currentSlide,currentDeck])
         submitForm();
         if ((currentSlide == decks[currentDeck].slides.length - 1) && (currentDeck != decks.length - 1))
         {
@@ -69,16 +70,6 @@ function checkConsent(){
 `;
             numTries++;
         }
-    }
-    setCookie('prevSettings',[currentDeck,currentSlide], 30)
-}
-
-function removeButtons(){
-    let buttons = document.getElementById(decks[currentDeck].id).getElementsByTagName("button")
-    let len = buttons.length;
-    for (let i = 0; i < len; i++) {
-        console.log(buttons.length)
-        buttons[0].remove();
     }
 }
 
@@ -126,6 +117,7 @@ let serialize = function (form) {
 };
 
 function submitForm() {
+    console.log("Submitted");
 //         /* get form on current slide */
     let forms = document.getElementById(decks[currentDeck].id).getElementsByTagName("form")
 
@@ -154,6 +146,9 @@ function submitForm() {
 //             /* update existing document*/
 //         }
 // }
+
+    //PSEUDOCODE IMPLEMENTATION
+    // Get user ID from mongoDB
 }
 
 /*!
@@ -166,6 +161,8 @@ function submitForm() {
 // Setting Cookie on Client
 
 function setCookie(name,value,days) {
+    console.log('setting cookie')
+
     var expires = "";
     if (days) {
         var date = new Date();
@@ -186,17 +183,14 @@ function getCookie(name) {
 }
 
 function resetSettings(cookie){
+    let targetSlide = cookie[0]
+    let targetDeck = cookie[0]
 
-    if (cookie != null) {
-        let targetSlide = cookie[0]
-        let targetDeck = cookie[0]
-
-        while (targetDeck != currentDeck && targetSlide != currentSlide) {
-            if (currentDeck != -1 && currentSlide != decks[currentDeck].slides.length - 1) {
-                changeSlide(1)
-            } else {
-                changeDeck(1)
-            }
+    while (targetDeck != currentDeck && targetSlide != currentSlide){
+        if (currentDeck != 0 && currentSlide != decks[currentDeck].slides.length-1){
+            changeSlide(1)
+        } else {
+            changeDeck(1)
         }
     }
 }

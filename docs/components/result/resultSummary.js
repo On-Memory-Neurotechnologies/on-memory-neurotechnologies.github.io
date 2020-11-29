@@ -10,6 +10,7 @@ class resultsSummary extends HTMLElement {
         <h1>Results Summary Display</h1>
       </div>
     `;
+    console.log(userId);
   }
 }
 

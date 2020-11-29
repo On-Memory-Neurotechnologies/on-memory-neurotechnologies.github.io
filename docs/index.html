@@ -243,7 +243,7 @@
       function insertProgressButton() {
         if (decks[currentDeck].slides.length == 1) {
           document.getElementById(decks[currentDeck].id).innerHTML += `
-      <button class="move-button bottom" onclick="submitForm(); changeDeck(1)"><i class="arrow down"></i></button>
+      <button class="move-button bottom" onclick="checkConsent(); submitForm(); changeDeck(1)"><i class="arrow down"></i></button>
       <button class="move-button top" onclick="changeDeck(-1)"><i class="arrow up"></i></button>`;
         } else if (currentSlide == decks[currentDeck].slides.length - 1) {
           if (currentDeck == decks.length - 1) {

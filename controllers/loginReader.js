@@ -8,6 +8,7 @@ function getCookie(req,name) {
 
 module.exports.loginReader = async (req, res) => {
     //
+    console.log('Get cookie');
     // "Log in" user and set userId to session.
     let cookie =  getCookie(req,'userId')
     if (cookie === undefined) {
