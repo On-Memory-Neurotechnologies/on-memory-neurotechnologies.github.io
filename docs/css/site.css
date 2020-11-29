@@ -32,7 +32,7 @@ h3 {
   font-size: 20px;
 }
 
-html{
+html {
   overflow: hidden;
 }
 
@@ -118,12 +118,11 @@ strong {
   margin-left: 10vw;
 }
 
-
 .bottom {
   bottom: 0px;
 }
 
-.top{
+.top {
   top: 0px;
 }
 .move-button {
@@ -211,7 +210,7 @@ strong {
   max-width: 80vw;
 }
 
-.form{
+.form {
   max-width: 80vw;
 }
 
@@ -257,6 +256,16 @@ strong {
   flex-direction: column;
   justify-content: center;
   grid-column: 3/4;
+}
+
+.paragraph-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-column: 2/4;
+  text-align: center;
+  min-width: stretch;
+  width: 80vw;
 }
 
 #pat-image {
