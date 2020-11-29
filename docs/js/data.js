@@ -4,7 +4,6 @@ function displayUserId(){
     if (userId != undefined){
         document.getElementById('user-id').innerHTML = userId
     }
-
 }
 
 function clientAction(destination,method,body=JSON.stringify({'default':''})){
@@ -38,6 +37,8 @@ function showMessage(res) {
 
 
 function checkConsent(){
+    setCookie('prevSettings',[currentDeck,currentSlide], 30)
+
     if (collectData == undefined) {
             let consentBox = document.getElementById("consent");
             collectData = consentBox.checked;
@@ -56,7 +57,7 @@ function checkConsent(){
             document.getElementById('warning-message').innerHTML = `
 <h3>Are you sure you want to move forward without data collection?</h3>
 <div id="disclaimer-buttons">
-    <a onclick="changeDeck(1); numTries = 0;" id="button1" class="black">Yes</a>
+    <a onclick="changeDeck(1) ; numTries = 0;" id="button1" class="black">Yes</a>
     <a onclick="unhideForm()" id="button2" class="black">No</a>
 </div>
 `;
@@ -64,14 +65,23 @@ function checkConsent(){
     }
 
     if (numTries == 0) {
-        if ((currentSlide == decks[currentDeck].slides.length - 1) && (currentDeck != decks.length - 1)) {
-            changeDeck(1);
+        if (chosenVignette == null){
+            if ((currentSlide == decks[currentDeck].slides.length - 1) && (currentDeck != decks.length - 1)) {
+                changeDeck(1);
+            } else {
+                changeSlide(1);
+            }
         } else {
-            changeSlide(1);
+            if (vignetteSlide == decks[currentDeck].vignettes[chosenVignette].slides.length - 1) {
+                chosenVignette = null
+                vignetteSlide = -1;
+                changeSlide(0);
+            }
+            else {
+                changeSlide(1);
+            }
         }
     }
-
-    setCookie('prevSettings',[currentDeck,currentSlide], 30)
 }
 
 function removeButtons(){
@@ -203,7 +213,6 @@ function resetSettings() {
             } else {
                 changeDeck(1)
             }
-            console.log(collectData)
         }
     }
 

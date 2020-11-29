@@ -8,6 +8,7 @@
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="css/site.css" />
     <script type="text/javascript" src="js/data.js"></script>
+    <script type="text/javascript" src="js/chatbot.js"></script>
 
     <!-- import custom components -->
     <script src="components/nav.js" type="text/javascript" defer></script>
@@ -26,6 +27,9 @@
     <script src="components/OMN.js" type="text/javascript" defer></script>
     <script src="components/omnIntro.js" type="text/javascript" defer></script>
     <script src="components/vignetteGrid.js" type="text/javascript" defer></script>
+
+    <!--    import chatbots-->
+    <script src="components/chatbots/kenny.js" type="text/javascript" defer></script>
 
     <!-- import vignettes -->
     <script src="components/vignette1/v1intro.js" type="text/javascript" defer></script>
@@ -136,7 +140,7 @@
 
       let odDeck = {
         id: "on-dementia",
-        slides: ["on-dementia", "meet-pat"],
+        slides: ["on-dementia", "meet-pat", "kenny-chatbot"],
       };
 
       let ompDeck = {
@@ -149,10 +153,6 @@
         ],
       };
 
-      let omnDeck = {
-        id: "on-memory-neurotechnologies",
-        slides: ["on-memory-neurotechnologies", "omn-intro", "vignette-grid"],
-      };
 
       let vignette1 = {
         id: "vignette-1",
@@ -206,7 +206,14 @@
         slides: ["v6-intro", "v6-slide1", "v6-slide2", "v6-q1", "v6-q2"],
       };
 
-      var chosenVignette = vignette1;
+      let omnDeck = {
+        id: "on-memory-neurotechnologies",
+        slides: ["on-memory-neurotechnologies", "omn-intro","vignette-grid"],
+        vignettes: [vignette1,vignette2,vignette3,vignette4,vignette5,vignette6]
+      };
+
+      let chosenVignette = null;
+      let vignetteSlide = -1;
 
       let resultSummary = {
         id: "result-summary",
@@ -221,13 +228,15 @@
         ],
       };
 
+
+
+
       let decks = [
         disclaimerDeck,
         formsDeck,
         odDeck,
         ompDeck,
         omnDeck,
-        chosenVignette,
         resultSummary,
       ];
 
@@ -303,14 +312,26 @@
       }
 
       function changeSlide(offset) {
-        currentSlide += offset;
+        if (chosenVignette == null) {
+          currentSlide += offset;
+        } else {
+          vignetteSlide += offset;
+        }
         placeSlideContent();
         insertProgressButton();
       }
 
       function placeSlideContent() {
-        let viewName = decks[currentDeck].slides[currentSlide];
-        document.getElementById(decks[currentDeck].id).innerHTML = `<${viewName}></${viewName}>`;
+
+        if (chosenVignette == null) {
+          let slideName = decks[currentDeck].slides[currentSlide];
+          let deck = document.getElementById(decks[currentDeck].id)
+          deck.innerHTML = `<${slideName}></${slideName}>`;
+        } else {
+          let deck = document.getElementById(decks[currentDeck].id)
+          let vignette = decks[currentDeck].vignettes[chosenVignette].slides[vignetteSlide];
+          deck.innerHTML = `<${vignette}></${vignette}>`;
+        }
       }
 
       // document.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....
