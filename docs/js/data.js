@@ -6,7 +6,7 @@ function displayUserId(){
     }
 }
 
-function clientAction(destination,method,body={}){
+function clientAction(destination,method,body=JSON.stringify({})){
     fetch(url + destination, { method: method,
         mode: 'cors',
         credentials: 'include',
@@ -28,7 +28,7 @@ function handleResponse(res) {
 }
 
 function showMessage(res) {
-    if (res.userId != undefined && userId == undefined){
+    if (res.userId != undefined){
         userId = res.userId
     } else {
         console.log(`\n${res}`);
