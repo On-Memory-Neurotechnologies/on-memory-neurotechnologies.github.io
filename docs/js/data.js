@@ -6,10 +6,14 @@ function displayUserId(){
     }
 }
 
-function clientAction(destination,method){
+function clientAction(destination,method,body={}){
     fetch(url + destination, { method: method,
         mode: 'cors',
-        credentials: 'include'
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: body,
     }).then(handleResponse)
         .then(showMessage)
         .catch(function (err) {
@@ -40,7 +44,6 @@ function checkConsent(){
     if (collectData) {
 
         setCookie('prevSettings',[currentSlide,currentDeck])
-
         submitForm();
         if ((currentSlide == decks[currentDeck].slides.length - 1) && (currentDeck != decks.length - 1))
         {
@@ -78,16 +81,57 @@ function unhideForm(){
     numTries = 0;
 }
 
+// Handle Form Data
+let serialize = function (form) {
+
+    // Setup our serialized data
+    var serialized = [];
+
+    // Loop through each field in the form
+    for (var i = 0; i < form.elements.length; i++) {
+
+        var field = form.elements[i];
+
+        // Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
+        if (!field.name || field.disabled || field.type === 'file' || field.type === 'reset' || field.type === 'submit' || field.type === 'button') continue;
+
+        // If a multi-select, get all selections
+        if (field.type === 'select-multiple') {
+            for (var n = 0; n < field.options.length; n++) {
+                if (!field.options[n].selected) continue;
+                serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.options[n].value));
+            }
+        }
+
+        // Convert field data to a query string
+        else if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
+            serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value));
+        }
+    }
+
+    return serialized.join('&');
+
+};
+
 function submitForm() {
 //         /* get form on current slide */
     let forms = document.getElementById(decks[currentDeck].id).getElementsByTagName("form")
 
     if (forms.length != 0){
-        for (let button of forms) {
-            // get form content
-            if (content != null){
-                clientAction('/submit','POST')
+        for (let form of forms) {
+            let content = serialize(form);
+            content = content.split("&");
+
+            let jsonObj = {}
+            let _temp;
+            for (var i = 0 ; i < content.length; i++) {
+                _temp = content[i].split('=')
+                if (_temp[1] =! '') {
+                    jsonObj[_temp[0]] = _temp[1];
+                }
             }
+                clientAction('submit','POST', JSON.stringify(jsonObj))
+
         }
     }
 
@@ -100,9 +144,18 @@ function submitForm() {
 // }
 }
 
+/*!
+ * Serialize all form data into a query string
+ * (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
+ * @param  {Node}   form The form to serialize
+ * @return {String}      The serialized form data
+ */
+
 // Setting Cookie on Client
 
 function setCookie(name,value,days) {
+    console.log('setting cookie')
+
     var expires = "";
     if (days) {
         var date = new Date();

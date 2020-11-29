@@ -6,7 +6,7 @@ class Disclaimer extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <div class="disclaimer-page">
-        <div id="disclaimer-form" class="form">
+        <form id="disclaimer-form" class="form">
           <div class="center-text">
           <h3>Here is your User ID:</h3>
           <h4>Please save this so that, if requested, we can remove your data.</h4>
@@ -26,7 +26,7 @@ class Disclaimer extends HTMLElement {
 <!--          <h4>You must be 18 or older to participate.</h4>-->
 <!--          <input class="form-input" type="text" name="age" required />-->
 <!--          <br /><br />-->
-        </div>
+        </form>
         <div id="warning-message"></div>
       </div>
     `;
