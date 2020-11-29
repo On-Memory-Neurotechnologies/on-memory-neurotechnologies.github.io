@@ -10,7 +10,11 @@ class MeetPat extends HTMLElement {
           <img id="pat-image" src="assets/pat.svg"/>
         </div>
         <div id="meet-pat-text" class="paragraph-right">
-          <h2>Meet Pat</h2>
+          <div style="margin-bottom: 15px;">
+          <h3>Meet Pat</h3>
+          <h4>May 23, 2035. Los Angeles, CA</h4>
+          </div>
+          <div>
           <p>
             The year is 2035. Pat is a 72-year old woman. She has a husband, two
             adult children, and three grandkids. For 30 years she worked as a
@@ -26,6 +30,7 @@ class MeetPat extends HTMLElement {
             After a trip to her GP and a referral to a Neurologist, Pat is
             diagnosed with Alzheimer’s disease.
           </p>
+          </div>
         </div>
       </div>
     `;

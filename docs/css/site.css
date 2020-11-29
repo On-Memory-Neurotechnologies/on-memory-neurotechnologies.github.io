@@ -326,6 +326,7 @@ h4 a{
 
 /* Chat */
 .phone {
+  cursor: pointer;
   width: 40vw;
   height: 60vw;
   max-height: calc(100vh - 150px);
@@ -362,11 +363,12 @@ h4 a{
   height: calc(100vh);
   padding: 50px;
   background: #111111;
+  overflow-y: scroll;
 }
 
 .messages{
   width: calc(100vw - 100px);
-  height: calc(100vh - 150px);
+  height: calc(100vh - 50px);
   list-style-type:none;
 }
 
@@ -413,7 +415,7 @@ h4 a{
   border-radius:50%;
   display:inline-block;
   overflow: hidden;
-  padding: 2px;
+  padding: 2px 2px 0px 2px;
 }
 
 img {
