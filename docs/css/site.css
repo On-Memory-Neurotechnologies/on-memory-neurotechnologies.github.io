@@ -41,8 +41,8 @@ html {
 }
 
 nav {
-  position: -webkit- sticky;
   position: sticky;
+  position: -webkit-sticky;
   z-index: 1;
   top: 0;
   display: flex;

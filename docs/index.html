@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="css/site.css" />
+    <script type="text/javascript" src="js/data.js"></script>
 
     <!-- import custom components -->
-    <script src="js/data.js" type="text/javascript" defer></script>
     <script src="components/nav.js" type="text/javascript" defer></script>
 
     <script src="components/Disclaimer.js" type="text/javascript" defer></script>
@@ -85,6 +85,7 @@
     <script src="components/result/resultsV5.js" type="text/javascript" defer></script>
     <script src="components/result/resultsV6.js" type="text/javascript" defer></script>
   </head>
+
   <body onload="clientAction('login','POST');">
     <nav-bar></nav-bar>
 
@@ -241,9 +242,10 @@
       }
 
       function insertProgressButton() {
+        removeButtons()
         if (decks[currentDeck].slides.length == 1) {
           document.getElementById(decks[currentDeck].id).innerHTML += `
-      <button class="move-button bottom" onclick="checkConsent(); submitForm(); changeDeck(1)"><i class="arrow down"></i></button>
+      <button class="move-button bottom" onclick="checkConsent();"><i class="arrow down"></i></button>
       <button class="move-button top" onclick="changeDeck(-1)"><i class="arrow up"></i></button>`;
         } else if (currentSlide == decks[currentDeck].slides.length - 1) {
           if (currentDeck == decks.length - 1) {
@@ -251,16 +253,16 @@
       <button class="move-button top" onclick="changeSlide(-1)"><i class="arrow up"></i></button>`;
           } else {
             document.getElementById(decks[currentDeck].id).innerHTML += `
-      <button class="move-button bottom" onclick="submitForm(); changeDeck(1)"><i class="arrow down"></i></button>
+      <button class="move-button bottom" onclick="checkConsent();"><i class="arrow down"></i></button>
       <button class="move-button top" onclick="changeSlide(-1)"><i class="arrow up"></i></button>`;
           }
         } else if (currentSlide == 0) {
           document.getElementById(decks[currentDeck].id).innerHTML += `
-              <button class="move-button bottom" onclick="submitForm(); changeSlide(1)"><i class="arrow down"></i></button>
+              <button class="move-button bottom" onclick="checkConsent();"><i class="arrow down"></i></button>
               <button class="move-button top" onclick="changeDeck(-1)"><i class="arrow up"></i></button>`;
         } else {
           document.getElementById(decks[currentDeck].id).innerHTML += `
-      <button class="move-button bottom" onclick="submitForm(); changeSlide(1)"><i class="arrow down"></i></button>
+      <button class="move-button bottom" onclick="checkConsent();"><i class="arrow down"></i></button>
       <button class="move-button top" onclick="changeSlide(-1)"><i class="arrow up"></i></button>
 
       `;

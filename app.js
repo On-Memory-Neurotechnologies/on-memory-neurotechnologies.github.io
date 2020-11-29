@@ -27,16 +27,12 @@ MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 // Listen to Port
 var port = normalizePort(process.env.PORT || '80');
 
-// view engine setup
-app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'}));
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+// App Setup
 app.use(favicon(path.join(__dirname, 'docs', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'docs')));
 
 //Listen to Port for HTTP Requests
 app.use(function(req, res, next) {
@@ -51,6 +47,8 @@ app.use(function(req, res, next) {
   ];
   const origin = req.headers.origin;
 
+  console.log(origin)
+
   if (validOrigins.includes(origin)) {
     // console.log('valid origin: ' + origin)
     res.setHeader('Access-Control-Allow-Origin', origin);
@@ -64,6 +62,8 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Credentials", "true");
   next();
 });
+
+app.use(express.static(path.join(__dirname, 'docs')));
 
 // Set Routes
 const initRoutes = require("./routes/web");
@@ -86,6 +86,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   console.log('error')
 });
+
 
 app.set('port', port);
 

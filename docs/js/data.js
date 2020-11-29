@@ -7,14 +7,13 @@ function displayUserId(){
 
 }
 
-function clientAction(destination,method,body={}){
-    console.log('Client Action');
+function clientAction(destination,method,body=JSON.stringify({})){
     fetch(url + destination, { method: method,
         mode: 'cors',
         credentials: 'include',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+        // headers: {
+        //     'Content-Type': 'application/json',
+        // },
         body: body,
     }).then(handleResponse)
         .then(showMessage)
@@ -39,10 +38,12 @@ function showMessage(res) {
 
 
 function checkConsent(){
-    console.log(collectData);
     if (collectData == undefined) {
-        let consentBox = document.getElementById("consent");
-        collectData = consentBox.checked;
+        collectData = getCookie('consent');
+        if (collectData == null) {
+            let consentBox = document.getElementById("consent");
+            collectData = consentBox.checked;
+        }
     }
     if (collectData) {
 
@@ -71,6 +72,15 @@ function checkConsent(){
             numTries++;
         }
     }
+    setCookie('prevSettings',[currentDeck,currentSlide], 30)
+}
+
+function removeButtons(){
+    let buttons = document.getElementById(decks[currentDeck].id).getElementsByTagName("button")
+    let len = buttons.length;
+    for (let i = 0; i < len; i++) {
+        buttons[0].remove();
+    }
 }
 
 function unhideForm(){
@@ -85,6 +95,14 @@ function unhideForm(){
 }
 
 // Handle Form Data
+
+
+/*!
+ * Serialize all form data into a query string
+ * (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
+ * @param  {Node}   form The form to serialize
+ * @return {String}      The serialized form data
+ */
 let serialize = function (form) {
 
     // Setup our serialized data
@@ -117,7 +135,6 @@ let serialize = function (form) {
 };
 
 function submitForm() {
-    console.log("Submitted");
 //         /* get form on current slide */
     let forms = document.getElementById(decks[currentDeck].id).getElementsByTagName("form")
 
@@ -151,18 +168,9 @@ function submitForm() {
     // Get user ID from mongoDB
 }
 
-/*!
- * Serialize all form data into a query string
- * (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
- * @param  {Node}   form The form to serialize
- * @return {String}      The serialized form data
- */
-
 // Setting Cookie on Client
 
 function setCookie(name,value,days) {
-    console.log('setting cookie')
-
     var expires = "";
     if (days) {
         var date = new Date();
@@ -182,15 +190,17 @@ function getCookie(name) {
     return null;
 }
 
-function resetSettings(cookie){
-    let targetSlide = cookie[0]
-    let targetDeck = cookie[0]
+function resetSettings(cookie) {
+    if (cookie != null) {
+        let targetSlide = cookie[0]
+        let targetDeck = cookie[0]
 
-    while (targetDeck != currentDeck && targetSlide != currentSlide){
-        if (currentDeck != 0 && currentSlide != decks[currentDeck].slides.length-1){
-            changeSlide(1)
-        } else {
-            changeDeck(1)
+        while (targetDeck != currentDeck && targetSlide != currentSlide) {
+            if (currentDeck != -1 && currentSlide != decks[currentDeck].slides.length - 1) {
+                changeSlide(1)
+            } else {
+                changeDeck(1)
+            }
         }
     }
 }
