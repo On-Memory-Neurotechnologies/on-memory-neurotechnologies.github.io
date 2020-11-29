@@ -37,35 +37,47 @@ function showMessage(res) {
 
 
 function checkConsent(){
-    setCookie('prevSettings',[currentDeck,currentSlide], 30)
+    setCookie('prevSettings',[currentDeck,currentSlide,chosenVignette, vignetteSlide], 30)
 
     if (collectData == undefined) {
             let consentBox = document.getElementById("consent");
             collectData = consentBox.checked;
             setCookie('consent',collectData,30);
     }
+    // else {
+    //     setCookie('consent',collectData,30);
+    // }
 
-    if (collectData) {
-        submitForm();
-    }
-    else if (numTries == 0 && (decks[currentDeck].id == "disclaimer")){
-            let buttons = document.getElementById('disclaimer').getElementsByTagName("button")
-            for (let button of buttons) {
-                button.style.display = 'none';
-            }
-            document.getElementById('disclaimer-form').style.display = 'none';
-            document.getElementById('warning-message').innerHTML = `
+    if (currentDeck != -1) {
+        if (collectData) {
+            submitForm();
+        } else if (numTries == 0 && (decks[currentDeck].id == "disclaimer")) {
+
+            if (reset) {
+                numTries = 0;
+            } else {
+                let buttons = document.getElementById('disclaimer').getElementsByTagName("button")
+                for (let button of buttons) {
+                    button.style.display = 'none';
+                }
+                document.getElementById('disclaimer-form').style.display = 'none';
+                document.getElementById('warning-message').innerHTML = `
 <h3>Are you sure you want to move forward without data collection?</h3>
 <div id="disclaimer-buttons">
     <a onclick="changeDeck(1) ; numTries = 0;" id="button1" class="black">Yes</a>
     <a onclick="unhideForm()" id="button2" class="black">No</a>
 </div>
 `;
-        numTries++;
+                numTries++;
+            }
+        }
     }
 
     if (numTries == 0) {
-        if (chosenVignette == null){
+        if (currentDeck == -1){
+            changeDeck(1);
+        }
+        else if (chosenVignette == null){
             if ((currentSlide == decks[currentDeck].slides.length - 1) && (currentDeck != decks.length - 1)) {
                 changeDeck(1);
             } else {
@@ -199,26 +211,51 @@ function getCookie(name) {
     return null;
 }
 
-function resetSettings() {
-
-    // Position
-    let settings = getCookie('prevSettings')
-    if (settings != null) {
-        let targetSlide = settings[0]
-        let targetDeck = settings[0]
-
-        while (targetDeck != currentDeck && targetSlide != currentSlide) {
-            if (currentDeck != -1 && currentSlide != decks[currentDeck].slides.length - 1) {
-                changeSlide(1)
-            } else {
-                changeDeck(1)
-            }
-        }
-    }
-
+function resetSettings(reset) {
     // Consent
     let consent = getCookie('consent');
-    if (consent != null){
+    if (consent != '') {
         collectData = consent;
+    } else {
+        collectData = false;
     }
+
+    // Position
+    let settings = [4,2,2,1]; // getCookie('prevSettings')
+    if (settings != null) {
+        let targetDeck = settings[0]
+        let targetSlide = settings[1]
+        let targetVignette = settings[2]
+        let targetVignetteSlide = settings[3]
+
+
+        while (targetDeck != currentDeck || targetSlide != currentSlide) {
+                checkConsent();
+        }
+
+        if (decks[currentDeck].slides[currentSlide] == 'vignette-grid') {
+            chosenVignette = targetVignette;
+            while (targetVignetteSlide != vignetteSlide) {
+                checkConsent();
+            }
+        }
+        console.log('done')
+    }
+    return false
+}
+
+
+// Team
+// Team
+function getPerson(fullName){
+    document.getElementById("team").style.display = `none`
+    document.getElementById("team-header").style.display = `none`
+    document.getElementById("person").innerHTML = `<${fullName}></${fullName}>`
+    document.getElementById("person").insertAdjacentHTML( 'beforeend', `<button id="back" onclick="backToTeam()"> Back to the Team</button>`)
+}
+
+function backToTeam(){
+    document.getElementById("team").style.display = `flex`
+    document.getElementById("team-header").style.display = `block`
+    document.getElementById("person").innerHTML = ``
 }
