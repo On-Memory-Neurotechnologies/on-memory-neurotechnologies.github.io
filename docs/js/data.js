@@ -7,7 +7,7 @@ function displayUserId(){
 
 }
 
-function clientAction(destination,method,body=JSON.stringify({})){
+function clientAction(destination,method,body=JSON.stringify({'default':''})){
     fetch(url + destination, { method: method,
         mode: 'cors',
         credentials: 'include',
@@ -39,24 +39,15 @@ function showMessage(res) {
 
 function checkConsent(){
     if (collectData == undefined) {
-        collectData = getCookie('consent');
-        if (collectData == null) {
             let consentBox = document.getElementById("consent");
             collectData = consentBox.checked;
-        }
+            setCookie('consent',collectData,30);
     }
-    if (collectData) {
 
-        setCookie('prevSettings',[currentSlide,currentDeck])
+    if (collectData) {
         submitForm();
-        if ((currentSlide == decks[currentDeck].slides.length - 1) && (currentDeck != decks.length - 1))
-        {
-            changeDeck(1);
-        } else {
-            changeSlide(1);
-        }
-    } else {
-        if (numTries == 0) {
+    }
+    else if (numTries == 0 && (decks[currentDeck].id == "disclaimer")){
             let buttons = document.getElementById('disclaimer').getElementsByTagName("button")
             for (let button of buttons) {
                 button.style.display = 'none';
@@ -69,9 +60,17 @@ function checkConsent(){
     <a onclick="unhideForm()" id="button2" class="black">No</a>
 </div>
 `;
-            numTries++;
+        numTries++;
+    }
+
+    if (numTries == 0) {
+        if ((currentSlide == decks[currentDeck].slides.length - 1) && (currentDeck != decks.length - 1)) {
+            changeDeck(1);
+        } else {
+            changeSlide(1);
         }
     }
+
     setCookie('prevSettings',[currentDeck,currentSlide], 30)
 }
 
@@ -190,10 +189,13 @@ function getCookie(name) {
     return null;
 }
 
-function resetSettings(cookie) {
-    if (cookie != null) {
-        let targetSlide = cookie[0]
-        let targetDeck = cookie[0]
+function resetSettings() {
+
+    // Position
+    let settings = getCookie('prevSettings')
+    if (settings != null) {
+        let targetSlide = settings[0]
+        let targetDeck = settings[0]
 
         while (targetDeck != currentDeck && targetSlide != currentSlide) {
             if (currentDeck != -1 && currentSlide != decks[currentDeck].slides.length - 1) {
@@ -201,6 +203,13 @@ function resetSettings(cookie) {
             } else {
                 changeDeck(1)
             }
+            console.log(collectData)
         }
+    }
+
+    // Consent
+    let consent = getCookie('consent');
+    if (consent != null){
+        collectData = consent;
     }
 }
