@@ -56,6 +56,16 @@ strong {
   font-family: montSemiBold;
 }
 
+.slide {
+  transition: all 1s;
+  max-height: 300px;
+}
+
+.slide.pre-animation {
+  opacity:0;
+  max-height: 0;
+}
+
 .logo {
   margin-left: 10vw;
   color: white;
@@ -67,7 +77,6 @@ strong {
 }
 
 .page {
-  position: absolute;
   height: calc(100vh - 50px);
   display: flex;
   overflow: hidden;
@@ -284,6 +293,14 @@ strong {
 
 #meet-pat-text p {
   padding-bottom: 20px;
+}
+
+
+.chatbot {
+  width: calc(100vw - 100px);
+  margin: 50px;
+  height: calc(100vh - 150px);
+  background: red;
 }
 
 @media (max-width: 1000px) {

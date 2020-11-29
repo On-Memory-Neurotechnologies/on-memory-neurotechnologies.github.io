@@ -8,12 +8,12 @@ class vignetteGrid extends HTMLElement {
         <div class="grid">
             <p class="paragraph-middle">
             [show grid with names of the people in the vignettes:<br/>
-              Christopher and Jessica<br/>
-              Anne<br/>
-              Rob<br/>
-              Dolly<br/>
-              Amanda and Joseph<br/>
-              Matthew]
+              <button onclick="chosenVignette = 0; checkConsent()">Christopher and Jessica</button></button><br/>
+              <button onclick="chosenVignette = 1; checkConsent()">Anne</button><br/>
+              <button onclick="chosenVignette = 2; checkConsent()">Rob</button><br/>
+              <button onclick="chosenVignette = 3; checkConsent()">Dolly</button><br/>
+              <button onclick="chosenVignette = 4; checkConsent()">Amanda and Joseph</button><br/>
+              <button onclick="chosenVignette = 5; checkConsent()">Matthew</button>]
             </p>
         </div>
       `;
