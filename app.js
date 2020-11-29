@@ -40,9 +40,28 @@ app.use(express.static(path.join(__dirname, 'docs')));
 
 //Listen to Port for HTTP Requests
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  const validOrigins = [
+    `http://localhost`,
+    'https://onmemoryneurotech.azurewebsites.net',
+    'http://onmemoryneurotech.azurewebsites.net',
+    'http://slab.usc.edu',
+    'https://slab.usc.edu',
+    'http://97.90.237.21',
+    'http://97.90.237.21:63342'
+  ];
+  const origin = req.headers.origin;
+
+  if (validOrigins.includes(origin)) {
+    // console.log('valid origin: ' + origin)
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  } else {
+    // console.log('invalid origin: ' + origin)
+  }
+
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Methods",
+      "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Credentials", "true");
   next();
 });
 
