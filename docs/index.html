@@ -116,12 +116,12 @@
       let numTries = 0;
       let userId = undefined;
 
-      let option = "local";
+      let option = 'server';
       let url;
-      if (option === "local") {
-        url = new URL("http://localhost");
-      } else if (option === "server") {
-        url = new URL("https://songlab.azurewebsites.net/");
+      if (option  === 'local'){
+        url = new URL('http://localhost');
+      } else if (option === 'server'){
+        url = new URL('https://onmemoryneurotech.azurewebsites.net/');
       }
 
       let disclaimerDeck = {
