@@ -13,7 +13,7 @@ class vignette1Question1 extends HTMLElement {
 
             <form class="paragraph-middle">	
               <input type="radio" name="choice" id="yes-v1q1" checked>
-              <label for="yes-v1q1>Yes</label>
+              <label for="yes-v1q1">Yes</label>
               <input type="radio" name="choice" id="no-v1q1">
               <label for="no-v1q1">No</label>
             </form>

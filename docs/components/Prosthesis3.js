@@ -18,6 +18,9 @@ class Prosthesis3 extends HTMLElement {
               <br /><br />
               <strong>Let’s see this in action!</strong>
           </p>
+          <p class="paragraph-right">
+                <img id="pat-image" src="assets/realhmp.png"/>
+            </p>
       </div>
       `;
   }

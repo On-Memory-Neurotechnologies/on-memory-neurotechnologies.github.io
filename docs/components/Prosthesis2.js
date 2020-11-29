@@ -6,6 +6,9 @@ class Prosthesis2 extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <div class="grid">
+      <div class="paragraph-left">
+          <img id="pat-image" src="assets/hmp.png"/>
+        </div>
           <p class="paragraph-right">
           In the year 2035, memory prostheses like the one Pat will receive might be commonplace. Right now,
           scientists are working to make that future a reality.

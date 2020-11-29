@@ -22,6 +22,12 @@ h3 {
   font-family: montSemiBold;
 }
 
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #358597;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -50,6 +56,14 @@ nav {
   align-items: center;
   background-color: #358597;
   min-height: 50px;
+  padding: 0px 10vw;
+
+}
+
+.nav-link {
+  font-size: 60%;
+  color: white;
+  padding-left: 25px;
 }
 
 strong {
@@ -67,12 +81,11 @@ strong {
 }
 
 .logo {
-  margin-left: 10vw;
   color: white;
   cursor: default;
 }
+
 .logo a {
-  text-decoration: none;
   color: white;
 }
 
@@ -228,8 +241,13 @@ strong {
 }
 
 
-.form h4 {
-  font-family: montLight;
+h4 {
+  font-family: montReg;
+  font-size: 16px;
+}
+
+h4 a{
+  font-family: montReg;
   font-size: 16px;
 }
 
@@ -301,6 +319,43 @@ strong {
   margin: 50px;
   height: calc(100vh - 150px);
   background: red;
+}
+
+team-page .header-page{
+  width: calc(100vw - 100px);
+  margin: 50px;
+  height: calc(100vh - 150px);
+  text-align: left;
+}
+
+#team {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#back {
+  font-size: 80%;
+  border: none;
+  background: #358597;
+  color: white;
+  width: 200px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.person {
+  max-height: calc(50vh/3);
+  width:auto;
+}
+
+#person{
+  margin-left: 10px;
+  text-align: left;
+}
+
+#person h3{
+  margin: 0px 0px 5px 0px;
 }
 
 @media (max-width: 1000px) {

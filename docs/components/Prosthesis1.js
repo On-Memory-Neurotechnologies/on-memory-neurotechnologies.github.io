@@ -16,6 +16,9 @@ class Prosthesis extends HTMLElement {
             field, and scientists are working every day to not only understand dementia, but also find ways to
             preserve and restore memories in dementia patients.
             </p>
+            <p class="paragraph-right">
+                <img id="pat-image" src="assets/singh.svg"/>
+            </p>
         </div>
       `;
   }
