@@ -20,8 +20,6 @@ var addTimeout = function(milliseconds) {
 
 async function runChat(chat){
     let names = Object.keys(chat.people);
-    console.log(names)
-
     let res;
     let who;
     let where;
@@ -78,6 +76,7 @@ function fullscreenChat(){
     let fullChat = chatbot[0].cloneNode( true );
     slide[0].innerHTML = '';
     slide[0].append(fullChat)
+    fullChat.style.display = 'block'
     fullChat.classList.remove("chatbot");
     fullChat.classList.add("full-chatbot");
     fullChat.removeAttribute("onclick");
