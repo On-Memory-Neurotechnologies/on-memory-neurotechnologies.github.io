@@ -35,7 +35,7 @@
       <div class="buttons">
         <a onclick="changeDeck(1)" id="button1" class="white">Start a new session</a>
         <a onclick="
-        let cookie = getCookie('prevSettings',[currentSlide,currentDeck]); resetSettings(cookie)" id="button2" class="white">Continue last session</a>
+        let cookie = getCookie('prevSettings'); resetSettings(cookie)" id="button2" class="white">Continue last session</a>
       </div>
     </div>
 
@@ -94,6 +94,7 @@
       }
 
       function insertProgressButton() {
+        removeButtons()
         if (decks[currentDeck].slides.length == 1){
           document.getElementById(
                   decks[currentDeck].id

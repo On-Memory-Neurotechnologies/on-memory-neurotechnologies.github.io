@@ -38,12 +38,14 @@ function showMessage(res) {
 
 function checkConsent(){
     if (collectData == undefined) {
-        let consentBox = document.getElementById("consent");
-        collectData = consentBox.checked;
+        collectData = getCookie('consent');
+        if (collectData == null) {
+            let consentBox = document.getElementById("consent");
+            collectData = consentBox.checked;
+            setCookie('consent', consentBox.checked, 30)
+        }
     }
     if (collectData) {
-
-        setCookie('prevSettings',[currentSlide,currentDeck])
         submitForm();
         if ((currentSlide == decks[currentDeck].slides.length - 1) && (currentDeck != decks.length - 1))
         {
@@ -67,6 +69,16 @@ function checkConsent(){
 `;
             numTries++;
         }
+    }
+    setCookie('prevSettings',[currentDeck,currentSlide], 30)
+}
+
+function removeButtons(){
+    let buttons = document.getElementById(decks[currentDeck].id).getElementsByTagName("button")
+    let len = buttons.length;
+    for (let i = 0; i < len; i++) {
+        console.log(buttons.length)
+        buttons[0].remove();
     }
 }
 
@@ -154,8 +166,6 @@ function submitForm() {
 // Setting Cookie on Client
 
 function setCookie(name,value,days) {
-    console.log('setting cookie')
-
     var expires = "";
     if (days) {
         var date = new Date();
@@ -176,14 +186,17 @@ function getCookie(name) {
 }
 
 function resetSettings(cookie){
-    let targetSlide = cookie[0]
-    let targetDeck = cookie[0]
 
-    while (targetDeck != currentDeck && targetSlide != currentSlide){
-        if (currentDeck != 0 && currentSlide != decks[currentDeck].slides.length-1){
-            changeSlide(1)
-        } else {
-            changeDeck(1)
+    if (cookie != null) {
+        let targetSlide = cookie[0]
+        let targetDeck = cookie[0]
+
+        while (targetDeck != currentDeck && targetSlide != currentSlide) {
+            if (currentDeck != -1 && currentSlide != decks[currentDeck].slides.length - 1) {
+                changeSlide(1)
+            } else {
+                changeDeck(1)
+            }
         }
     }
 }

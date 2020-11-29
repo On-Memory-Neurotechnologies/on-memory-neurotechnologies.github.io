@@ -22,10 +22,6 @@ class Disclaimer extends HTMLElement {
           <label for="consent">
             I am at least 18 years of age and consent to the collection and display of my data for On Memory Neurotechnologies
           </label>
-<!--          <h3>How old are you?</h3>-->
-<!--          <h4>You must be 18 or older to participate.</h4>-->
-<!--          <input class="form-input" type="text" name="age" required />-->
-<!--          <br /><br />-->
         </form>
         <div id="warning-message"></div>
       </div>
