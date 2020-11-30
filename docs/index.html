@@ -24,12 +24,15 @@
 
     <script src="components/OnDementia.js" type="text/javascript" defer></script>
     <script src="components/MeetPat.js" type="text/javascript" defer></script>
+    <script src="components/decision.js" type="text/javascript" defer></script>
 
     <script src="components/OMP.js" type="text/javascript" defer></script>
     <script src="components/Prosthesis1.js" type="text/javascript" defer></script>
     <script src="components/Prosthesis2.js" type="text/javascript" defer></script>
     <script src="components/Prosthesis3.js" type="text/javascript" defer></script>
     <script src="components/TestForms.js" type="text/javascript" defer></script>
+    <script src="components/samplePhase.js" type="text/javascript" defer></script>
+    <script src="components/matchPhase.js" type="text/javascript" defer></script>
 
     <script src="components/OMN.js" type="text/javascript" defer></script>
     <script src="components/omnIntro.js" type="text/javascript" defer></script>
@@ -159,7 +162,7 @@
 
       let odDeck = {
         id: "on-dementia",
-        slides: ["on-dementia", "meet-pat", "kenny-chatbot", "children-chatbot", "singh-chatbot"],
+        slides: ["on-dementia", "meet-pat", "kenny-chatbot", "children-chatbot", "singh-chatbot","decision-page"],
       };
 
       let ompDeck = {
@@ -169,6 +172,8 @@
           "the-prosthesis-1",
           "the-prosthesis-2",
           "the-prosthesis-3",
+          "sample-phase",
+          "match-phase"
         ],
       };
 
@@ -251,7 +256,7 @@
         slides: ["thank-you", "team-page"],
       };
 
-      let decks = [disclaimerDeck, formsDeck, odDeck, ompDeck, omnDeck, resultSummary, thankYou];
+      let decks = [disclaimerDeck, odDeck, ompDeck, omnDeck, resultSummary, thankYou];
 
       window.addEventListener("resize", goToScrollAnchor);
 
