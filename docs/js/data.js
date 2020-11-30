@@ -1,3 +1,37 @@
+/*
+let dbName = "on-memory-neurotechnologies"
+let collectionName = "readers"
+
+mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const readerSchema = new Schema({
+    userID: String,
+    age: Number,
+    hasAlzheimers: Boolean,
+
+    v1Q1: String,
+    v1Q2: String,
+    v1Q3: String,
+    v1Q4: Number,
+    v1Q5: String,
+    v2Q1: String,
+    v2Q2: String,
+    v3Q1: String,
+    v3Q2: String,
+    v3Q3: String,
+    v4Q1: String,
+    v4Q1Desc: String,
+    v4Q2: String,
+    v4Q2Desc: String,
+    v4Q3Pros: String,
+    v4Q3Cons: String,
+    v4Q5: String,
+    v5Q1: String,
+    v5Q2: String,
+    v6Q1: String,
+    v6Q2: String,
+});
+*/
 
 // Functions to Log User In
 function displayUserId(){
@@ -159,6 +193,8 @@ function submitForm() {
 //         /* get form on current slide */
     let forms = document.getElementById(decks[currentDeck].id).getElementsByTagName("form")
 
+    // Check if object already exists
+
     if (forms.length != 0){
         for (let form of forms) {
             let content = serialize(form);
@@ -172,12 +208,35 @@ function submitForm() {
                     jsonObj[_temp[0]] = _temp[1];
                 }
             }
-                clientAction('submit','POST', JSON.stringify(jsonObj))
-
+                clientAction('submit','POST', JSON.stringify(jsonObj));
+                console.log(jsonObj);
+                console.log(JSON.stringify(jsonObj));
+                let uID = document.getElementById('user-id').innerHTML;
+                console.log(uID);
+                // Submit User ID
+                //clientAction('submit','POST', uID);
+                //db(dbName).collection(collectionName).insertOne(req.body);
         }
+    
+    
+        
+        
+        
+        /*
+        MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        let dbo = db.db("mydb");
+        var myobj = { name: "Company Inc", address: "Highway 37" };
+        dbo.collection("readers").insertOne(myobj, function(err, res) {
+            if (err) throw err;
+            console.log("1 document inserted");
+            db.close();
+        });
+        });
+        */
     }
 
-    // SERVER SIDE PSEUDOCODE
+    //SERVER SIDE PSEUDOCODE
 //         if (/*user id is not already in mongodb */) {
 //             /* create new document in mongodb */
 //         } else {
@@ -187,6 +246,7 @@ function submitForm() {
 
     //PSEUDOCODE IMPLEMENTATION
     // Get user ID from mongoDB
+    
 }
 
 // Setting Cookie on Client
