@@ -21,15 +21,6 @@ class MeetPat extends HTMLElement {
             librarian, but she retired 7 years ago and has volunteered three days
             per week at the local animal shelter ever since.
           </p>
-          <p>
-            Recently, she started mixing up the times of her shifts at the
-            shelter. Her family also began to notice her repeating questions like,
-            “what’s everyone doing this weekend?” within a short period of time.
-          </p>
-          <p>
-            After a trip to her GP and a referral to a Neurologist, Pat is
-            diagnosed with Alzheimer’s disease.
-          </p>
           </div>
         </div>
       </div>

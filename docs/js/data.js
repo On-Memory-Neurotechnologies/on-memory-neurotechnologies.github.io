@@ -41,8 +41,6 @@ function displayUserId(){
 }
 
 function clientAction(destination,method,body=JSON.stringify({'default':''})){
-
-    console.log(body)
     fetch(url + destination, { method: method,
         mode: 'cors',
         credentials: 'include',
@@ -73,6 +71,7 @@ function showMessage(res) {
 
 
 function checkConsent(){
+    console.log([currentDeck,currentSlide,chosenVignette, vignetteSlide])
     setCookie('prevSettings',[currentDeck,currentSlide,chosenVignette, vignetteSlide], 30)
 
     if (collectData == undefined) {
@@ -276,21 +275,24 @@ function resetSettings(reset) {
     }
 
     // Position
-    let settings = [4,2,2,1]; // getCookie('prevSettings')
+    let settings = getCookie('prevSettings')
     if (settings != null) {
         let targetDeck = settings[0]
         let targetSlide = settings[1]
         let targetVignette = settings[2]
         let targetVignetteSlide = settings[3]
 
-
         while (targetDeck != currentDeck || targetSlide != currentSlide) {
-                checkConsent();
+            console.log(targetDeck + '!=' + currentDeck)
+            console.log(targetSlide + '!=' + currentSlide)
+            checkConsent();
+                console.log('stuck in content')
         }
 
         if (decks[currentDeck].slides[currentSlide] == 'vignette-grid') {
             chosenVignette = targetVignette;
             while (targetVignetteSlide != vignetteSlide) {
+                console.log('stuck in vignette')
                 checkConsent();
             }
         }
