@@ -25,6 +25,10 @@
     <script src="components/OnDementia.js" type="text/javascript" defer></script>
     <script src="components/MeetPat.js" type="text/javascript" defer></script>
     <script src="components/decision.js" type="text/javascript" defer></script>
+    <script src="components/questions/history.js" type="text/javascript" defer></script>
+    <script src="components/questions/decline.js" type="text/javascript" defer></script>
+    <script src="components/questions/knowledge.js" type="text/javascript" defer></script>
+    <script src="components/questions/support.js" type="text/javascript" defer></script>
 
     <script src="components/OMP.js" type="text/javascript" defer></script>
     <script src="components/Prosthesis1.js" type="text/javascript" defer></script>
@@ -164,7 +168,19 @@
 
       let odDeck = {
         id: "on-dementia",
-        slides: ["on-dementia", "meet-pat", "kenny-chatbot", "children-chatbot", "singh-chatbot","decision-page"],
+        slides: [
+          "on-dementia",
+          "meet-pat",
+          "kenny-chatbot",
+          "children-chatbot",
+          "singh-chatbot",
+          "history-question",
+          "decline-question",
+          "decision-page",
+          "prior-knowledge",
+          "support-question1",
+
+        ],
       };
 
       let ompDeck = {
@@ -177,7 +193,7 @@
           "surgery-chatbot",
           "sample-phase",
           "match-phase",
-          "shelter-chatbot"
+          "shelter-chatbot",
         ],
       };
 
@@ -391,180 +407,268 @@
       }
     </script>
     <script>
+      let defaultTime = 3000;
+      let kennyChat = {
+        id: "kenny-messages",
+        progression: [
+          ["kenny", "pat", "kenny", "pat"],
+          ["kenny", "pat", "kenny", "pat"],
+        ],
+        time: [
+          [defaultTime, defaultTime, defaultTime, defaultTime],
+          [defaultTime, defaultTime, defaultTime, defaultTime],
+        ],
+        people: {
+          pat: [
+            ["Thanks Kenny! What time is my shift tomorrow?", "See you tomorrow!"],
+            [
+              "Hi Kenny! What time am I scheduled for again?",
+              "Oh...hmm...that must have slipped my mind. Well, I’ll take your word for it. See you soon",
+            ],
+          ],
+          kenny: [
+            [
+              "Hi Pat! We’re looking forward to seeing you for your shift at the shelter tomorrow!",
+              "11am. See you then!",
+            ],
+            [
+              "West Side Animal Shelter, Kenny speaking.",
+              "Uh...it’s 30 minutes from now at 11am. We texted about it yesterday. Don’t you remember?",
+            ],
+          ],
+        },
+      };
 
-    let defaultTime = 3000;
-    let kennyChat = {
-      id: 'kenny-messages',
-      progression: [['kenny','pat','kenny','pat'],['kenny','pat','kenny','pat']],
-      time: [[defaultTime,defaultTime,defaultTime,defaultTime],[defaultTime,defaultTime,defaultTime,defaultTime]],
-      people:
-              {
-                pat: [
-                  [
-                    'Thanks Kenny! What time is my shift tomorrow?',
-                    'See you tomorrow!'
-                  ],
-                  [
-                    'Hi Kenny! What time am I scheduled for again?',
-                    'Oh...hmm...that must have slipped my mind. Well, I’ll take your word for it. See you soon'
-                  ]
-                ],
-                kenny: [
-                  [
-                    'Hi Pat! We’re looking forward to seeing you for your shift at the shelter tomorrow!',
-                    '11am. See you then!',
-                  ],
-                  [
-                    'West Side Animal Shelter, Kenny speaking.',
-                    'Uh...it’s 30 minutes from now at 11am. We texted about it yesterday. Don’t you remember?',
-                  ]
-                ]
-              }
-    }
+      let childrenChat = {
+        id: "children-messages",
+        progression: [
+          ["cori", "will", "pat", "cori", "pat", "cori", "will", "pat", "pat", "cori", "pat"],
+        ],
+        time: [
+          [
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+          ],
+        ],
+        people: {
+          pat: [
+            [
+              "Well maybe you’d share it with you dear mother? Cor, what are you and the kids up to this weekend?",
+              "Well I know she’s feeling very grown up since she turned 10 but Paul and I would love to have her stay here for the night! Seems like ages since we had some time with her.",
+              "Well you were a kid so long ago now that they just hadn’t invented board games and popcorn yet!",
+              "So, Cor. Do the kids have anything going on this weekend? If Bree has a game, Paul and I could come cheer!",
+              "Oh...of course she can come stay! She’s always welcome here. I’m just tired after dinner I guess…",
+            ],
+          ],
+          cori: [
+            [
+              "Will, your mashed potatoes always steal the show! I’m gonna get your secret recipe out of you one of these days.",
+              "Bree has a softball game Saturday morning and Jacob is sleeping over at a friend’s for a birthday that night. Would be great if Bree could go with a friend after the game or something so Tucker and I could have a night to ourselves.",
+              "That would be great, mom! Thank you! She always loves the popcorn and board games marathon you and dad do with her.",
+              "Um...Yeah she has a game this weekend. I just told you that and you said she could come stay the night with you and dad afterward. Is everything OK?",
+            ],
+          ],
+          will: [
+            [
+              "Dream on, sis. That recipe goes with me to the grave!",
+              "How come I never got a popcorn and board games marathon?",
+            ],
+          ],
+        },
+      };
 
-    let childrenChat = {
-      id: 'children-messages',
-      progression: [['cori','will','pat','cori','pat','cori','will','pat','pat','cori','pat']],
-      time: [[defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime]],
-      people:
-              {
-                pat: [
-                  [
-                    'Well maybe you’d share it with you dear mother? Cor, what are you and the kids up to this weekend?',
-                    'Well I know she’s feeling very grown up since she turned 10 but Paul and I would love to have her stay here for the night! Seems like ages since we had some time with her.',
-                    'Well you were a kid so long ago now that they just hadn’t invented board games and popcorn yet!',
-                    'So, Cor. Do the kids have anything going on this weekend? If Bree has a game, Paul and I could come cheer!',
-                    'Oh...of course she can come stay! She’s always welcome here. I’m just tired after dinner I guess…',
-                  ]
-                ],
-                cori: [
-                  [
-                    'Will, your mashed potatoes always steal the show! I’m gonna get your secret recipe out of you one of these days.',
-                    'Bree has a softball game Saturday morning and Jacob is sleeping over at a friend’s for a birthday that night. Would be great if Bree could go with a friend after the game or something so Tucker and I could have a night to ourselves.',
-                    'That would be great, mom! Thank you! She always loves the popcorn and board games marathon you and dad do with her.',
-                    'Um...Yeah she has a game this weekend. I just told you that and you said she could come stay the night with you and dad afterward. Is everything OK?',
-                  ]
-                ],
-                will: [
-                  [
-                    'Dream on, sis. That recipe goes with me to the grave!',
-                    'How come I never got a popcorn and board games marathon?',
-                  ]
-                ]
-              }
-    }
+      let singhChat = {
+        id: "singh-messages",
+        progression: [
+          ["singh", "pat", "singh", "pat", "singh", "pat", "singh", "pat", "singh", "pat"],
+          [
+            "singh",
+            "paul",
+            "singh",
+            "pat",
+            "singh",
+            "pat",
+            "singh",
+            "paul",
+            "singh",
+            "pat",
+            "singh",
+            "pat",
+            "singh",
+            "paul",
+            "pat",
+            "singh",
+            "pat",
+            "singh",
+            "pat",
+            "singh",
+            "pat",
+          ],
+        ],
+        time: [
+          [
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+          ],
+          [
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+          ],
+        ],
+        people: {
+          pat: [
+            [
+              "Um...yes...uh...some water would be nice.",
+              "Thank you. You can go ahead with the information now.",
+              "What is Alzheimer’s doing to my brain? Why does it make me forget things?",
+              "Am I...am I going to forget my children? My grandchildren? I can’t...I can’t even imagine.",
+              "Sure, let’s have Paul join us. Thank you Dr. Singh.",
+            ],
+            [
+              "And what about things like crossword puzzles or exercising? That’s supposed to help, right?",
+              "Well I love walking the dogs at the shelter so I can make sure I keep doing that!",
+              "Interesting. So, if my memory is in my brain then does the prosthesis go in my brain?",
+              "Wow, very interesting. So this treatment would mean having a brain surgery?",
+              "Yeah, does it stop me from losing my memory?",
+              "Besides the surgery, that sounds pretty great.",
+              "Yeah, I’d like to sleep on it and talk to my kids about the options. But I am very interested in the memory prosthesis.",
+              "Yes, thank you Dr. Singh.",
+            ],
+          ],
+          singh: [
+            [
+              "Based on the symptoms you described and some of the tests that I ran, you qualify for a diagnosis of early stage dementia . Because you have no other major health problems like stroke, brain tumors, and we’ve ruled out a reaction to medication, the mostly likely explanation is that this dementia is caused by the onset of Alzheimer’s disease. I know this isn’t easy news to hear but I want to share some more information with you about what that means and what we can do to support you. Do you want to take a moment before I go on? Or can I get you anything? Maybe a glass of water?",
+              "Here you are. Let me know when you’re ready to keep going.",
+              "Alright. As you probably already know, dementia is characterized by memory loss and Alzheimer’s is a brain condition that causes dementia. It starts out small, forgetting things like when or where something has happened or is supposed to happen, like your shifts at the shelter. You might also have a hard time finding the right words for something. As the disease progresses, you and your family might notice other changes.",
+              "Alzheimer’s first affects an area of the brain called the hippocampus. When the hippocampus is functioning normally, it records new memories, for example, the name of a person you’re meeting for the first time. When you see that person again, the hippocampus helps you retrieve the memory of that name so you can say, “Hi, Ben!” When Alzheimer’s is affecting the hippocampus, it’s harder to make new memories. That’s why you might have forgotten when you were scheduled for volunteering at the shelter or forgotten you had asked a question just a few minutes before.",
+              'We can’t know for sure how Alzheimer"s will affect you specifically. It’s a little different for everyone. But yes, that is a possibility. The good news is that while we cannot cure Alzheimer’s disease, you have many treatment options available to you. Now that we’ve talked a little just the two of us, would it be alright for us to invite your husband, Paul, in from the waiting room? The three of us can go over those treatment options.',
+            ],
+            [
+              "Ok, now that we’ve gone through the test results, let’s talk treatment.",
+              "Perhaps, yes. Pharmaceutical drugs are one option. There are a few different drugs that can help with the memory loss symptoms. To work properly, they must be taken every day and they can slow the progression of the symptoms by about six months.",
+              "Yes, those things can help a little too. Making sure you do things to keep your body and mind active can help your brain be more flexible. That way if one part stops working so well due to the Alzheimer’s, another part that is less affected by the disease can compensate.",
+              "That’s a great idea. There’s one more option to tell you about. It’s called a memory prosthesis.",
+              "Yes it’s sort of like that. Just like a prosthetic leg can help someone who lost their natural leg resume functions like walking, the memory prosthesis can help do some of the functions that your natural memory can no longer perform.",
+              "Exactly, it goes in the brain. Remember I mentioned that Alzheimer’s begins in the hippocampus? The part of the brain that helps you make new memories. Because you’re in the early stages of Alzheimer’s disease, Pat, you may be a candidate for a hippocampal prosthesis.",
+              "Yes, we perform a surgery to insert the memory prosthesis. During the surgery, we open the skull and insert a small implant in the hippocampus. It uses electrical stimulation to mimic the natural functions of the hippocampus. The implant works as the prosthesis to help your hippocampus continue forming new memories. Electrical stimulation of the brain is used in many therapies for brain-based diseases. For example, some Parkinson’s disease patients choose  deep brain stimulation to treat their tremor symptoms and it can be very effective.",
+              "Paul is right that the surgery does come with some risks, similar to any other brain surgery. You would spend a day or two in the hospital afterward and a full recovery takes 4-8 weeks. We would make sure that you are a good candidate in terms of your physical health before pursuing this treatment option. As for how long the prosthesis is effective, it’s a little different for each person. It won’t stop the progression of the disease or stop memory loss entirely, but you might feel like your memory goes back to working closer to what it was like when you were younger and it might help slow down the loss of memory.",
+              "If this is an option you want to consider, I would run a few more tests to confirm whether you are a good candidate for surgery. You can still take some time to decide what you’d like to do.",
+              "That sounds like a good plan. In case you decide to go with the prosthesis, we can start the process of making sure you’d be a good candidate for surgery now. Should I go ahead and order those tests?",
+            ],
+          ],
+          paul: [
+            [],
+            [
+              "So that would be like a drug treatment?",
+              "A prosthesis? Do you mean prosthesis like a prosthetic leg or something?",
+              "Surgery sounds like it could be a little risky. Is it dangerous? And how long does the implant work for?",
+            ],
+          ],
+        },
+      };
 
-    let singhChat = {
-      id: 'singh-messages',
-      progression: [['singh','pat','singh','pat','singh','pat','singh','pat','singh','pat'],['singh','paul','singh','pat','singh','pat','singh','paul','singh','pat','singh','pat','singh','paul','pat','singh','pat','singh','pat','singh','pat']],
-      time: [[defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime],[defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime]],
-      people:
-              {
-                pat: [
-                  [
-                    'Um...yes...uh...some water would be nice.',
-                    'Thank you. You can go ahead with the information now.',
-                    'What is Alzheimer’s doing to my brain? Why does it make me forget things?',
-                    'Am I...am I going to forget my children? My grandchildren? I can’t...I can’t even imagine.',
-                    'Sure, let’s have Paul join us. Thank you Dr. Singh.',
-                  ],
-                  [
-                    'And what about things like crossword puzzles or exercising? That’s supposed to help, right?',
-                    'Well I love walking the dogs at the shelter so I can make sure I keep doing that!',
-                    'Interesting. So, if my memory is in my brain then does the prosthesis go in my brain?',
-                    'Wow, very interesting. So this treatment would mean having a brain surgery?',
-                    'Yeah, does it stop me from losing my memory?',
-                    'Besides the surgery, that sounds pretty great.',
-                    'Yeah, I’d like to sleep on it and talk to my kids about the options. But I am very interested in the memory prosthesis.',
-                    'Yes, thank you Dr. Singh.',
-                  ]
-                ],
-                singh: [
-                  [
-                    'Based on the symptoms you described and some of the tests that I ran, you qualify for a diagnosis of early stage dementia . Because you have no other major health problems like stroke, brain tumors, and we’ve ruled out a reaction to medication, the mostly likely explanation is that this dementia is caused by the onset of Alzheimer’s disease. I know this isn’t easy news to hear but I want to share some more information with you about what that means and what we can do to support you. Do you want to take a moment before I go on? Or can I get you anything? Maybe a glass of water?',
-                    'Here you are. Let me know when you’re ready to keep going.',
-                    'Alright. As you probably already know, dementia is characterized by memory loss and Alzheimer’s is a brain condition that causes dementia. It starts out small, forgetting things like when or where something has happened or is supposed to happen, like your shifts at the shelter. You might also have a hard time finding the right words for something. As the disease progresses, you and your family might notice other changes.',
-                    'Alzheimer’s first affects an area of the brain called the hippocampus. When the hippocampus is functioning normally, it records new memories, for example, the name of a person you’re meeting for the first time. When you see that person again, the hippocampus helps you retrieve the memory of that name so you can say, “Hi, Ben!” When Alzheimer’s is affecting the hippocampus, it’s harder to make new memories. That’s why you might have forgotten when you were scheduled for volunteering at the shelter or forgotten you had asked a question just a few minutes before.',
-                    'We can’t know for sure how Alzheimer"s will affect you specifically. It’s a little different for everyone. But yes, that is a possibility. The good news is that while we cannot cure Alzheimer’s disease, you have many treatment options available to you. Now that we’ve talked a little just the two of us, would it be alright for us to invite your husband, Paul, in from the waiting room? The three of us can go over those treatment options.',
-                  ],
-                  [
-                    'Ok, now that we’ve gone through the test results, let’s talk treatment.',
-                    'Perhaps, yes. Pharmaceutical drugs are one option. There are a few different drugs that can help with the memory loss symptoms. To work properly, they must be taken every day and they can slow the progression of the symptoms by about six months.',
-                    'Yes, those things can help a little too. Making sure you do things to keep your body and mind active can help your brain be more flexible. That way if one part stops working so well due to the Alzheimer’s, another part that is less affected by the disease can compensate.',
-                    'That’s a great idea. There’s one more option to tell you about. It’s called a memory prosthesis.',
-                    'Yes it’s sort of like that. Just like a prosthetic leg can help someone who lost their natural leg resume functions like walking, the memory prosthesis can help do some of the functions that your natural memory can no longer perform.',
-                    'Exactly, it goes in the brain. Remember I mentioned that Alzheimer’s begins in the hippocampus? The part of the brain that helps you make new memories. Because you’re in the early stages of Alzheimer’s disease, Pat, you may be a candidate for a hippocampal prosthesis.',
-                    'Yes, we perform a surgery to insert the memory prosthesis. During the surgery, we open the skull and insert a small implant in the hippocampus. It uses electrical stimulation to mimic the natural functions of the hippocampus. The implant works as the prosthesis to help your hippocampus continue forming new memories. Electrical stimulation of the brain is used in many therapies for brain-based diseases. For example, some Parkinson’s disease patients choose  deep brain stimulation to treat their tremor symptoms and it can be very effective.',
-                    'Paul is right that the surgery does come with some risks, similar to any other brain surgery. You would spend a day or two in the hospital afterward and a full recovery takes 4-8 weeks. We would make sure that you are a good candidate in terms of your physical health before pursuing this treatment option. As for how long the prosthesis is effective, it’s a little different for each person. It won’t stop the progression of the disease or stop memory loss entirely, but you might feel like your memory goes back to working closer to what it was like when you were younger and it might help slow down the loss of memory.',
-                    'If this is an option you want to consider, I would run a few more tests to confirm whether you are a good candidate for surgery. You can still take some time to decide what you’d like to do.',
-                    'That sounds like a good plan. In case you decide to go with the prosthesis, we can start the process of making sure you’d be a good candidate for surgery now. Should I go ahead and order those tests?',
-                  ]
-                ],
-                paul: [
-                  [],
-                  [
-                    'So that would be like a drug treatment?',
-                    'A prosthesis? Do you mean prosthesis like a prosthetic leg or something?',
-                    'Surgery sounds like it could be a little risky. Is it dangerous? And how long does the implant work for?',
-                  ]
-                ]
-              }
-    }
+      let surgeryChat = {
+        id: "surgery-messages",
+        progression: [
+          ["singh", "pat", "singh", "pat", "singh", "pat", "singh"],
+          ["singh", "pat", "singh", "pat"],
+        ],
+        time: [
+          [
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+            defaultTime,
+          ],
+          [defaultTime, defaultTime, defaultTime, defaultTime],
+        ],
+        people: {
+          pat: [
+            [
+              "A little nervous but also very excited. I’m looking forward to finding out how the prosthesis will make me feel and I’m hopeful it will give me more time with my family.",
+              "I just wish I could sleep through the surgery.",
+              "Um, no I don’t think so. Let’s get this done!",
+            ],
+            [
+              "Thank you, Dr. Singh! I’m so relieved to be through the surgery. I really feel like I could use a nap.",
+              "Thank you, Dr. Singh.",
+            ],
+          ],
+          singh: [
+            [
+              "Good to see you today, Pat! How are you feeling?",
+              "Some nerves are perfectly normal. Thinking of your family is a great way to keep your spirits up!",
+              "Yes, it might feel a bit strange to be alert the whole time but we’ll talk throughout the procedure and make sure you’re comfortable. I’m going to go prep for the surgery now. Any last questions or concerns before I go?",
+              "That’s the spirit! I’ll see you in the operating room.",
+            ],
+            [
+              "Pat, you did beautifully! We’re all finished here and we’ll move you into recovery. When you’ve had some time to rest we’ll allow your family come in to visit.",
+              "Yes, we’ll let you rest up. When you’ve had a little time to recover we’ll begin the process of training the device. But for now, just get some rest.",
+            ],
+          ],
+        },
+      };
 
-    let surgeryChat = {
-      id: 'surgery-messages',
-      progression: [['singh','pat','singh','pat','singh','pat','singh'],['singh','pat','singh','pat']],
-      time: [[defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime],[defaultTime,defaultTime,defaultTime,defaultTime]],
-      people:
-              {
-                pat: [
-                  [
-                    'A little nervous but also very excited. I’m looking forward to finding out how the prosthesis will make me feel and I’m hopeful it will give me more time with my family.',
-                    'I just wish I could sleep through the surgery.',
-                    'Um, no I don’t think so. Let’s get this done!',
-                  ],
-                  [
-                    'Thank you, Dr. Singh! I’m so relieved to be through the surgery. I really feel like I could use a nap.',
-                    'Thank you, Dr. Singh.',
-                  ]
-                ],
-                singh: [
-                  [
-                    'Good to see you today, Pat! How are you feeling?',
-                    'Some nerves are perfectly normal. Thinking of your family is a great way to keep your spirits up!',
-                    'Yes, it might feel a bit strange to be alert the whole time but we’ll talk throughout the procedure and make sure you’re comfortable. I’m going to go prep for the surgery now. Any last questions or concerns before I go?',
-                    'That’s the spirit! I’ll see you in the operating room.',
-                  ],
-                  [
-                    'Pat, you did beautifully! We’re all finished here and we’ll move you into recovery. When you’ve had some time to rest we’ll allow your family come in to visit.',
-                    'Yes, we’ll let you rest up. When you’ve had a little time to recover we’ll begin the process of training the device. But for now, just get some rest.',
-                    ]
-                ],
-              }
-    }
-
-    let shelterChat = {
-      id: 'shelter-messages',
-      progression: [['kenny','pat','kenny','pat','kenny','pat']],
-      time: [[defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime]],
-      people:
-              {
-                pat: [
-                  [
-                    'Sure, Kenny! What do you need?',
-                    'Of course! It was a bit silly, we named them after different kinds of fruit. Here, I’ll write it down for you. The silver tabby is called Pear, the orange one is Persimmon, the black one is called Currant, and the white one is Strawberry.',
-                    'No problem! Happy to help.',
-                  ]
-                ],
-                kenny: [
-                  [
-                    'Hey Pat, can you help me with something?',
-                    'I know we just named that new batch of kittens who came in last night but I was distracted and I can’t remember what we decided to call them. Can you help me remember so we can post about them on the website?',
-                    'Ah, that’s right. Thank you!',
-                  ]
-                ],
-              }
-    }
-  </script>
+      let shelterChat = {
+        id: "shelter-messages",
+        progression: [["kenny", "pat", "kenny", "pat", "kenny", "pat"]],
+        time: [[defaultTime, defaultTime, defaultTime, defaultTime, defaultTime, defaultTime]],
+        people: {
+          pat: [
+            [
+              "Sure, Kenny! What do you need?",
+              "Of course! It was a bit silly, we named them after different kinds of fruit. Here, I’ll write it down for you. The silver tabby is called Pear, the orange one is Persimmon, the black one is called Currant, and the white one is Strawberry.",
+              "No problem! Happy to help.",
+            ],
+          ],
+          kenny: [
+            [
+              "Hey Pat, can you help me with something?",
+              "I know we just named that new batch of kittens who came in last night but I was distracted and I can’t remember what we decided to call them. Can you help me remember so we can post about them on the website?",
+              "Ah, that’s right. Thank you!",
+            ],
+          ],
+        },
+      };
+    </script>
   </body>
 </html>

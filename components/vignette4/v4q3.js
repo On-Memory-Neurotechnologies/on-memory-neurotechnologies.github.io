@@ -6,20 +6,23 @@ class vignette4Question3 extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
         <div class="grid">
-            <p class="paragraph-middle">
-            Every medical treatment has pros and cons.
-            </p>
-
-            <form class="paragraph-middle">	
-              <input type="text" name="description" id="answer1-v4q3" checked>
+          <div class="paragraph-middle">
+            <h3>
+              Every medical treatment has pros and cons.
+            </h3>
+            <br />
+            <form>
               <label for="answer1-v4q3">
-                Which are the greatest benefits you perceive in implantable memory neurotechnologies?
-              </label>
-              <input type="text" name="description" id="answer2-v4q3" checked>
+                What are the greatest benefits you perceive in implantable memory neurotechnologies?
+              </label><br />
+              <textarea name="description" id="answer1-v4q3" checked></textarea><br />
+              <br />
               <label for="answer2-v4q3">
-                Which are your greatest concerns about implantable memory neurotechnologies?
-              </label>
+                What are your greatest concerns about implantable memory neurotechnologies?
+              </label><br />
+              <textarea name="description" id="answer2-v4q3" checked></textarea>
             </form>
+          </div>
         </div>
       `;
   }
