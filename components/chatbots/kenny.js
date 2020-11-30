@@ -7,7 +7,7 @@ class KennyChatBot extends HTMLElement {
         this.innerHTML = `
 <div class="grid">
         <div class="paragraph-left">
-            <p>Recently, she started mixing up the times of her shifts at the shelter.</p>
+            <h3>Recently, she started mixing up the times of her shifts at the shelter.</h3>
             <h4>Click Pat's phone</h4>
         </div>
         <div class="paragraph-right">

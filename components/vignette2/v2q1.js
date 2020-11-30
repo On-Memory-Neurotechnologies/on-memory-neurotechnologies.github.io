@@ -8,8 +8,8 @@ class vignette2Question1 extends HTMLElement {
         <div class="grid">
           <div class="paragraph-middle">
             <p>
-            If you or a loved one received treatment with memory neurotechnology, would you want to see an
-            interface such as what Anne uses or would you prefer for it to be “out of sight, out of mind?”
+            If you or a loved one received treatment with memory neurotechnology, <strong>would you want to see an
+            interface</strong> such as what Anne uses or would you prefer for it to be “out of sight, out of mind?”
             </p>
             <br />
             <form class="yes-or-no" id="multiple-choice-vert">

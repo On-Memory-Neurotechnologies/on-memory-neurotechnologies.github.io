@@ -9,7 +9,7 @@ class vignette3Question2 extends HTMLElement {
           <div class="paragraph-middle">
             <p>
               If Rob’s accident happened after he was diagnosed with Alzheimer’s disease
-              but before he received the implant, does this change things?
+              but before he received the implant, <strong>does this change things?</strong>
             </p>
 
             <br />

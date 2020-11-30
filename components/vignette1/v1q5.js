@@ -11,8 +11,8 @@ class vignette1Question5 extends HTMLElement {
               Some pharmaceutical treatments for Alzheimer’s disease can be helpful for people in the mild to
               moderate stages of dementia for two to three years.
               <br /><br />
-              <strong>What’s the minimum amount of time that a memory neurotechnology needs to postpone noticeable
-              symptoms of cognitive decline for you to consider this treatment?</strong>
+              What’s the <strong>minimum amount of time</strong> that a memory neurotechnology needs to postpone noticeable
+              symptoms of cognitive decline for you to consider this treatment?
             </p>
 
             <br />

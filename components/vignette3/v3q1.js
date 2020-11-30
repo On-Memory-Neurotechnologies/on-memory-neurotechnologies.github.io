@@ -11,7 +11,7 @@ class vignette3Question1 extends HTMLElement {
             The combination of memory loss and a memory implant presents the unique opportunity to selectively
               reintroduce lost memories, changing a person’s memories of themselves.
               <br /><br />
-              Does the family or doctor of an implanted individual have a responsibility to reintroduce lost
+              <strong>Does the family or doctor of an implanted individual have a responsibility</strong> to reintroduce lost
               memories, good or bad?
             </p>
 

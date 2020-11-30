@@ -9,7 +9,7 @@ class vignette3Question3 extends HTMLElement {
           <div class="paragraph-middle">
             <p>
               If your family decided that they wanted to reintroduce memories to a loved one with Alzheimer’s
-              disease, would you want to introduce the memories yourselves or would you want a professional to do
+              disease, <strong>would you want to introduce the memories yourselves</strong> or would you want a professional to do
               it?
             </p>
             <br />

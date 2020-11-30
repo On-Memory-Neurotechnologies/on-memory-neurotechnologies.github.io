@@ -17,6 +17,7 @@ class history extends HTMLElement {
               <button id="yes-history" type='button' checked>Yes</button>
               <button id="no-history" type='button'>No</button>
             </form>
+            <br/>
             <form>
               <label for="who-history">
                 If yes, <strong>who in your family</strong> has had Alzheimer’s disease? 

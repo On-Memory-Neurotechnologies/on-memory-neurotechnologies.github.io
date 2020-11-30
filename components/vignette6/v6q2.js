@@ -14,10 +14,10 @@ class vignette6Question2 extends HTMLElement {
             <br />
             <form>
               <label for="answer-v6q2">
-                If you or a loved one received treatment for dementia with memory neurotechnology, how would you
-                want to navigate the adaptation period?
+                If you or a loved one received treatment for dementia with memory neurotechnology, <strong>how would you
+                want to navigate the adaptation period?</strong>
               </label>
-              <textarea name="answer" id="answer-v6q2" checked></textarea>
+              <textarea name="answer" id="answer-v6q2"></textarea>
             </form>
           </div>
         </div>

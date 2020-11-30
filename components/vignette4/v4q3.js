@@ -13,12 +13,12 @@ class vignette4Question3 extends HTMLElement {
             <br />
             <form>
               <label for="answer1-v4q3">
-                What are the greatest benefits you perceive in implantable memory neurotechnologies?
+                What are the <strong>greatest benefits</strong> you perceive in implantable memory neurotechnologies?
               </label><br />
               <textarea name="description" id="answer1-v4q3" checked></textarea><br />
               <br />
               <label for="answer2-v4q3">
-                What are your greatest concerns about implantable memory neurotechnologies?
+                What are your <strong>greatest concerns</strong> about implantable memory neurotechnologies?
               </label><br />
               <textarea name="description" id="answer2-v4q3" checked></textarea>
             </form>

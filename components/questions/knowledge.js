@@ -17,6 +17,14 @@ class knowledge extends HTMLElement {
               <button id="yes-knowledge" type='button' checked>Yes</button>
               <button id="no-knowledge" type='button'>No</button>
             </form>
+            <br />
+
+            <form>
+              <label for="how-knowledge">
+                If yes, <strong>how did you acquire</strong> this knowledge? 
+              </label>
+              <textarea name="how-knowledge" id="how-knowledge"></textarea>
+            </form>
           </div>
         </div>
       `;

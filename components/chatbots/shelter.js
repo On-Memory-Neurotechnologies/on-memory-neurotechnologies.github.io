@@ -7,7 +7,7 @@ class shelterChatBot extends HTMLElement {
     this.innerHTML = `
 <div class="grid dark">
         <div class="paragraph-left">
-            <p>Soon enough, Pat is back at the shelter and her quality of life improves. </p>
+            <h3>Soon enough, Pat is back at the shelter and her quality of life improves. </h3>
             <h4>Click on Kenny</h4>
         </div>
         <div class="paragraph-right">

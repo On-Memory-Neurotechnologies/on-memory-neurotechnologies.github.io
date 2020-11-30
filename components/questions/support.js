@@ -17,6 +17,15 @@ class support extends HTMLElement {
               <button id="yes-support" type='button' checked>Yes</button>
               <button id="no-support" type='button'>No</button>
             </form>
+            
+                        <br />
+
+            <form>
+              <label for="why-support">
+                <strong>Why</strong> or why not?
+              </label>
+              <textarea name="why-support" id="why-support"></textarea>
+            </form>
           </div>
         </div>
       `;

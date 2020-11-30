@@ -7,7 +7,7 @@ class SinghChatBot extends HTMLElement {
     this.innerHTML = `
 <div class="grid">
 <div class="paragraph-left">
-            <p>After a trip to her family doctor and a referral to a Neurologist, Pat is diagnosed with Alzheimer’s disease.</p>
+            <h3>After a trip to her family doctor and a referral to a Neurologist, Pat is diagnosed with Alzheimer’s disease.</h3>
             <h4>Click Dr. Singh</h4>
         </div>
         <div class="paragraph-right">
