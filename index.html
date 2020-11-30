@@ -147,7 +147,7 @@
       let userId = undefined;
       let reset = false;
 
-      let option = "server";
+      let option = "local";
       let url;
       if (option === "local") {
         url = new URL("http://localhost");
@@ -274,14 +274,12 @@
         slides: ["thank-you", "team-page"],
       };
 
-      let decks = [disclaimerDeck, odDeck, ompDeck, omnDeck, resultSummary, thankYou];
+      // let decks = [disclaimerDeck, odDeck, ompDeck, omnDeck, resultSummary, thankYou];
+      let decks = [odDeck, ompDeck, omnDeck, resultSummary, thankYou];
 
       window.addEventListener("resize", goToScrollAnchor);
 
       function addDeck() {
-        // let container = document.getElementById("content")
-        // animateInnerHTML(container,`<div id="${decks[currentDeck].id}" class="page"></div>`,'add')
-        // placeSlideContent();
         document.getElementById(
           "content"
         ).innerHTML += `<div id="${decks[currentDeck].id}" class="page"></div>`;
