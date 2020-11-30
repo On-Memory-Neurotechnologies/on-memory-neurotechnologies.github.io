@@ -358,7 +358,7 @@ h4 a {
 
 .full-chatbot {
   width: calc(100vw);
-  height: calc(100vh);
+  height: calc(100vh - 50px);
   padding: 50px;
   background: #111111;
   overflow-y: scroll;
@@ -378,7 +378,7 @@ h4 a {
 .text-message {
   border-radius: 5px;
   padding: 10px 10px;
-  margin: 5px 0px;
+  margin-bottom: 20px;
   width: 40vw;
   font-size: 80%;
   color: white;
@@ -409,7 +409,7 @@ h4 a {
   height: 50px;
   font-size: 25px;
   text-align: center;
-  margin-right: 10px;
+  margin: 0px 10px;
   border-radius: 50%;
   display: inline-block;
   overflow: hidden;
