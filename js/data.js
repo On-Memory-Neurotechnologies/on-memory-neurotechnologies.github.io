@@ -41,8 +41,6 @@ function displayUserId(){
 }
 
 function clientAction(destination,method,body=JSON.stringify({'default':''})){
-
-    console.log(body)
     fetch(url + destination, { method: method,
         mode: 'cors',
         credentials: 'include',
