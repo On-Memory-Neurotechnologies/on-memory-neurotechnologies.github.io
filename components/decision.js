@@ -5,7 +5,7 @@ class decision extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-      <div class="grid dark">
+      <div class="grid">
           <p class="paragraph-middle">
               About a week later, Dr. Singh confirms that Pat is in good physical health and is a candidate for surgery to implant the memory prosthesis in the hippocampal region of her brain
               <br /><br />

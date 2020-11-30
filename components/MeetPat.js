@@ -9,7 +9,7 @@ class MeetPat extends HTMLElement {
         <div class="paragraph-left">
           <img id="pat-image" src="assets/pat.svg"/>
         </div>
-        <div id="meet-pat-text" class="paragraph-right">
+        <div class="meet-pat-text paragraph-right">
           <div style="margin-bottom: 15px;">
           <h3>Meet Pat</h3>
           <h4>May 23, 2035. Los Angeles, CA</h4>

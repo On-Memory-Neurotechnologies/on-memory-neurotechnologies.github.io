@@ -5,12 +5,9 @@ class Prosthesis2 extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-      <div class="grid dark">
-      <div class="paragraph-left">
-          <img id="pat-image" src="assets/hmp.svg"/>
-        </div>
-          <p class="paragraph-right">
-          In the year 2035, memory prostheses like the one Pat will receive might be commonplace. Right now,
+<div class="grid dark">
+            <p class="paragraph-left">
+              In the year 2035, memory prostheses like the one Pat will receive might be commonplace. Right now,
           scientists are working to make that future a reality.
           <br /><br />
           Our research team at the University of Southern California has developed a proof-of-concept system
@@ -19,8 +16,11 @@ class Prosthesis2 extends HTMLElement {
           <br /><br />
           This work moves the field closer to development of neural prostheses capable of restoring memory in
           dementia.
-          </p>
-      </div>
+            </p>
+            <p class="paragraph-right">
+                <img id="pat-image" src="assets/hmp.svg"/>
+            </p>
+        </div>
       `;
   }
 }
