@@ -45,6 +45,7 @@
     <script src="components/chatbots/kenny.js" type="text/javascript" defer></script>
     <script src="components/chatbots/children.js" type="text/javascript" defer></script>
     <script src="components/chatbots/singh.js" type="text/javascript" defer></script>
+    <script src="components/chatbots/surgery.js" type="text/javascript" defer></script>
 
     <!-- import vignettes -->
     <script src="components/vignette1/v1intro.js" type="text/javascript" defer></script>
@@ -172,6 +173,7 @@
           "the-prosthesis-1",
           "the-prosthesis-2",
           "the-prosthesis-3",
+          "surgery-chatbot",
           "sample-phase",
           "match-phase"
         ],
@@ -504,6 +506,38 @@
                     'Surgery sounds like it could be a little risky. Is it dangerous? And how long does the implant work for?',
                   ]
                 ]
+              }
+    }
+
+    let surgeryChat = {
+      id: 'surgery-messages',
+      progression: [['singh','pat','singh','pat','singh','pat','singh'],['singh','pat','singh','pat']],
+      time: [[defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime],[defaultTime,defaultTime,defaultTime,defaultTime]],
+      people:
+              {
+                pat: [
+                  [
+                    'A little nervous but also very excited. I’m looking forward to finding out how the prosthesis will make me feel and I’m hopeful it will give me more time with my family.',
+                    'I just wish I could sleep through the surgery.',
+                    'Um, no I don’t think so. Let’s get this done!',
+                  ],
+                  [
+                    'Thank you, Dr. Singh! I’m so relieved to be through the surgery. I really feel like I could use a nap.',
+                    'Thank you, Dr. Singh.',
+                  ]
+                ],
+                singh: [
+                  [
+                    'Good to see you today, Pat! How are you feeling?',
+                    'Some nerves are perfectly normal. Thinking of your family is a great way to keep your spirits up!',
+                    'Yes, it might feel a bit strange to be alert the whole time but we’ll talk throughout the procedure and make sure you’re comfortable. I’m going to go prep for the surgery now. Any last questions or concerns before I go?',
+                    'That’s the spirit! I’ll see you in the operating room.',
+                  ],
+                  [
+                    'Pat, you did beautifully! We’re all finished here and we’ll move you into recovery. When you’ve had some time to rest we’ll allow your family come in to visit.',
+                    'Yes, we’ll let you rest up. When you’ve had a little time to recover we’ll begin the process of training the device. But for now, just get some rest.',
+                    ]
+                ],
               }
     }
   </script>
