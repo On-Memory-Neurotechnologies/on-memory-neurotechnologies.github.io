@@ -7,12 +7,14 @@ class vignette1Question3 extends HTMLElement {
     this.innerHTML = `
         <div class="grid">
           <div class="paragraph-middle">
+          <i>
+            <strong>Late Stage AD: </strong>Once the person reaches this stage, they will eventually become unable to communicate verbally or look after themselves. Quality of care is important to ensure that the person has quality of life.
+          </i>
+          <br/>
             <p>
               Knowing that the device cannot completely stop cognitive decline, would you advocate for yourself or
               a loved one to receive treatment for 
-              <span title="def. Once the person reaches this stage, they will eventually become unable to communicate verbally or look after themselves. Quality of care is important to ensure that the person has quality of life.">
-                <strong>[late stage] </strong>
-              </span>
+              <strong>late stage</strong>
               dementia with memory neurotechnology?
             </p>
 

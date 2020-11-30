@@ -7,12 +7,14 @@ class vignette1Question2 extends HTMLElement {
     this.innerHTML = `
         <div class="grid">
           <div class="paragraph-middle">
+          <i>
+            <strong>Middle Stage AD: </strong>Symptoms start becoming more noticeable. More assistance will be needed to help the person living with Alzheimer's accomplish daily tasks.
+            </i>
+          <br/>
             <p>
               Knowing that the device cannot completely stop cognitive decline, would you advocate for yourself or
               a loved one to receive treatment for 
-              <span title="def. Symptoms start becoming more noticeable. More assistance will be needed to help the person living with Alzheimer's accomplish daily tasks.">
-                <strong>[middle stage] </strong>
-              </span>
+                <strong>middle stage</strong>
               dementia with memory neurotechnology?
             </p>
 

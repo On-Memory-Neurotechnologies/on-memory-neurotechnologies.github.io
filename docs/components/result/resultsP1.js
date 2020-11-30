@@ -1,4 +1,4 @@
-class resultsV1 extends HTMLElement {
+class resultsP1 extends HTMLElement {
   constructor() {
     super();
   }
@@ -22,21 +22,18 @@ class resultsV1 extends HTMLElement {
     this.innerHTML = `
         <div class="grid">
           <div class="paragraph-middle">
-            <h2>Vignette 1</h2>
             <p>
-              You would be interested in a prosthesis for 2nd stage dementia
-              if it restored memory function to this extent for some amount of time. <br /><br />
+              You would be interested in a prosthesis for <strong>mid-stage</strong> dementia
+              if it restored memory function <strong>to when you were younger<strong> for <strong>2 years</strong>. <br /><br />
             </p>
-
-            <h3>Ordered List of Pros and Cons (test / retest)</h3>
             <p>
-              Your greatest concerns with the prosthesis are changes in personality, and reintroduction of negative memories.<br />
-              The greatest perceived benefits, however, were restored memory, increased time to loved ones, and improved overall cognitive function.<br />
-              </p>
+              Your greatest concerns with the prosthesis are <strong>changes in personality</strong> and <strong>reintroduction of negative memories</strong>.<br />
+              The greatest perceived benefits, however, were <strong>restored memory</strong>, <strong>increased time for loved ones</strong>, and <strong>improved overall cognitive function</strong>.<br />
+             </p>
           </div>
         </div>
       `;
   }
 }
 
-customElements.define("result-1", resultsV1);
+customElements.define("result-1", resultsP1);
