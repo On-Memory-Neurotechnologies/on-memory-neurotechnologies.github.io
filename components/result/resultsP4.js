@@ -1,4 +1,4 @@
-class resultsV5 extends HTMLElement {
+class resultsP4 extends HTMLElement {
   constructor() {
     super();
   }
@@ -15,12 +15,16 @@ class resultsV5 extends HTMLElement {
     this.innerHTML = `
         <div class="grid">
           <div class="paragraph-middle">
-            <h2>Vignette 5</h2>
             <p>
               If you were to support a family member with AD receiving the prosthesis
-              as treatment, you would want to take charge of this medical
-              decision-making process. This does agree with your judgement when
+              as treatment, <strong>you would want to take charge of this medical
+              decision-making process</strong>. This agrees with your judgement when
               you are the family member with AD.
+            </p>
+            <br/>
+            <p>
+              Finally, you are <strong>more concerned with losing identity</strong> due to a memory
+              prosthesis than agency.
             </p>
           </div>
         </div>
@@ -28,4 +32,4 @@ class resultsV5 extends HTMLElement {
   }
 }
 
-customElements.define("result-5", resultsV5);
+customElements.define("result-4", resultsP4);

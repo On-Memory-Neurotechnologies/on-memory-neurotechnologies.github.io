@@ -15,16 +15,14 @@ class vignette1Question4 extends HTMLElement {
 
             <form class="paragraph-middle">
               <div class="slider">
-                <p>no new memories<p/>
+                <p><strong>no new memories</strong><p/>
                 <input type="range" id="slider" name="slider" min="0" max="100">
                 <p>
-                  <span title="def. marked by or involving extraordinarily accurate and vivid recall especially of visual images">
-                    <strong>[eidetic]</strong>
-                  </span>
-                  memory
+                    <strong>perfect memory
+                  </strong>
                 </p>
               </div>
-              <p>remember things like<br/>when you were younger</p>
+              <p>remember things like<br/><strong>when you were younger</strong></p>
             </form>
           </div>
         </div>

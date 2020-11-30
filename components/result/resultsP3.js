@@ -1,4 +1,4 @@
-class resultsV4 extends HTMLElement {
+class resultsP3 extends HTMLElement {
   constructor() {
     super();
   }
@@ -20,14 +20,14 @@ class resultsV4 extends HTMLElement {
     this.innerHTML = `
         <div class="grid">
           <div class="paragraph-middle">
-            <h2>Vignette 4</h2>
             <p>
-              You do have some concern about input from family members when
+              You do have <strong>some concern about input from family members</strong> when
               deciding to receive a memory prosthesis to treat memory problems.
             </p>
+            <br/>
             <p>
               When treatment also provides a mutual benefit to the patient and their
-              family, you are also concerned.
+              family, <strong>you are also concerned</strong>.
             </p>
           </div>
         </div>
@@ -35,4 +35,4 @@ class resultsV4 extends HTMLElement {
   }
 }
 
-customElements.define("result-4", resultsV4);
+customElements.define("result-3", resultsP3);

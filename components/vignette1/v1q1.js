@@ -7,11 +7,13 @@ class vignette1Question1 extends HTMLElement {
     this.innerHTML = `
         <div class="grid">
           <div class="paragraph-middle">
+          <i>
+            <strong>Early Stage AD: </strong>Symptoms are mild. A person at this stage is fully aware of their condition and only needs minimal assistance, if requested.
+            </i>
+          <br/>
             <p>
             Knowing that the device cannot completely stop cognitive decline, would you advocate for yourself or
-            a loved one to receive treatment for <span title="def. Symptoms are mild. A person at this stage is fully aware of their condition and only needs minimal assistance, if requested.">
-              <strong>[early stage] </strong>
-            </span> dementia with memory neurotechnology?
+            a loved one to receive treatment for <strong>early stage</strong> dementia with memory neurotechnology?
             </p>
 
             <br />
