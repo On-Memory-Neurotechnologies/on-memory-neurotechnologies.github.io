@@ -41,12 +41,14 @@ function displayUserId(){
 }
 
 function clientAction(destination,method,body=JSON.stringify({'default':''})){
+
+    console.log(body)
     fetch(url + destination, { method: method,
         mode: 'cors',
         credentials: 'include',
-        // headers: {
-        //     'Content-Type': 'application/json',
-        // },
+        headers: {
+            'Content-Type': 'application/json',
+        },
         body: body,
     }).then(handleResponse)
         .then(showMessage)
@@ -84,7 +86,7 @@ function checkConsent(){
 
     if (currentDeck != -1) {
         if (collectData) {
-            submitForm();
+            // submitForm();
         } else if (numTries == 0 && (decks[currentDeck].id == "disclaimer")) {
 
             if (reset) {
@@ -208,14 +210,7 @@ function submitForm() {
                     jsonObj[_temp[0]] = _temp[1];
                 }
             }
-                clientAction('submit','POST', JSON.stringify(jsonObj));
-                console.log(jsonObj);
-                console.log(JSON.stringify(jsonObj));
-                let uID = document.getElementById('user-id').innerHTML;
-                console.log(uID);
-                // Submit User ID
-                //clientAction('submit','POST', uID);
-                //db(dbName).collection(collectionName).insertOne(req.body);
+            clientAction('submit','POST', JSON.stringify(jsonObj));
         }
     
     
@@ -299,7 +294,6 @@ function resetSettings(reset) {
                 checkConsent();
             }
         }
-        console.log('done')
     }
     return false
 }

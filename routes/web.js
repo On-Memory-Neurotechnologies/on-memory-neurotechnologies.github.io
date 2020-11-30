@@ -51,7 +51,6 @@ let routes = app => {
   router.post("/login", loginController.loginReader);
   router.post("/submit", submitController.submitAllFeedback);
   router.get("/fetch", function(req,res) {
-
   })
 
   return app.use("/", router);
