@@ -214,7 +214,7 @@ function submitForm() {
                 let uID = document.getElementById('user-id').innerHTML;
                 console.log(uID);
                 // Submit User ID
-                //clientAction('submit','POST', uID);
+                clientAction('update','POST', uID);
                 //db(dbName).collection(collectionName).insertOne(req.body);
         }
     
@@ -235,18 +235,6 @@ function submitForm() {
         });
         */
     }
-
-    //SERVER SIDE PSEUDOCODE
-//         if (/*user id is not already in mongodb */) {
-//             /* create new document in mongodb */
-//         } else {
-//             /* update existing document*/
-//         }
-// }
-
-    //PSEUDOCODE IMPLEMENTATION
-    // Get user ID from mongoDB
-    
 }
 
 // Setting Cookie on Client

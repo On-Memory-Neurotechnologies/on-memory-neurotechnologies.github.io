@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const homeController = require("../controllers/home");
 const submitController = require("../controllers/submit");
-const getDataController = require("../controllers/getData");
 const loginController = require("../controllers/loginReader");
 
 const mongoose = require("mongoose");
@@ -50,9 +49,17 @@ let routes = app => {
   router.get("/", homeController.getHome);
   router.post("/login", loginController.loginReader);
   router.post("/submit", submitController.submitAllFeedback);
+  router.post("/update", function(req,res) {
+    // Not currently using updateFeedback
+    // Updates UserID
+    reader.overwrite({
+      _id: req.uID
+    });
+    await reader.save();
+  });
   router.get("/fetch", function(req,res) {
 
-  })
+  });
 
   return app.use("/", router);
 };
