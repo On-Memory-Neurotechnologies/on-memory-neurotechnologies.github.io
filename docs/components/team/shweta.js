@@ -6,9 +6,9 @@ class ShwetaSridharan extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
                     <h3>Shweta Sridharan</h3>
-                    <h4>Interactive Content Programmer</h4>
+                    <h4>Interactive Content Developer</h4>
                     <br/>
-                    <p>During NeuroNexus 2020, Shweta was a ________. She had to leave the project during
+                    <p>Shweta was a developer of interactive content (e.g. memory prosthesis simulation) in On Memory Neurotechnologies. She had to leave the project during
                     Health Hack Week due to COVID-19.</p>
                     <br/>
 `;
