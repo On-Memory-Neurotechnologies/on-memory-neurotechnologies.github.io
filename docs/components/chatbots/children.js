@@ -7,7 +7,7 @@ class ChildrenChatBot extends HTMLElement {
         this.innerHTML = `
 <div class="grid">
         <div class="paragraph-left">
-            <p>Her family also began to notice her repeating questions within a short period of time.</p>
+            <h3>Her family also began to notice her repeating questions within a short period of time.</h3>
             <h4>Click Pat's cooking pot</h4>
         </div>
         <div class="paragraph-right">

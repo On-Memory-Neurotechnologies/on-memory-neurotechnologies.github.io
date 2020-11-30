@@ -9,7 +9,7 @@ class vignette5Question2 extends HTMLElement {
           <div class="paragraph-middle">
             <p>
               Imagine yourself in Amanda’s situation. <br /><br />
-              Would you want your family member(s) to take charge of deciding whether you should receive treatment
+              <strong>Would you want your family member(s) to take charge</strong> of deciding whether you should receive treatment
               with memory neurotechnology?
             </p>
             <br />

@@ -8,7 +8,7 @@ class vignette4Question1 extends HTMLElement {
         <div class="grid">
           <div class="paragraph-middle">
             <p>
-              Do you have concerns with Shannon’s input to Dolly’s decision for treatment with memory
+              Do you have <strong>concerns</strong> with Shannon’s input to Dolly’s decision for treatment with memory
               neurotechnology as a treatment for memory problems?
             </p>
             <br />

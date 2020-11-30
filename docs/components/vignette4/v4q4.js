@@ -8,8 +8,8 @@ class vignette4Question4 extends HTMLElement {
         <div class="grid">
           <div class="paragraph-middle">
             <p>
-              If you or your loved one pursued treatment with memory neurotechnology, in what contexts might you
-              be concerned that the device would malfunction?
+              If you or your loved one pursued treatment with memory neurotechnology, <strong>in what contexts might you
+              be concerned</strong>>that the device would malfunction?
             </p>
             <br />
             <form>

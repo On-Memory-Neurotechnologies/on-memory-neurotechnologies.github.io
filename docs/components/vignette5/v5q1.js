@@ -11,8 +11,8 @@ class vignette5Question1 extends HTMLElement {
               It is not uncommon for family members to make medical decisions for a loved one when they are not
               able to provide consent to a treatment for themselves.
               <br /><br />
-              In the absence of an advance directive, should family members (such as Joseph or Jill) take charge
-              of medical decision making for a loved one receiving treatment for Alzheimer’s disease with memory
+              In the absence of an advance directive, <strong>should family members (such as Joseph or Jill) take charge
+              of medical decision making</strong> for a loved one receiving treatment for Alzheimer’s disease with memory
               neurotechnology?
             </p>
             <br />

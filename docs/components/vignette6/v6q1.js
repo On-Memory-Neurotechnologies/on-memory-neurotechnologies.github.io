@@ -8,7 +8,7 @@ class vignette6Question1 extends HTMLElement {
         <div class="grid">
           <div class="paragraph-middle">
             <p>
-              Are you more concerned with the prospect of losing your identity through Alzheimer’s disease or
+              Are you <strong>more concerned</strong> with the prospect of losing your identity through Alzheimer’s disease or
               losing agency through implantation?
             </p>
             <br />

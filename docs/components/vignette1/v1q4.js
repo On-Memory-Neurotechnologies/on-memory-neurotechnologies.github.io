@@ -8,7 +8,7 @@ class vignette1Question4 extends HTMLElement {
         <div class="grid">
           <div class="paragraph-middle">
             <p class="paragraph-middle">
-              To what extent would the implant have to improve memory?
+              <strong>To what extent</strong> would the implant have to improve memory?
             </p>
 
             <br />

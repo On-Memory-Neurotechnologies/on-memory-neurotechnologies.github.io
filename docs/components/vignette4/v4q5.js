@@ -8,7 +8,7 @@ class vignette4Question5 extends HTMLElement {
       <div class="grid">
         <div class="paragraph-middle">
           <p>
-            How would you and your loved one plan for the possibility that the implant could sometimes
+            <strong>How would you and your loved one plan</strong> for the possibility that the implant could sometimes
             malfunction?          
           </p>
           <br />

@@ -17,6 +17,20 @@ class decline extends HTMLElement {
               <button id="yes-decline" type='button' checked>Yes</button>
               <button id="no-decline" type='button'>No</button>
             </form>
+            <br/>
+            <form>
+              <label for="how-decline">
+                If yes, how does cognitive decline <strong>present in your life</strong>
+              </label>
+              <textarea name="how-decline" id="how-decline"></textarea>
+            </form>
+            <br/>
+            <form>
+              <label for="stage-decline">
+                If yes, <strong>what stage</strong> of cognitive decline best represents your symptoms? 
+              </label>
+              <textarea name="stage-decline" id="stage-decline"></textarea>
+            </form>
           </div>
         </div>
       `;
