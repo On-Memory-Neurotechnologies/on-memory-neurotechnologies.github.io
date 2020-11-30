@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>On Memory Neurotechnologies</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/site.css" />
+    <script type="text/javascript" src="js/data.js"></script>
+    <script type="text/javascript" src="js/chatbot.js"></script>
+
+    <!-- import custom components -->
+    <script src="components/nav.js" type="text/javascript" defer></script>
+
+    <script src="components/Disclaimer.js" type="text/javascript" defer></script>
+
+    <script src="components/OnDementia.js" type="text/javascript" defer></script>
+    <script src="components/MeetPat.js" type="text/javascript" defer></script>
+
+    <script src="components/OMP.js" type="text/javascript" defer></script>
+    <script src="components/Prosthesis1.js" type="text/javascript" defer></script>
+    <script src="components/Prosthesis2.js" type="text/javascript" defer></script>
+    <script src="components/Prosthesis3.js" type="text/javascript" defer></script>
+    <script src="components/TestForms.js" type="text/javascript" defer></script>
+
+    <script src="components/OMN.js" type="text/javascript" defer></script>
+    <script src="components/omnIntro.js" type="text/javascript" defer></script>
+    <script src="components/vignetteGrid.js" type="text/javascript" defer></script>
+
+    <script src="components/thankYou.js" type="text/javascript" defer></script>
+    <script src="components/team.js" type="text/javascript" defer></script>
+
+
+    <!--    import chatbots-->
+    <script src="components/chatbots/kenny.js" type="text/javascript" defer></script>
+
+    <!-- import vignettes -->
+    <script src="components/vignette1/v1intro.js" type="text/javascript" defer></script>
+    <script src="components/vignette1/v1slide1.js" type="text/javascript" defer></script>
+    <script src="components/vignette1/v1slide2.js" type="text/javascript" defer></script>
+    <script src="components/vignette1/v1slide3.js" type="text/javascript" defer></script>
+    <script src="components/vignette1/v1q1.js" type="text/javascript" defer></script>
+    <script src="components/vignette1/v1q2.js" type="text/javascript" defer></script>
+    <script src="components/vignette1/v1q3.js" type="text/javascript" defer></script>
+    <script src="components/vignette1/v1q4.js" type="text/javascript" defer></script>
+    <script src="components/vignette1/v1q5.js" type="text/javascript" defer></script>
+
+    <script src="components/vignette2/v2intro.js" type="text/javascript" defer></script>
+    <script src="components/vignette2/v2slide1.js" type="text/javascript" defer></script>
+    <script src="components/vignette2/v2slide2.js" type="text/javascript" defer></script>
+    <script src="components/vignette2/v2q1.js" type="text/javascript" defer></script>
+    <script src="components/vignette2/v2q2.js" type="text/javascript" defer></script>
+
+    <script src="components/vignette3/v3intro.js" type="text/javascript" defer></script>
+    <script src="components/vignette3/v3slide1.js" type="text/javascript" defer></script>
+    <script src="components/vignette3/v3slide2.js" type="text/javascript" defer></script>
+    <script src="components/vignette3/v3q1.js" type="text/javascript" defer></script>
+    <script src="components/vignette3/v3q2.js" type="text/javascript" defer></script>
+    <script src="components/vignette3/v3q3.js" type="text/javascript" defer></script>
+
+    <script src="components/vignette4/v4intro.js" type="text/javascript" defer></script>
+    <script src="components/vignette4/v4slide1.js" type="text/javascript" defer></script>
+    <script src="components/vignette4/v4slide2.js" type="text/javascript" defer></script>
+    <script src="components/vignette4/v4slide3.js" type="text/javascript" defer></script>
+    <script src="components/vignette4/v4slide4.js" type="text/javascript" defer></script>
+    <script src="components/vignette4/v4slide5.js" type="text/javascript" defer></script>
+    <script src="components/vignette4/v4q1.js" type="text/javascript" defer></script>
+    <script src="components/vignette4/v4q2.js" type="text/javascript" defer></script>
+    <script src="components/vignette4/v4q3.js" type="text/javascript" defer></script>
+    <script src="components/vignette4/v4q4.js" type="text/javascript" defer></script>
+    <script src="components/vignette4/v4q5.js" type="text/javascript" defer></script>
+
+    <script src="components/vignette5/v5intro.js" type="text/javascript" defer></script>
+    <script src="components/vignette5/v5slide1.js" type="text/javascript" defer></script>
+    <script src="components/vignette5/v5slide2.js" type="text/javascript" defer></script>
+    <script src="components/vignette5/v5slide3.js" type="text/javascript" defer></script>
+    <script src="components/vignette5/v5q1.js" type="text/javascript" defer></script>
+    <script src="components/vignette5/v5q2.js" type="text/javascript" defer></script>
+
+    <script src="components/vignette6/v6intro.js" type="text/javascript" defer></script>
+    <script src="components/vignette6/v6slide1.js" type="text/javascript" defer></script>
+    <script src="components/vignette6/v6slide2.js" type="text/javascript" defer></script>
+    <script src="components/vignette6/v6q1.js" type="text/javascript" defer></script>
+    <script src="components/vignette6/v6q2.js" type="text/javascript" defer></script>
+
+    <!-- import results summary -->
+    <script src="components/result/resultSummary.js" type="text/javascript" defer></script>
+    <script src="components/result/resultsV1.js" type="text/javascript" defer></script>
+    <script src="components/result/resultsV2.js" type="text/javascript" defer></script>
+    <script src="components/result/resultsV3.js" type="text/javascript" defer></script>
+    <script src="components/result/resultsV4.js" type="text/javascript" defer></script>
+    <script src="components/result/resultsV5.js" type="text/javascript" defer></script>
+    <script src="components/result/resultsV6.js" type="text/javascript" defer></script>
+
+    <!-- import team -->
+    <script src="components/team/garrett.js" type="text/javascript" defer></script>
+    <script src="components/team/madison.js" type="text/javascript" defer></script>
+    <script src="components/team/max.js" type="text/javascript" defer></script>
+    <script src="components/team/kulpreet.js" type="text/javascript" defer></script>
+    <script src="components/team/eugene.js" type="text/javascript" defer></script>
+    <script src="components/team/nadeen.js" type="text/javascript" defer></script>
+    <script src="components/team/shweta.js" type="text/javascript" defer></script>
+  </head>
+
+  <body onload="clientAction('login','POST');">
+    <nav-bar></nav-bar>
+
+    <div class="landing-page">
+      <h1>On Memory Neurotechnologies</h1>
+      <h3>
+        An interactive article on technologies for restoring memory function—and how you can help
+        design them
+      </h3>
+      <div class="buttons">
+        <a onclick="changeDeck(1)" id="button1" class="white">Start a new session</a>
+        <a
+          onclick="reset = true; reset = resetSettings(reset)"
+          id="button2"
+          class="white"
+          >Continue last session</a
+        >
+      </div>
+    </div>
+
+    <div id="content"></div>
+
+    <script>
+      let currentDeck = -1;
+      let currentSlide = 0;
+      let scrollAnchor = 0;
+      let collectData = false;
+      let numTries = 0;
+      let userId = undefined;
+      let reset = false;
+
+      let option = 'server';
+      let url;
+      if (option  === 'local'){
+        url = new URL('http://localhost');
+      } else if (option === 'server'){
+        url = new URL('https://onmemoryneurotech.azurewebsites.net/');
+      }
+
+      // let disclaimerDeck = {
+      //   id: "disclaimer",
+      //   slides: ["omn-disclaimer"],
+      // };
+
+      let odDeck = {
+        id: "on-dementia",
+        slides: ["on-dementia", "meet-pat","test-forms"],
+      };
+
+      let ompDeck = {
+        id: "on-memory-prostheses",
+        slides: [
+          "on-memory-prostheses",
+          "the-prosthesis-1",
+          "the-prosthesis-2",
+          "the-prosthesis-3",
+        ],
+      };
+
+
+      let vignette1 = {
+        id: "vignette-1",
+        slides: [
+          "v1-intro",
+          "v1-slide1",
+          "v1-slide2",
+          "v1-slide3",
+          "v1-q1",
+          "v1-q2",
+          "v1-q3",
+          "v1-q4",
+          "v1-q5",
+        ],
+      };
+
+      let vignette2 = {
+        id: "vignette-2",
+        slides: ["v2-intro", "v2-slide1", "v2-slide2", "v2-q1", "v2-q2"],
+      };
+
+      let vignette3 = {
+        id: "vignette-3",
+        slides: ["v3-intro", "v3-slide1", "v3-slide2", "v3-q1", "v3-q2", "v3-q3"],
+      };
+
+      let vignette4 = {
+        id: "vignette-4",
+        slides: [
+          "v4-intro",
+          "v4-slide1",
+          "v4-slide2",
+          "v4-slide3",
+          "v4-slide4",
+          "v4-slide5",
+          "v4-q1",
+          "v4-q2",
+          "v4-q3",
+          "v4-q4",
+          "v4-q5",
+        ],
+      };
+
+      let vignette5 = {
+        id: "vignette-5",
+        slides: ["v5-intro", "v5-slide1", "v5-slide2", "v5-slide3", "v5-q1", "v5-q2"],
+      };
+
+      let vignette6 = {
+        id: "vignette-6",
+        slides: ["v6-intro", "v6-slide1", "v6-slide2", "v6-q1", "v6-q2"],
+      };
+
+      let omnDeck = {
+        id: "on-memory-neurotechnologies",
+        slides: ["on-memory-neurotechnologies", "omn-intro","vignette-grid"],
+        vignettes: [vignette1,vignette2,vignette3,vignette4,vignette5,vignette6]
+      };
+
+      let chosenVignette = null;
+      let vignetteSlide = -1;
+
+      // let resultSummary = {
+      //   id: "result-summary",
+      //   slides: [
+      //     "result-summary",
+      //     "result-1",
+      //     "result-2",
+      //     "result-3",
+      //     "result-4",
+      //     "result-5",
+      //     "result-6",
+      //   ],
+      // };
+
+      let thankYou = {
+        id: "thank-you",
+        slides: [
+          "thank-you",
+          "team-page"
+        ],
+      };
+
+      let decks = [
+        odDeck,
+        ompDeck,
+        omnDeck,
+        thankYou
+      ];
+
+      window.addEventListener("resize", goToScrollAnchor);
+
+      function addDeck() {
+        document.getElementById(
+          "content"
+        ).innerHTML += `<div id="${decks[currentDeck].id}" class="page"></div>`;
+        placeSlideContent();
+      }
+
+      function insertProgressButton() {
+        removeButtons()
+        if (decks[currentDeck].slides.length == 1) {
+          document.getElementById(decks[currentDeck].id).innerHTML += `
+      <button class="move-button bottom" onclick="checkConsent();"><i class="arrow down"></i></button>
+      <button class="move-button top" onclick="changeDeck(-1)"><i class="arrow up"></i></button>`;
+        } else if (currentSlide == decks[currentDeck].slides.length - 1) {
+          if (currentDeck == decks.length - 1) {
+            document.getElementById(decks[currentDeck].id).innerHTML += `
+      <button class="move-button top" onclick="changeSlide(-1)"><i class="arrow up"></i></button>`;
+          } else {
+            document.getElementById(decks[currentDeck].id).innerHTML += `
+      <button class="move-button bottom" onclick="checkConsent();"><i class="arrow down"></i></button>
+      <button class="move-button top" onclick="changeSlide(-1)"><i class="arrow up"></i></button>`;
+          }
+        } else if (currentSlide == 0) {
+          document.getElementById(decks[currentDeck].id).innerHTML += `
+              <button class="move-button bottom" onclick="checkConsent();"><i class="arrow down"></i></button>
+              <button class="move-button top" onclick="changeDeck(-1)"><i class="arrow up"></i></button>`;
+        } else {
+          document.getElementById(decks[currentDeck].id).innerHTML += `
+      <button class="move-button bottom" onclick="checkConsent();"><i class="arrow down"></i></button>
+      <button class="move-button top" onclick="changeSlide(-1)"><i class="arrow up"></i></button>
+
+      `;
+        }
+      }
+
+      function changeDeck(direction) {
+        currentDeck += direction;
+        if (currentDeck >= 0 && currentDeck <= decks.length - 1) {
+          if (direction > 0) {
+            currentSlide = 0;
+            let element = document.getElementById(decks[currentDeck].id);
+            if (element === null) {
+              addDeck(decks[currentDeck].slides[currentSlide]);
+            }
+          } else if (direction < 0) {
+            currentSlide = decks[currentDeck].slides.length - 1;
+          }
+          insertProgressButton();
+
+          // Reset and populate disclaimer slide
+          if (decks[currentDeck].id == "disclaimer" && !reset) {
+            collectData = undefined;
+            displayUserId();
+          }
+        } else {
+          currentSlide = 0;
+        }
+        moveViewport(direction);
+      }
+
+      function moveViewport(direction) {
+        scrollAnchor += direction * (window.innerHeight - 50);
+        window.scrollTo(0, scrollAnchor);
+      }
+
+      function goToScrollAnchor() {
+        window.scrollTo(0, scrollAnchor);
+      }
+
+      function changeSlide(offset) {
+        if (chosenVignette == null) {
+          currentSlide += offset;
+        } else {
+          vignetteSlide += offset;
+        }
+        placeSlideContent();
+        insertProgressButton();
+      }
+
+      function placeSlideContent() {
+
+        if (chosenVignette == null) {
+          let slideName = decks[currentDeck].slides[currentSlide];
+          let deck = document.getElementById(decks[currentDeck].id)
+          deck.innerHTML = `<${slideName}></${slideName}>`;
+        } else {
+          let deck = document.getElementById(decks[currentDeck].id)
+          let vignette = decks[currentDeck].vignettes[chosenVignette].slides[vignetteSlide];
+          deck.innerHTML = `<${vignette}></${vignette}>`;
+        }
+      }
+
+      // document.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....
+      //   console.log('scroll')
+      //   let st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+      //   if (st > scrollAnchor){
+      //     if ((currentDeck == -1) || currentSlide == decks[currentSlide].slides.length-1){
+      //       transitionToNextDeck();
+      //     } else {
+      //       nextSlide()
+      //     }
+      //   } else {
+      //     if (currentSlide == 0 && currentDeck == -1){
+      //       transitionToPreviousDeck();
+      //     }
+      //   }
+      //   lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+      // }, false);
+
+
+      // Forms
+      function updateAgeInput(val) {
+        document.getElementById('age-display').innerHTML=val;
+      }
+
+    </script>
+  </body>
+</html>
