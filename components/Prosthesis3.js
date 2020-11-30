@@ -16,7 +16,6 @@ class Prosthesis3 extends HTMLElement {
               short-term memories into long-term memories. And, in this way, we have shown that it can boost
               performance on visual memory tasks by 35%.
               <br /><br />
-              <strong>Let’s see this in action!</strong>
           </p>
       </div>
       `;

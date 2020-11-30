@@ -46,6 +46,7 @@
     <script src="components/chatbots/children.js" type="text/javascript" defer></script>
     <script src="components/chatbots/singh.js" type="text/javascript" defer></script>
     <script src="components/chatbots/surgery.js" type="text/javascript" defer></script>
+    <script src="components/chatbots/shelter.js" type="text/javascript" defer></script>
 
     <!-- import vignettes -->
     <script src="components/vignette1/v1intro.js" type="text/javascript" defer></script>
@@ -175,7 +176,8 @@
           "the-prosthesis-3",
           "surgery-chatbot",
           "sample-phase",
-          "match-phase"
+          "match-phase",
+          "shelter-chatbot"
         ],
       };
 
@@ -537,6 +539,29 @@
                     'Pat, you did beautifully! We’re all finished here and we’ll move you into recovery. When you’ve had some time to rest we’ll allow your family come in to visit.',
                     'Yes, we’ll let you rest up. When you’ve had a little time to recover we’ll begin the process of training the device. But for now, just get some rest.',
                     ]
+                ],
+              }
+    }
+
+    let shelterChat = {
+      id: 'shelter-messages',
+      progression: [['kenny','pat','kenny','pat','kenny','pat']],
+      time: [[defaultTime,defaultTime,defaultTime,defaultTime,defaultTime,defaultTime]],
+      people:
+              {
+                pat: [
+                  [
+                    'Sure, Kenny! What do you need?',
+                    'Of course! It was a bit silly, we named them after different kinds of fruit. Here, I’ll write it down for you. The silver tabby is called Pear, the orange one is Persimmon, the black one is called Currant, and the white one is Strawberry.',
+                    'No problem! Happy to help.',
+                  ]
+                ],
+                kenny: [
+                  [
+                    'Hey Pat, can you help me with something?',
+                    'I know we just named that new batch of kittens who came in last night but I was distracted and I can’t remember what we decided to call them. Can you help me remember so we can post about them on the website?',
+                    'Ah, that’s right. Thank you!',
+                  ]
                 ],
               }
     }
