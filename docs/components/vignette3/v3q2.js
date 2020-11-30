@@ -6,17 +6,19 @@ class vignette3Question2 extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
         <div class="grid">
-            <p class="paragraph-middle">
+          <div class="paragraph-middle">
+            <p>
               If Rob’s accident happened after he was diagnosed with Alzheimer’s disease
               but before he received the implant, does this change things?
             </p>
 
-            <form class="paragraph-middle">	
-              <input type="radio" name="choice" id="yes-v3q2" checked>
-              <label for="yes-v3q2">Yes</label>
-              <input type="radio" name="choice" id="no-v3q2">
-              <label for="no-v3q2">No</label>
+            <br />
+
+            <form class="yes-or-no">
+              <button id="yes-v3q2" type='button' checked>Yes</button>
+              <button id="no-v3q2" type='button'>No</button>
             </form>
+          </div>
         </div>
       `;
   }

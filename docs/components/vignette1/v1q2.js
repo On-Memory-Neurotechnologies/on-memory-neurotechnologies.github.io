@@ -6,17 +6,23 @@ class vignette1Question2 extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
         <div class="grid">
-            <p class="paragraph-middle">
+          <div class="paragraph-middle">
+            <p>
               Knowing that the device cannot completely stop cognitive decline, would you advocate for yourself or
-              a loved one to receive treatment for [middle stage] dementia with memory neurotechnology?
+              a loved one to receive treatment for 
+              <span title="def. Symptoms start becoming more noticeable. More assistance will be needed to help the person living with Alzheimer's accomplish daily tasks.">
+                <strong>[middle stage] </strong>
+              </span>
+              dementia with memory neurotechnology?
             </p>
 
-            <form class="paragraph-middle">	
-              <input type="radio" name="choice" id="yes-v1q2" checked>
-              <label for="yes-v1q2">Yes</label>
-              <input type="radio" name="choice" id="no-v1q2">
-              <label for="no-v1q2">No</label>
+            <br />
+
+            <form class="yes-or-no">
+              <button id="yes-v1q2" type='button' checked>Yes</button>
+              <button id="no-v1q2" type='button'>No</button>
             </form>
+          </div>
         </div>
       `;
   }

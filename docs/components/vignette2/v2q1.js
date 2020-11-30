@@ -6,17 +6,17 @@ class vignette2Question1 extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
         <div class="grid">
-            <p class="paragraph-middle">
+          <div class="paragraph-middle">
+            <p>
             If you or a loved one received treatment with memory neurotechnology, would you want to see an
             interface such as what Anne uses or would you prefer for it to be “out of sight, out of mind?”
             </p>
-
-            <form class="paragraph-middle">	
-              <input type="radio" name="choice" id="yes-v2q1" checked>
-              <label for="yes-v2q1">Yes, I would want to see an interface</label>
-              <input type="radio" name="choice" id="no-v2q1">
-              <label for="no-v2q1">No, I would not want to see an interface</label>
+            <br />
+            <form class="yes-or-no" id="multiple-choice-vert">
+              <button id="yes-v2q1" type='button' checked>Yes, I would want to see an interface</button>
+              <button id="no-v2q1" type='button'>No, I would not want to see an interface</button>
             </form>
+          </div>
         </div>
       `;
   }

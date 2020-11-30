@@ -5,16 +5,18 @@ class vignette4Question5 extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-        <div class="grid">
-          <p class="paragraph-middle">
+      <div class="grid">
+        <div class="paragraph-middle">
+          <p>
             How would you and your loved one plan for the possibility that the implant could sometimes
             malfunction?          
           </p>
-
-          <form class="paragraph-middle">
-            <input type="text" name="description" id="answer-v4q5" checked>
+          <br />
+          <form>
+            <textarea name="description" id="answer-v4q5" checked></textarea>
           </form>
         </div>
+      </div>
       `;
   }
 }

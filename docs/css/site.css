@@ -66,9 +66,13 @@ nav {
 }
 
 .nav-link {
-  font-size: 60%;
+  font-size: 80%;
   color: white;
-  padding-left: 25px;
+  padding-left: 5vw;
+}
+
+textarea {
+  width: 60vw;
 }
 
 strong {
@@ -218,7 +222,7 @@ button {
 
 .grid {
   display: grid;
-  grid-template-columns: 50px 1fr 1fr 50px;
+  grid-template-columns: 10vw 1fr 1fr 10vw;
   justify-content: center;
   padding: 50px 0px;
   height: calc(100vh - 50px);
@@ -299,15 +303,35 @@ h4 a {
 .paragraph-middle {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   grid-column: 2/4;
   text-align: center;
   min-width: stretch;
-  width: calc(100vw - 100px);
+  width: calc(75vw - 100px);
+  height: auto;
+  justify-self: center;
+  align-self: center;
+  line-height: 2;
 }
 
 #pat-image {
   height: 70vh;
+  justify-self: center;
+}
+
+#group-image {
+  height: 35vh;
+  top: 0%;
+}
+
+#kenny-image {
+  height: 60vh;
+  justify-self: center;
+}
+
+#singh-image {
+  height: 60vh;
+  justify-self: center;
 }
 
 .meet-pat-text {
@@ -322,6 +346,107 @@ h4 a {
 
 .meet-pat-text p {
   padding-bottom: 20px;
+}
+
+.slider {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  max-width: 80vw;
+  align-self: center;
+}
+#slider {
+  color: #358597;
+  min-width: 50vw;
+  border: none;
+}
+
+.slider p span,
+.paragraph-middle p span {
+  cursor: pointer;
+}
+
+.yes-or-no {
+  display: flex;
+  justify-content: space-between;
+  width: 30vw;
+  align-self: center;
+}
+
+#multiple-choice {
+  width: 70vw;
+}
+
+#v2q2 {
+  height: 5rem;
+  padding: 10px 10px 10px 10px;
+}
+
+#multiple-choice-vert {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 20vh;
+}
+
+#multiple-choice-vert button {
+  width: auto;
+  padding: 5px;
+}
+
+.vignette-grid {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 65vw;
+  height: 70vh;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.vignette-col {
+  display: flex;
+  justify-content: space-around;
+  width: 65vw;
+}
+
+.vignette-col button {
+  font-size: 130%;
+  border: none;
+  background: #358597;
+  color: white;
+  width: 30vw;
+  height: 20vh;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+.yes-or-no button {
+  font-size: 80%;
+  border: none;
+  background: #358597;
+  color: white;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+.yes-or-no button:hover,
+.vignette-col button:hover {
+  background: #81aab3;
+}
+
+.yes-or-no button:focus,
+.vignette-col button:focus {
+  color: #358597;
+  background: white;
+  border: 2px solid #358597;
 }
 
 /* Chat */
@@ -455,6 +580,7 @@ team-page .header-page {
   width: 200px;
   height: 50px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .person {

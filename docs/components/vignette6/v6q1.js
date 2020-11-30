@@ -6,21 +6,21 @@ class vignette6Question1 extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
         <div class="grid">
-            <p class="paragraph-middle">
+          <div class="paragraph-middle">
+            <p>
               Are you more concerned with the prospect of losing your identity through Alzheimer’s disease or
               losing agency through implantation?
             </p>
-
-            <form class="paragraph-middle">	
-              <input type="radio" name="choice1" id="choice1-v6q1" checked>
-              <label for="choice1-v6q1">
+            <br />
+            <form class="yes-or-no" id="multiple-choice-vert">
+              <button id="choice1-v6q1" type='button' checked>
                 Loss of identity is more concerning
-              </label>
-              <input type="radio" name="choice1" id="choice2-v6q1" checked>
-              <label for="choice2-v6q1">
+              </button>
+              <button id="choice2-v6q1" type='button'>
                 Loss of agency is more concerning
-              </label>
+              </button>
             </form>
+          </div>
         </div>
       `;
   }

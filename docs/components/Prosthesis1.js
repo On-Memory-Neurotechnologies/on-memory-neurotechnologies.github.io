@@ -7,7 +7,7 @@ class Prosthesis extends HTMLElement {
     this.innerHTML = `
 <div class="grid dark">
         <div class="paragraph-left">
-                <img id="pat-image" src="assets/singh.svg"/>
+                <img id="singh-image" src="assets/singh.svg"/>
         </div>
         <div class="meet-pat-text paragraph-right">
           <div style="margin-bottom: 15px;">

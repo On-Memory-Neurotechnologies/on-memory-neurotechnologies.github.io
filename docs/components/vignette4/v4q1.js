@@ -6,19 +6,22 @@ class vignette4Question1 extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
         <div class="grid">
-            <p class="paragraph-middle">
+          <div class="paragraph-middle">
+            <p>
               Do you have concerns with Shannon’s input to Dolly’s decision for treatment with memory
               neurotechnology as a treatment for memory problems?
             </p>
-
-            <form class="paragraph-middle">	
-              <input type="radio" name="choice" id="yes-v4q1" checked>
-              <label for="yes-v4q1">Yes</label>
-              <input type="radio" name="choice" id="no-v4q1">
-              <label for="no-v4q1">No</label>
-              <input type="text" name="description" id="desc-v4q1">
-              <label for="desc-v4q1">If yes, what is it?</label>
+            <br />
+            <form class="yes-or-no">
+              <button id="yes-v4q1" type='button' checked>Yes</button>
+              <button id="no-v4q1" type='button'>No</button>
             </form>
+            <br />
+            <form>
+              <label for="desc-v4q1">If yes, what concerns do you have?</label><br />
+              <textarea name="description" id="desc-v4q1"></textarea>
+            </form>
+          </div>
         </div>
       `;
   }
