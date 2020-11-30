@@ -30,6 +30,9 @@ class Team extends HTMLElement {
             <a id="shweta" onclick="getPerson('shweta-sridharan')">
                 <img class="person" src="assets/team/shweta.jpg" alt="Shweta Sridharan"/>
             </a>
+            <a id="garrett" onclick="getPerson('garrett-flynn')">
+                <img class="person" src="assets/team/garrett.jpg" alt="Garrett Flynn"/>
+            </a>
         </div>
         <div id="person"></div>
         </div>
