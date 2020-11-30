@@ -8,7 +8,7 @@ class MaxEisele extends HTMLElement {
                     <h3>Max Eisele</h3>
                     <h4>Pitch Organizer</h4>
                     <br/>
-                    <p>During NeuroNexus 2020, Max was a ________</p>
+                    <p><i>Coming soon...</i></p>
                     <br/>
 `;
     }

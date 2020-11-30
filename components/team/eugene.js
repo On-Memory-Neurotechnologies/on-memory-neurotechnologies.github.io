@@ -8,7 +8,7 @@ class EugeneLok extends HTMLElement {
                     <h3>Eugene Lok</h3>
                     <h4>Back-End Developer</h4>
                     <br/>
-                    <p>During NeuroNexus 2020, Eugene was a ________</p>
+                    <p><i>Coming soon...</i></p>
                     <br/>                    
 `;
     }
