@@ -3,6 +3,9 @@
 # abort on errors
 set -e
 
+# get to the right directory
+cd docs
+
 # if you are deploying to a custom domain
 echo 'slab.usc.edu' > CNAME
 

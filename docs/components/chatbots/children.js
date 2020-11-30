@@ -11,7 +11,9 @@ class ChildrenChatBot extends HTMLElement {
             <h4>Click Pat's cooking pot</h4>
         </div>
         <div class="paragraph-right">
+        <div class="flex">
         <a onclick="fullscreenChat('children'); runChat(childrenChat);"><img id="pat-image" src="assets/pot.svg"/></a>
+        </div>
         <div class="chatbot" style='display: none' onclick="fullscreenChat('kenny'); runChat(kennyChat);">
                  <ul id="children-messages" class="messages"></ul>
         </div>

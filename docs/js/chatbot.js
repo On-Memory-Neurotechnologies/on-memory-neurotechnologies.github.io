@@ -31,43 +31,32 @@ async function runChat(chat){
         for (let statement = 0; statement < chat.progression[thread].length; statement++){
         who = chat.progression[thread][statement]
         where = names.indexOf(who)
-
             if (who == names[0]){
             role = 'receiver'
             style = 'right'
-        } else {
-            role = 'sender'
-            style = 'left'
-        }
-                res = await addTimeout(chat.time[thread][statement])
+                messagesLoc.innerHTML += `
+                <li class=${style}> 
+                <div class="text-message ${role}">${chat.people[who][thread][whoTalked[where]]}</div>
+                <i class="picture"><img src="assets/${who}.svg"/></i>
+                </li>`;
+            } else {
+                role = 'sender'
+                style = 'left'
+
                 messagesLoc.innerHTML += `
                 <li class=${style}> 
                 <i class="picture"><img src="assets/${who}.svg"/></i>
                 <div class="text-message ${role}">${chat.people[who][thread][whoTalked[where]]}</div>
                 </li>`;
-
-            whoTalked[where]++
-
-            // }
-//             res = await addTimeout(timeout)
-//             messagesLoc.innerHTML += `
-// <li class="left">
-// <i class="picture"><img src="assets/${names[0]}.svg"/></i>
-// <div class="text-message sender">${senderThreads[thread][message]}</div>
-// </li>`;
-//             res = await addTimeout(timeout)
-//             messagesLoc.innerHTML += `
-// <li class="right">
-// <div class="text-message receiver">${receiverThreads[thread][message]}</div>
-// <i class="picture"><img src="assets/${names[1]}.svg" /></i>
-// </li>`;
-            if (statement == chat.progression.length-1){
-                res = await addTimeout(chat.time[thread][statement])
             }
+            whoTalked[where]++
+            res = await addTimeout(chat.time[thread][statement])
         }
-        messagesLoc.innerHTML = '';
+
+        if (thread != chat.progression.length-1){
+            messagesLoc.innerHTML = '';
+        }
     }
-    changeSlide(0)
 }
 
 function fullscreenChat(){
