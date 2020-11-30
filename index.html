@@ -11,7 +11,11 @@
     <script type="text/javascript" src="js/chatbot.js"></script>
     <script type="text/javascript" src="js/animate.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
 
     <!-- import custom components -->
     <script src="components/nav.js" type="text/javascript" defer></script>
@@ -33,7 +37,6 @@
 
     <script src="components/thankYou.js" type="text/javascript" defer></script>
     <script src="components/team.js" type="text/javascript" defer></script>
-
 
     <!--    import chatbots-->
     <script src="components/chatbots/kenny.js" type="text/javascript" defer></script>
@@ -118,10 +121,7 @@
       </h3>
       <div class="buttons">
         <a onclick="changeDeck(1)" id="button1" class="white">Start a new session</a>
-        <a
-          onclick="reset = true; reset = resetSettings(reset)"
-          id="button2"
-          class="white"
+        <a onclick="reset = true; reset = resetSettings(reset)" id="button2" class="white"
           >Continue last session</a
         >
       </div>
@@ -138,12 +138,12 @@
       let userId = undefined;
       let reset = false;
 
-      let option = 'server';
+      let option = "server";
       let url;
-      if (option  === 'local'){
-        url = new URL('http://localhost');
-      } else if (option === 'server'){
-        url = new URL('https://onmemoryneurotech.azurewebsites.net/');
+      if (option === "local") {
+        url = new URL("http://localhost");
+      } else if (option === "server") {
+        url = new URL("https://onmemoryneurotech.azurewebsites.net/");
       }
 
       let disclaimerDeck = {
@@ -158,7 +158,7 @@
 
       let odDeck = {
         id: "on-dementia",
-        slides: ["on-dementia", "meet-pat", "kenny-chatbot","children-chatbot"],
+        slides: ["on-dementia", "meet-pat", "kenny-chatbot", "children-chatbot"],
       };
 
       let ompDeck = {
@@ -170,7 +170,6 @@
           "the-prosthesis-3",
         ],
       };
-
 
       let vignette1 = {
         id: "vignette-1",
@@ -226,8 +225,8 @@
 
       let omnDeck = {
         id: "on-memory-neurotechnologies",
-        slides: ["on-memory-neurotechnologies", "omn-intro","vignette-grid"],
-        vignettes: [vignette1,vignette2,vignette3,vignette4,vignette5,vignette6]
+        slides: ["on-memory-neurotechnologies", "omn-intro", "vignette-grid"],
+        vignettes: [vignette1, vignette2, vignette3, vignette4, vignette5, vignette6],
       };
 
       let chosenVignette = null;
@@ -248,21 +247,10 @@
 
       let thankYou = {
         id: "thank-you",
-        slides: [
-          "thank-you",
-          "team-page"
-        ],
+        slides: ["thank-you", "team-page"],
       };
 
-      let decks = [
-        disclaimerDeck,
-        formsDeck,
-        odDeck,
-        ompDeck,
-        omnDeck,
-        resultSummary,
-        thankYou
-      ];
+      let decks = [disclaimerDeck, formsDeck, odDeck, ompDeck, omnDeck, resultSummary, thankYou];
 
       window.addEventListener("resize", goToScrollAnchor);
 
@@ -277,7 +265,7 @@
       }
 
       function insertProgressButton() {
-        removeButtons()
+        removeButtons();
         if (decks[currentDeck].slides.length == 1) {
           document.getElementById(decks[currentDeck].id).innerHTML += `
       <button class="move-button bottom" onclick="checkConsent();"><i class="arrow down"></i></button>
@@ -349,13 +337,12 @@
       }
 
       function placeSlideContent() {
-
         if (chosenVignette == null) {
           let slideName = decks[currentDeck].slides[currentSlide];
-          let deck = document.getElementById(decks[currentDeck].id)
+          let deck = document.getElementById(decks[currentDeck].id);
           deck.innerHTML = `<${slideName}></${slideName}>`;
         } else {
-          let deck = document.getElementById(decks[currentDeck].id)
+          let deck = document.getElementById(decks[currentDeck].id);
           let vignette = decks[currentDeck].vignettes[chosenVignette].slides[vignetteSlide];
           deck.innerHTML = `<${vignette}></${vignette}>`;
         }
@@ -388,14 +375,81 @@
       //   lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
       // }, false);
 
-
       // Forms
       function updateAgeInput(val) {
-        document.getElementById('age-display').innerHTML=val;
+        document.getElementById("age-display").innerHTML = val;
       }
-
     </script>
 
+<<<<<<< Updated upstream
+    <script>
+      kennyChat = {
+        id: "kenny-messages",
+        progression: [
+          ["kenny", "pat", "kenny", "pat"],
+          ["kenny", "pat", "kenny", "pat"],
+        ],
+        time: [
+          [3000, 3000, 3000, 3000],
+          [3000, 3000, 3000, 3000],
+        ],
+        people: {
+          pat: [
+            ["Thanks Kenny! What time is my shift tomorrow?", "See you tomorrow!"],
+            [
+              "Hi Kenny! What time am I scheduled for again?",
+              "Oh...hmm...that must have slipped my mind. Well, I’ll take your word for it. See you soon",
+            ],
+          ],
+          kenny: [
+            [
+              "Hi Pat! We’re looking forward to seeing you for your shift at the shelter tomorrow!",
+              "11am. See you then!",
+            ],
+            [
+              "West Side Animal Shelter, Kenny speaking.",
+              "Uh...it’s 30 minutes from now at 11am. We texted about it yesterday. Don’t you remember?",
+            ],
+          ],
+        },
+      };
+
+      childrenChat = {
+        id: "children-messages",
+        progression: [
+          ["cori", "will", "pat", "cori", "pat", "cori", "will", "pat", "pat", "cori", "pat"],
+        ],
+        time: [[3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000]],
+        people: {
+          pat: [
+            [
+              "Well maybe you’d share it with you dear mother? (Pat winks at Cori, indicating she’d share the recipe with her if she ever found it out.) Cor, what are you and the kids up to this weekend?",
+              "Well I know she’s feeling very grown up since she turned 10 but Paul and I would love to have her stay here for the night! Seems like ages since we had some time with her.",
+              "Well you were a kid so long ago now that they just hadn’t invented board games and popcorn yet!",
+              "So, Cor. Do the kids have anything going on this weekend? If Bree has a game, Paul and I could come cheer!",
+              "Oh...of course she can come stay! She’s always welcome here. I’m just tired after dinner I guess…",
+            ],
+          ],
+          cori: [
+            [
+              "Will, your mashed potatoes always steal the show! I’m gonna get your secret recipe out of you one of these days.",
+              "Bree has a softball game Saturday morning and Jacob is sleeping over at a friend’s for a birthday that night. Would be great if Bree could go with a friend after the game or something so Tucker and I could have a night to ourselves.",
+              "That would be great, mom! Thank you! She always loves the popcorn and board games marathon you and dad do with her.",
+              "Um...Yeah she has a game this weekend. I just told you that and you said she could come stay the night with you and dad afterward. Is everything OK?",
+            ],
+          ],
+          will: [
+            [
+              "Dream on, sis. That recipe goes with me to the grave!",
+              "11am. See you then!",
+              "How come I never got a popcorn and board games marathon?",
+              "Uh...it’s 30 minutes from now at 11am. We texted about it yesterday. Don’t you remember?",
+            ],
+          ],
+        },
+      };
+    </script>
+=======
   <script>
     kennyChat = {
       id: 'kenny-messages',
@@ -434,7 +488,7 @@
               {
                 pat: [
                   [
-                    'Well maybe you’d share it with you dear mother? (Pat winks at Cori, indicating she’d share the recipe with her if she ever found it out.) Cor, what are you and the kids up to this weekend?',
+                    'Well maybe you’d share it with you dear mother? Cor, what are you and the kids up to this weekend?',
                     'Well I know she’s feeling very grown up since she turned 10 but Paul and I would love to have her stay here for the night! Seems like ages since we had some time with her.',
                     'Well you were a kid so long ago now that they just hadn’t invented board games and popcorn yet!',
                     'So, Cor. Do the kids have anything going on this weekend? If Bree has a game, Paul and I could come cheer!',
@@ -452,13 +506,12 @@
                 will: [
                   [
                     'Dream on, sis. That recipe goes with me to the grave!',
-                    '11am. See you then!',
                     'How come I never got a popcorn and board games marathon?',
-                    'Uh...it’s 30 minutes from now at 11am. We texted about it yesterday. Don’t you remember?',
                   ]
                 ]
               }
     }
   </script>
+>>>>>>> Stashed changes
   </body>
 </html>
