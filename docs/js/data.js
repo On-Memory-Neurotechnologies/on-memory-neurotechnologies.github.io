@@ -46,9 +46,9 @@ function clientAction(destination,method,body=JSON.stringify({'default':''})){
     fetch(url + destination, { method: method,
         mode: 'cors',
         credentials: 'include',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+        // headers: {
+        //     'Content-Type': 'application/json',
+        // },
         body: body,
     }).then(handleResponse)
         .then(showMessage)
